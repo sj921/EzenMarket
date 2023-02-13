@@ -11,6 +11,5 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <h1>첫번째 커밋</h1>
-
 </body>
 </html>
