@@ -21,6 +21,7 @@ public class HomeController {
 	
 	private void init() {
 		System.out.println("À±¹è ¿Í¶°¿°");
+		System.out.println("2¹øÂ° push");
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
