@@ -24,6 +24,9 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		
+		System.out.println("덮어쓰기 TESTESTESTSESTEST"); 
+		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -32,7 +35,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		System.out.println("드디어 됐다");
+		System.out.println("�뱶�뵒�뼱 �릱�떎");
 		return "home";
 	}
 }
