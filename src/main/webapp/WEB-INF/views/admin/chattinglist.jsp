@@ -3,7 +3,7 @@
 
 
 
-<%@include file="../includes/header.jsp" %>
+<%@include file="./includes/header.jsp" %>
  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -139,19 +139,9 @@
                                     src="${pageContext.request.contextPath}/resources/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                               
-                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    로그인
-                                </a> 
-                               
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    로그아웃
-                                </a>
-                            </div>
+                            
+                            <%@include file="./includes/login.jsp" %>
+                            
                         </li>
 
                     </ul>
@@ -241,5 +231,5 @@
 
     </div>
 
-<%@include file="../includes/footer.jsp" %>
+<%@include file="./includes/footer.jsp" %>
 
