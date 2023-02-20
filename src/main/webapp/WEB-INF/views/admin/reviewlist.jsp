@@ -142,7 +142,7 @@
 						<img class="img-profile rounded-circle"
 						src="${pageContext.request.contextPath}/resources/img/undraw_profile.svg">
 				</a> <!-- Dropdown - User Information --> <%@include
-						file="./includes/login.jsp"%></li>
+						file="./includes/loginInclude.jsp"%></li>
 
 			</ul>
 

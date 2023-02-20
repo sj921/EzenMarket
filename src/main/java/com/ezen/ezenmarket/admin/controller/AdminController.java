@@ -49,4 +49,12 @@ public class AdminController {
 		
 		return "admin/mainpage";
 	}
+	
+	@GetMapping(value={"/login"})
+	public String index7() {
+		
+		
+		return "admin/login";
+	}
+	
 }

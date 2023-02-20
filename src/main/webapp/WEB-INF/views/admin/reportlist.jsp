@@ -138,7 +138,7 @@
 						src="${pageContext.request.contextPath}/resources/img/undraw_profile.svg">
 				</a> <!-- Dropdown - User Information -->
 				
-					<%@include file="./includes/login.jsp" %>
+					<%@include file="./includes/loginInclude.jsp" %>
 					
 				</li>
 

@@ -140,7 +140,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             
-                            <%@include file="./includes/login.jsp" %>
+                            <%@include file="./includes/loginInclude.jsp" %>
                             
                         </li>
 
