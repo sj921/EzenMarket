@@ -25,12 +25,6 @@
 	
 	<context:component-scan base-package="com.ezen.ezenmarket" />
 	
-	 <!-- 웹 소켓 핸들러 -->
-    <websocket:handlers>
-        <websocket:mapping path="/websocket/echo.do" handler="myHandler"/>
-    </websocket:handlers>
- 
-    <beans:bean id="myHandler" class="com.ezen.ezenmarket.chat.controller.WebSocketHandler"/>
 	
 	
 	

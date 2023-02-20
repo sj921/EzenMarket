@@ -8,34 +8,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 
-	@GetMapping(value={"/main1"})
+	@GetMapping(value={"/userlist"})
 	public String index() {
 		
 		
 	return "admin/userlist";
 	}
-	@GetMapping(value={"/main2"})
+	
+	@GetMapping(value={"/postlist"})
 	public String index2() {
 		
 		
 		return "admin/postlist";
 	}
-	@GetMapping(value={"/main3"})
+	
+	@GetMapping(value={"/chattinglist"})
 	public String index3() {
 		
 		
 		return "admin/chattinglist";
 	}
-	@GetMapping(value={"/main4"})
+	
+	@GetMapping(value={"/reportlist"})
 	public String index4() {
 		
 		
-		return "admin/ReportList";
+		return "admin/reportlist";
 	}
-	@GetMapping(value={"/main5"})
+	
+	@GetMapping(value={"/reviewlist"})
 	public String index5() {
 		
 		
-		return "admin/ReportList";
+		return "admin/reviewlist";
+	}
+	
+	@GetMapping(value={"/mainpage"})
+	public String index6() {
+		
+		
+		return "admin/mainpage";
 	}
 }

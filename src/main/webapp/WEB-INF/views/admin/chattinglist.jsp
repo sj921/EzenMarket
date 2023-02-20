@@ -23,7 +23,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="resources/index.html">
+                <a class="nav-link" href="mainpage">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>皋牢 其捞瘤</span></a>
             </li>
@@ -43,32 +43,32 @@
             
             
            <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="userlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>蜡历 包府</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="postlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>霸矫拱 包府</span></a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="chattinglist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>盲泼 包府</span></a>
             </li>
             
             <li class="nav-item ">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="reviewlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>府轰 包府</span></a>
             </li>
             
             <li class="nav-item ">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="reportlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>脚绊 包府</span></a>
             </li>
@@ -136,7 +136,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin1</span>
                                 <img class="img-profile rounded-circle"
-                                    src="resources/img/undraw_profile.svg">
+                                    src="${pageContext.request.contextPath}/resources/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
