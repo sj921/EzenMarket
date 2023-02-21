@@ -10,7 +10,7 @@
             <!-- Sidebar - Brand -->
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img style="height: 50px" src="https://yt3.googleusercontent.com/pkRP06hNZDk-Hs1gAN6yf_qdDm5IEtUS03orIyqXflOcl24_zj0H_Guw3l864RaDmLaXIY6IUnc=s88-c-k-c0x00ffffff-no-rj"/ >
+                <img style="height: 50px" src="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png"/ >
                    
                 <div class="sidebar-brand-text mx-3">BrickUp <sup>Market</sup></div>
             </a>

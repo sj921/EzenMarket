@@ -21,11 +21,22 @@
 
 <style>
 
+.text-danger {
+    color: #ff5b5b;
+}
+.text-success {
+    color: #10c469;
+}
+
 table.table td a.settings {
     color: #2196F3;
 }
 table.table td a.delete {
     color: #F44336;
+}
+table.table td a.check {
+    color: #21f3a2;
+}
 </style>
 
 

@@ -13,7 +13,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img style="height: 50px" src="https://yt3.googleusercontent.com/pkRP06hNZDk-Hs1gAN6yf_qdDm5IEtUS03orIyqXflOcl24_zj0H_Guw3l864RaDmLaXIY6IUnc=s88-c-k-c0x00ffffff-no-rj"/ >
+                <img style="height: 50px" src="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png"/ >
                    
                 <div class="sidebar-brand-text mx-3">BrickUp <sup>Market</sup></div>
             </a>
@@ -152,6 +152,7 @@
 									<th>번호</th>
 									<th>유저 번호</th>
 									<th>신고 내용</th>
+									<th>처리 여부</th>
 									<th>관리</th>
 								</tr>
 							</thead>
@@ -173,10 +174,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-success">&bull;</span> 처리완료</td>
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -184,10 +186,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-success">&bull;</span> 처리완료</td>
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -195,10 +198,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-success">&bull;</span> 처리완료</td>
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -206,10 +210,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -217,10 +222,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -228,10 +234,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -239,10 +246,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -250,10 +258,11 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
 								</tr>
 								<tr>
 									<td>1</td>
@@ -261,10 +270,12 @@
 									<td>1</td>
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
+									<td><span class="status text-danger">&bull;</span> 대기중</td> 
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td></td>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+                                    </a>
+									</td>
 								</tr>
 
 
