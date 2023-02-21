@@ -178,6 +178,94 @@
 										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 									</td></td>
 								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>유저</td>
+									<td>1</td>
+									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
+								</tr>
 
 
 							</tbody>
