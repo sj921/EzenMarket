@@ -174,8 +174,6 @@
 									<td>1</td>
 									<td>불건전한닉네임이에요</td>
 									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
 										<a href="#" class="delete" title="Delete"
 										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 									</td></td>
@@ -194,20 +192,7 @@
 	</div>
 	<!-- End of Main Content -->
 
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Your Website 2020</span>
-			</div>
-		</div>
-	</footer>
-	<!-- End of Footer -->
 
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
 
 <%@include file="./includes/footer.jsp"%>
 

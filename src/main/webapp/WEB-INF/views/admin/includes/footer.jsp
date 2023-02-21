@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     
+      <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>구리이젠 팀프로젝트 </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    
     <!-- End of Page Wrapper -->
 
     
@@ -23,8 +38,8 @@
                 </div>
                 <div class="modal-body">로그아웃을 누를시 진행상황이 저장되지 않습니다.</div>
                 <div class="modal-footer">
-                    <button class="btn  btn-primary " type="button" data-dismiss="modal">로그아웃</button>
-                    <a class="btn btn-secondary"" href="login.html">취소</a>
+                    <a class="btn btn-primary" href="login.html">로그아웃</a>
+                    <button class="btn btn-secondary " type="button" data-dismiss="modal" >취소</button>
                 </div>
             </div>
         </div>
@@ -47,6 +62,12 @@
     <!-- Page level custom scripts -->
     <script src="${pageContext.request.contextPath}/resources/js/demo/datatables-demo.js"></script>
 	
+	 <!-- Page level plugins -->
+    <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 	<!-- <script>
 	$(document).ready(function() {
 	
