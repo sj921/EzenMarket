@@ -45,24 +45,6 @@
                     <span>유저 관리</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="postlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>게시물 관리</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="chattinglist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>채팅 관리</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="reviewlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>리뷰 관리</span></a>
-            </li>
             
             <li class="nav-item  active">
                 <a class="nav-link" href="reportlist">
@@ -170,7 +152,7 @@
 									<th>번호</th>
 									<th>유저 번호</th>
 									<th>신고 내용</th>
-									<th>바로가기</th>
+									<th>관리</th>
 								</tr>
 							</thead>
 
@@ -187,11 +169,16 @@
 
 								<tr>
 									<td>1</td>
+									<td>유저</td>
 									<td>1</td>
 									<td>1</td>
-									<td>1</td>
-									<td>1</td>
-									<td>1</td>
+									<td>불건전한닉네임이에요</td>
+									<td><a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+									<a href="#" class="settings" title="Settings"
+										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td></td>
 								</tr>
 
 

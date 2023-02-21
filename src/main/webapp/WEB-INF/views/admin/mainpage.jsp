@@ -43,25 +43,6 @@
                     <span>蜡历 包府</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="postlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>霸矫拱 包府</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="chattinglist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>盲泼 包府</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="reviewlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>府轰 包府</span></a>
-            </li>
-            
             <li class="nav-item ">
                 <a class="nav-link" href="reportlist">
                     <i class="fas fa-fw fa-table"></i>

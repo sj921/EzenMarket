@@ -48,25 +48,6 @@
                     <span>유저 관리</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="postlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>게시물 관리</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="chattinglist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>채팅 관리</span></a>
-            </li>
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="reviewlist">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>리뷰 관리</span></a>
-            </li>
-            
             <li class="nav-item ">
                 <a class="nav-link" href="reportlist">
                     <i class="fas fa-fw fa-table"></i>
@@ -173,6 +154,7 @@
                                             <th>전화번호</th>
                                             <th>이메일</th>
                                             <th>BAN 여부</th>
+                                            <th>관리</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -190,11 +172,12 @@
                                         
                                          <tr>
                                             <td>1</td>
-                                            <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
+                                            <td>전인재</td>
+                                             <td>깜짝감자</td>
+                                             <td>asd1234</td>
+                                             <td>01097042815</td>
+                                             <td>dd@naver.com</td>
+                                             <td>BAN</td>
 									<td>
 									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 									<a href="#" class="settings" title="Settings"
@@ -212,37 +195,16 @@
                                              <td>1</td>
                                              <td>1</td>
                                              <td>1</td>
+                                             <td>
+									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+									<a href="#" class="settings" title="Settings"
+										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td>
                                         </tr>
                                        
-                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                        </tr>
-                                                         
-                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                        </tr>
-                                       
-                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                             <td>1</td>
-                                        </tr>
+
 
                                     </tbody>
                                 </table>
@@ -251,6 +213,7 @@
                     </div>
 
                 </div>
+                
                 <!-- /.container-fluid -->
 
             </div>
