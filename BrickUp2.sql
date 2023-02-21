@@ -203,7 +203,10 @@ CREATE TABLE report(
     ON DELETE CASCADE,
     
     report_content VARCHAR2(900)
-    CONSTRAINT report_content_nn NOT NULL
+    CONSTRAINT report_content_nn NOT NULL,
+    
+    report_status NUMBER(1) default 0
+    CONSTRAINT report_status_nn NOT NULL
 );
 
 CREATE SEQUENCE user_number_seq
