@@ -9,7 +9,7 @@
 	<bean id="config" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@ec2-43-201-115-156.ap-northeast-2.compute.amazonaws.com:1521:XE"/>
-		<property name="username" value="hr"/>
+		<property name="username" value="brickup"/>
 		<property name="password" value="1234"/>
 	</bean>
 	
@@ -19,6 +19,11 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
+			
 		<property name="configLocation" value="classpath:/mybatis-config-base.xml"/>
 	</bean>	
+	
+	<mybatis-spring:scan base-package="com.ezen.ezenmarket.admin.mapper"/>
+	
+	
 </beans>

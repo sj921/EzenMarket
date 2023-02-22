@@ -158,17 +158,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       <%--  <c:forEach items="${list}" var="board">
+                                        <c:forEach items="${userlist}" var="board">
                                         <tr>
-                                            <td>${board.user_Number }</td>
-                                            <td>${board.user_Name }</td>
-                                            <td>${board.user_ID }</td>
+                                            <td>${board.user_number }</td>
+                                            <td>${board.user_name }</td>
+                                            <td>${board.user_id }</td>
                                             <td>${board.nickname }</td>
                                             <td>${board.phonenumber}</td>
                                             <td>${board.email }</td>
-                                            <td>${board.bannerDate }</td>
+                                            <td>${board.banned }</td>
+                                            <td>
+									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+									<a href="#" class="settings" title="Settings"
+										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+										<a href="#" class="delete" title="Delete"
+										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+									</td>
                                         </tr>
-                                        </c:forEach> --%>
+                                        </c:forEach>
                                         
                                          <tr>
                                             <td>1</td>

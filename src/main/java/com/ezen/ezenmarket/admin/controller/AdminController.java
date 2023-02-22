@@ -1,12 +1,20 @@
 package com.ezen.ezenmarket.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ezen.ezenmarket.admin.mapper.AdminMapper;
 
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
+	
+	@Autowired
+	AdminMapper adminMapper;
+	
 	
 	@GetMapping("/error")
 	public String error() {
@@ -14,39 +22,19 @@ public class AdminController {
 	}
 
 	@GetMapping(value={"/userlist"})
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("userlist", adminMapper.getUser());
 		
-		
-	return "admin/userlist";
-	}
-	
-	@GetMapping(value={"/postlist"})
-	public String index2() {
-		
-		
-		return "admin/postlist";
-	}
-	
-	@GetMapping(value={"/chattinglist"})
-	public String index3() {
-		
-		
-		return "admin/chattinglist";
+		return "admin/userlist";
 	}
 	
 	@GetMapping(value={"/reportlist"})
-	public String index4() {
-		
+	public String index4(Model model) {
+		model.addAttribute("report", adminMapper.getReport());
 		
 		return "admin/reportlist";
 	}
-	
-	@GetMapping(value={"/reviewlist"})
-	public String index5() {
-		
-		
-		return "admin/reviewlist";
-	}
+
 	
 	@GetMapping(value={"/mainpage"})
 	public String index6() {

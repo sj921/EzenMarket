@@ -158,15 +158,22 @@
 							</thead>
 
 							<tbody>
-								<%--  <c:forEach items="${postList}" var="post">
+							
+								<c:forEach items="${report}" var="report">
                                         <tr>
-                                            <td>${post.id_Number }</td>
-                                            <td>${post.user_Number }</td>
-                                            <td>${post.user_Number }</td>
-                                            <td>${post.user_Number }</td>
-                                            <td>${post. address_id }</td> 임시로 넣어놓음
+                                            <td>${report.report_id }</td>
+                                            <td>${report.report_type }</td>
+                                            <td>${report.report_detail }</td>
+                                            <td>${report.user_number }</td>
+                                            <td>${report.report_content }</td>
+                                            <td>${report.report_status }</td>
+                                            <td>
+									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+										<a href="#" class="check" title="check"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+									</td>
                                         </tr>
-                                        </c:forEach> --%>
+                                        </c:forEach>
 
 								<tr>
 									<td>1</td>
