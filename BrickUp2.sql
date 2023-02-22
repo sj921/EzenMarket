@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to¡¦
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@esmelshuff 
+wonill
+/
+EzenMarket
+Public
+Fork your own copy of wonill/EzenMarket
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+EzenMarket/BrickUp2.sql
+@esmelshuff
+esmelshuff report status Ãß°¡
+Latest commit 3cdeae3 20 hours ago
+ History
+ 1 contributor
+297 lines (199 sloc)  8.59 KB
+
 CREATE TABLE userlist (
 
     user_Number NUMBER(10)
@@ -60,6 +90,9 @@ CREATE TABLE post (
     title VARCHAR2(150)
     CONSTRAINT title_nn NOT NULL,
     
+    post_content VARCHAR2(2000)
+    CONSTRAINT post_content_nn NOT NULL,
+    
     category_id NUMBER(10)
     CONSTRAINT post_category_id_fk REFERENCES category (category_id)
     ON DELETE CASCADE,
@@ -72,15 +105,6 @@ CREATE TABLE post (
     
     post_view NUMBER(9)default 0 
     
-);
-    
-CREATE TABLE postContent(
-
-    post_id NUMBER(10)
-    CONSTRAINT postContent_post_id_fk REFERENCES post (post_id)
-    ON DELETE CASCADE,
-    
-    content VARCHAR2(1500)
 );
 
 CREATE TABLE postImage(
@@ -259,15 +283,15 @@ START WITH 1
 INCREMENT BY 1 MAXVALUE 1000000
 NOCYCLE NOCACHE;
 
-INSERT INTO userlist(user_number, user_name, user_id, user_pw, nickname, phonenumber, email, user_address, user_image) values(user_number_seq.nextval,'ì „ì¸ì¬','qwert1', 'YQCaawZtfTgCs8Ah/APHAlK_e_CjPkdgHT', 'ì§±ì§±ì¸ì¬zz', '01012345678', 'dlswo1234@gmail.com','êµ¬ë¦¬ì‹œ ì¸ì°½ë™', 'https://s.pstatic.net/shopping.phinf/20220308_28/8e811a9e-1c0f-4313-ad60-0b0ee9872029.jpg?type=f214_292');
+INSERT INTO userlist(user_number, user_name, user_id, user_pw, nickname, phonenumber, email, user_address, user_image) values(user_number_seq.nextval,'ÀüÀÎÀç','qwert1', 'YQCaawZtfTgCs8Ah/APHAlK_e_CjPkdgHT', 'Â¯Â¯ÀÎÀçzz', '01012345678', 'dlswo1234@gmail.com','±¸¸®½Ã ÀÎÃ¢µ¿', 'https://s.pstatic.net/shopping.phinf/20220308_28/8e811a9e-1c0f-4313-ad60-0b0ee9872029.jpg?type=f214_292');
 
-INSERT INTO userlist(user_number, user_name, user_id, user_pw, nickname, phonenumber, email, user_address, user_image) values(user_number_seq.nextval,'ê¹€ì² ìˆ˜', 'qwert2', 'AFvIBn_ihXRTW4xyWpOTJPUrmprYlWJoN7hiewkRkuE6GbSIg', 'ì² ì² ì² ìˆ˜', '01087654321', 'cjftn123@naver.com', 'í•˜ë‚¨ì‹œ ë•í’ë™','https://naverpa-phinf.pstatic.net/MjAyMjEyMDdfMTc2/MDAxNjcwMzg1MDc0NDA5.T155TC3cDdY0WgLl2keblW4pqHuk2PJMfQLzoXHHF5Ig.VPg5TrpdllpD0FOC5mlN-baxxGQ-JdJmiLXjxshDhP8g.JPEG/221207_gfa_16703850743931154144555135500874.jpg');
+INSERT INTO userlist(user_number, user_name, user_id, user_pw, nickname, phonenumber, email, user_address, user_image) values(user_number_seq.nextval,'±èÃ¶¼ö', 'qwert2', 'AFvIBn_ihXRTW4xyWpOTJPUrmprYlWJoN7hiewkRkuE6GbSIg', 'Ã¶Ã¶Ã¶¼ö', '01087654321', 'cjftn123@naver.com', 'ÇÏ³²½Ã ´öÇ³µ¿','https://naverpa-phinf.pstatic.net/MjAyMjEyMDdfMTc2/MDAxNjcwMzg1MDc0NDA5.T155TC3cDdY0WgLl2keblW4pqHuk2PJMfQLzoXHHF5Ig.VPg5TrpdllpD0FOC5mlN-baxxGQ-JdJmiLXjxshDhP8g.JPEG/221207_gfa_16703850743931154144555135500874.jpg');
 
-INSERT INTO category VALUES(category_id_seq.nextval, 'ë‚¨ì„±ì˜ë¥˜');
+INSERT INTO category VALUES(category_id_seq.nextval, '³²¼ºÀÇ·ù');
 
-INSERT INTO post(post_id, user_number, post_address, title, category_id, price) VALUES(post_id_seq.nextval, 1, 'êµ¬ë¦¬ì‹œ ì¸ì°½ë™', 'ì°¢ì–´ì§„ ì²­ë°”ì§€ íŒ”ì•„ìš”', 1, 7500);
+INSERT INTO post(post_id, user_number, post_address, title, post_content,category_id, price) VALUES(post_id_seq.nextval, 1, '±¸¸®½Ã ÀÎÃ¢µ¿','¹ÙÁöÆË´Ï´Ù', 'Âõ¾îÁø Ã»¹ÙÁö ÆÈ¾Æ¿ä³»¿ëÀÔ´Ï´Ù', 1, 7500);
 
-INSERT INTO postContent VALUES(1, '2ë…„ì „ì— ì‚° ì°¢ì–´ì§„ ì²­ë°”ì§€ íŒ”ì•„ìš” êµ¬ë¦¬ì—­ì•ì—ì„œ ì§ê±°ë˜í•©ë‹ˆë‹¤.');
+INSERT INTO postContent VALUES(1, '2³âÀü¿¡ »ê Âõ¾îÁø Ã»¹ÙÁö ÆÈ¾Æ¿ä ±¸¸®¿ª¾Õ¿¡¼­ Á÷°Å·¡ÇÕ´Ï´Ù.');
 
 INSERT INTO postImage VALUES(post_image_id_seq.nextval, 1, 'https://contents.lotteon.com/itemimage/_v145632/LO/19/60/56/32/08/_1/96/05/63/20/9/LO1960563208_1960563209_1.jpg/dims/optimize/dims/resizemc/400x400');
 
@@ -275,23 +299,23 @@ INSERT INTO wishList VALUES(wishList_id_seq.nextval, 1, 1);
 
 INSERT INTO chattingRoom VALUES(chattingRoom_id_seq.nextval, 1, 2);
 
-INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 1, 'ì² ìˆ˜ë‹˜ì•ˆë…•í•˜ì„¸ìš”');
+INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 1, 'Ã¶¼ö´Ô¾È³çÇÏ¼¼¿ä');
 
-INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 2, 'ì§±ì§±ì¸ì¬ë‹˜ì•ˆë…•í•˜ì„¸ìš”');
+INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 2, 'Â¯Â¯ÀÎÀç´Ô¾È³çÇÏ¼¼¿ä');
 
-INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 2, '6500ì›ì—ì£¼ì„¸ìš”');
+INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 2, '6500¿ø¿¡ÁÖ¼¼¿ä');
 
-INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 1, 'ë„¤');
+INSERT INTO chattingContent(chatting_content_id, chattingRoom_id, user_number, contents) VALUES(chatting_content_id_seq.nextval, 1, 1, '³×');
 
 INSERT INTO endDEAL VALUES(endDeal_id_seq.nextval, 1, 2);
 
-INSERT INTO review VALUES(review_id_seq.nextval, 1, 5, 1, 'ì¿¨ê±°ë˜ê°ì‚¬í•©ë‹ˆë‹¤');
+INSERT INTO review VALUES(review_id_seq.nextval, 1, 5, 1, 'Äğ°Å·¡°¨»çÇÕ´Ï´Ù');
 
-INSERT INTO review VALUES(review_id_seq.nextval, 1, 5, 2, 'ì¸ì¬ë‹˜ì´ì‚¬ì§„ë³´ë‹¤ì˜ìƒê¸°ì…¨ì–´ìš”');
+INSERT INTO review VALUES(review_id_seq.nextval, 1, 5, 2, 'ÀÎÀç´ÔÀÌ»çÁøº¸´ÙÀß»ı±â¼Ì¾î¿ä');
 
 INSERT INTO admin VALUES(1, 'admin1', 'AFvIBn_ihXRTW4xyWpOTJPUrmprYlWJo');
 
-INSERT INTO REPORT VALUES(report_id_seq.nextval, 1, 1, 2, 'ì±„íŒ…ì¤‘ì— ìš•ì„¤ì„ í–ˆìŠµë‹ˆë‹¤.');
+INSERT INTO REPORT VALUES(report_id_seq.nextval, 1, 1, 2, 'Ã¤ÆÃÁß¿¡ ¿å¼³À» Çß½À´Ï´Ù.');
 
 commit;
 rollback;
