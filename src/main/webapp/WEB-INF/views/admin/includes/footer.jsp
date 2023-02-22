@@ -67,6 +67,29 @@
 
     <!-- Page level custom scripts -->
     <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
+    <script>
+      const reportTypeCells = document.querySelectorAll('#report-type');
+      reportTypeCells.forEach(cell => {
+        const reportType = parseInt(cell.textContent);
+        switch (reportType) {
+          case 1:
+            cell.textContent = '유저';
+            break;
+          case 2:
+            cell.textContent = '게시물';
+            break;
+          case 3:
+              cell.textContent = '채팅';
+              break;
+          case 4:
+              cell.textContent = '리뷰';
+              break;
+          default:
+            cell.textContent = reportType;
+            break;
+        }
+      });
+	</script>
     <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 	<!-- <script>
 	$(document).ready(function() {

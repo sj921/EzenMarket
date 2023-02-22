@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
 
 
 
@@ -27,7 +28,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>메인 페이지</span></a>
             </li>
-
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">
@@ -162,11 +162,18 @@
 								<c:forEach items="${report}" var="report">
                                         <tr>
                                             <td>${report.report_id }</td>
-                                            <td>${report.report_type }</td>
+                                            <td id="report-type">${report.report_type }</td>
                                             <td>${report.report_detail }</td>
                                             <td>${report.user_number }</td>
                                             <td>${report.report_content }</td>
-                                            <td>${report.report_status }</td>
+                                            <td><c:choose>
+										        <c:when test="${report.report_status == 0}">
+										          <span class="status text-danger">&bull;</span> 대기중
+										        </c:when>
+										        <c:when test="${report.report_status == 1}">
+										          <span class="status text-success">&bull;</span> 처리완료
+										        </c:when>
+										      </c:choose></td>
                                             <td>
 									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 										<a href="#" class="check" title="check"
@@ -174,6 +181,7 @@
 									</td>
                                         </tr>
                                         </c:forEach>
+                                         
 
 								<tr>
 									<td>1</td>

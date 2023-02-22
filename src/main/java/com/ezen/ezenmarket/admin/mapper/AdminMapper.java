@@ -9,8 +9,8 @@ import com.ezen.ezenmarket.admin.dto.UserListDTO;
 
 public interface AdminMapper{
 
-	@Select("SELECT * FROM userlist ORDER BY user_number")
+	@Select("SELECT * FROM userlist ORDER BY user_number DESC")
 	List<UserListDTO> getUser();
-	@Select("SELECT * FROM report ORDER BY user_number")
+	@Select("SELECT * FROM report ORDER BY report_id DESC")
 	List<ReportDTO> getReport();
 }

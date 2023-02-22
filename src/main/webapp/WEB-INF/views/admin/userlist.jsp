@@ -166,7 +166,7 @@
                                             <td>${board.nickname }</td>
                                             <td>${board.phonenumber}</td>
                                             <td>${board.email }</td>
-                                            <td>${board.banned }</td>
+                                            <td>${board.banned == 0 ? '' : 'BAN' }</td>
                                             <td>
 									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 									<a href="#" class="settings" title="Settings"
