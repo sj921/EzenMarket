@@ -248,6 +248,8 @@ START WITH 1
 INCREMENT BY 1 MAXVALUE 1000000
 NOCYCLE NOCACHE;
 
+DROP SEQUENCE post_id_seq;
+
 CREATE SEQUENCE chattingRoom_id_seq
 START WITH 1
 INCREMENT BY 1 MAXVALUE 1000000
@@ -291,7 +293,7 @@ INSERT INTO category VALUES(category_id_seq.nextval, '남성의류');
 
 INSERT INTO post(post_id, user_number, post_address, title, post_content,category_id, price) VALUES(post_id_seq.nextval, 1, '구리시 인창동','바지팝니다', '찢어진 청바지 팔아요내용입니다', 1, 7500);
 
-INSERT INTO postContent VALUES(1, '2년전에 산 찢어진 청바지 팔아요 구리역앞에서 직거래합니다.');
+
 
 INSERT INTO postImage VALUES(post_image_id_seq.nextval, 1, 'https://contents.lotteon.com/itemimage/_v145632/LO/19/60/56/32/08/_1/96/05/63/20/9/LO1960563208_1960563209_1.jpg/dims/optimize/dims/resizemc/400x400');
 
@@ -319,3 +321,5 @@ INSERT INTO REPORT VALUES(report_id_seq.nextval, 1, 1, 2, '채팅중에 욕설을 했습�
 
 commit;
 rollback;
+
+select * from post;
