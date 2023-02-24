@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.ezenmarket.menu.mapper.MenuMapper">
+	
+	<!-- postimage와 innerjoin하여 상품 모두 출력하기 -->
+	<select id="getAllList" resultType="com.ezen.ezenmarket.menu.dto.MenuDto">
+		SELECT 
+		    p.*,
+		    i.*
+		FROM post p
+		INNER JOIN postimage i
+		ON  p.post_id = i.post_id
+	</select>	
+	
+	<!-- 카테고리별로 출력하기 -->
+	<select id="getCateList" resultType="com.ezen.ezenmarket.menu.dto.MenuDto">
+		SELECT 
+		    p.*,
+		    c.category_name,
+		    i.image_url	
+		FROM post p
+		INNER JOIN category c
+		ON  p.category_id = c.category_id
+		INNER JOIN postimage i
+		ON  p.post_id = i.post_id
+		WHERE p.category_id = #{category_id}
+				
+	</select> 
+	
+	<!-- 전체 상품 개수 카운팅 -->
+	<select id="countList" resultType="int">
+    	SELECT count(*) as countPost FROM post 
+    </select>
+			
+	<!-- 페이징 처리 후 상품 조회 
+	<select id="pagingList"  resultType="com.ezen.ezenmarket.menu.dto.PageDto">
+		
+			SELECT * 
+			FROM (
+			    SELECT ROWNUM RN, A.* 
+			        FROM (
+						SELECT 
+						    p.*,
+						    i.image_url					    			    
+						FROM post p
+						INNER JOIN postimage i
+						ON  p.post_id = i.post_id
+						WHERE p.category_id = #{category_id}
+						ORDER BY p.post_id DESC 
+			                ) A 
+			        )
+			WHERE RN BETWEEN #{start} AND #{end}
+	
+	</select>-->
+	
+	<!-- 카테고리별로 출력하기  + 페이징-->
+	<select id="pagingList"  resultType="com.ezen.ezenmarket.menu.dto.PageDto">
+		
+			SELECT * 
+			FROM (
+			    SELECT ROWNUM RN, A.* 
+			        FROM (
+						SELECT 
+						    p.*,
+						    c.category_name,
+						    i.image_url	
+						FROM post p
+						INNER JOIN category c
+						ON  p.category_id = c.category_id
+						INNER JOIN postimage i
+						ON  p.post_id = i.post_id
+						WHERE p.category_id = #{category_id}
+						ORDER BY p.post_id DESC 
+			                ) A 
+			        )
+			WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+
+</mapper>
