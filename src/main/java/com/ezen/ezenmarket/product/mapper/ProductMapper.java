@@ -9,4 +9,6 @@ public interface ProductMapper {
 	public List<Post> selectAllProducts();
 	
 	public Post selectProduct(String id);
+	
+	public void insertProduct(Post post); 
 }

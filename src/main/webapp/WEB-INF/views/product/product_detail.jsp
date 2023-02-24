@@ -73,7 +73,7 @@
                             </button>
                             &emsp;
                             <button class="btn btn-warning flex-shrink-0 opacity-75" type="button"
-                                style="width: 150px; height: 60px;">
+                                style="width: 150px; height: 60px;" onclick="location.href='productchat'">
                                 <i class="bi bi-messenger"></i>
                                 채팅
                             </button>

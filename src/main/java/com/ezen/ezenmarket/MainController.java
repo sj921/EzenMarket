@@ -34,7 +34,8 @@ public class MainController {
 		if(posts != null && posts.size() >= 15) {
 			model.addAttribute("posts", posts.subList(0, 15));			
 		}
-		return "main";
+		
+		return "main";  // 원래 main
 	}
 	
 	

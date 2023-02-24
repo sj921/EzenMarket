@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ezen.ezenmarket.product.dto.Post;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
@@ -16,6 +17,8 @@ public class ProductController {
 	
 	@Autowired
 	ProductMapper productMapper;
+
+	
 	
 	@GetMapping(value="/product")
 	public String productDetail(String id, Model model) {
@@ -35,6 +38,22 @@ public class ProductController {
 	public String registerProduct() {
 		
 		return "product/product_register";
+	}
+	
+	@GetMapping(value="/productchat")
+	public String chattingProduct() {
+		
+		return "chat/chat";
+	}
+	
+	@PostMapping(value="/insert")
+	public String insertProduct(String post_address, String title, String post_content, Integer category_id, Integer price) {
+		
+		Post post = new Post(post_address, title, post_content, category_id, price);
+		
+		productMapper.insertProduct(post);
+		
+		return "main";
 	}
 	
 	
