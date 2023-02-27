@@ -15,9 +15,7 @@ import com.ezen.ezenmarket.product.mapper.ProductMapper;
 
 import lombok.extern.log4j.Log4j2;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Log4j2
 @Controller
 public class MainController {
@@ -35,7 +33,7 @@ public class MainController {
 			model.addAttribute("posts", posts.subList(0, 15));			
 		}
 		
-		return "main";  // 원래 main
+		return "mainTest"; 
 	}
 	
 	

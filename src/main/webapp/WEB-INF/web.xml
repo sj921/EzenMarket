@@ -14,7 +14,16 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	
+	<!--  필터 추가함 -->
+	   <filter>
+      <filter-name>CharacterEncodingFilter</filter-name>
+      <filter-class>filter.EncodingFilter</filter-class>
+   </filter>
+
+   <filter-mapping>
+      <filter-name>CharacterEncodingFilter</filter-name>
+      <servlet-name>appServlet</servlet-name>
+   </filter-mapping>
 	
 
 	<!-- Processes application requests -->

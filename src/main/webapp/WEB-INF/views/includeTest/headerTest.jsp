@@ -28,8 +28,11 @@
        
         /* position: fixed; */
         position: relative;
-        left: 11.5%;
-        top: 30px;
+        left: 100px;
+        border:1px solid black;
+        width: 1000px;
+        height: 200px;
+        
       }
 
       .logo {
@@ -40,39 +43,8 @@
 
       }
 
-      .LastHead  {
 
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: 77%;
-       
-      }
 
-      .lastHead {
-        display: block;
-        font-size: 13px;
-      
-        margin-top: 13px;
-         
-      }
-      
-      .like {
-        margin-left: 40px;
-        
-        
-      }
-       
-      .icon {
-        font-size: 34px;
-        position:relative;
-      	top: -25px;
-      	left: 46px;
-        
-      }
-      
-      .Mypage {
-      	margin-right: -42px;
-      }
 
 
       .a-tag:link {
@@ -141,48 +113,25 @@
         width: 100%;
 
       }
-      
-      input:-ms-input-placeholder {
-      	color:black;
-      
-      }
-      
-       input::-webkit-input-placeholder {
-      	color:gray;
-      
-      }
-      
-       input::-moz-placeholder {
-      	color:black;
-      
-      }
-      
+           
       .searchbox {
-      	height: 43px;
-      	width: 450px;
-      	border: 2px solid black;
+   
       	position: relative;
       	left : 480px;
       }
-      
-      #search {
-      	margin-top: 5px;
-      	width : 350px;
-      	border : 0px;
-      	outline : none;
-      	
+         
+      .category {
+      	position: relative;
+      	left: 500px;
+      	top: px;
+      	list-style: none;
+      	display:flex;
+      	flex-wrap:wrap;
       }
       
-      #searchBtn {
-      position: relative;
-      	width : 50px;
-      	height: 40px;
-      	border: 0px;
-      	background : black;
-      	outline: none;
-      	color: white;
-      	float: right;
-
+      .items {
+      	padding: 20px;
+        
       }
       
        #box {
@@ -204,9 +153,10 @@
               <a class="top1" style="color:white" href="">EzenMarket 신규 가입시 <span style="color: orangered;">10%</span> 할인 쿠폰 | </a>
               <a class="top2" style="color:white" href="">[삼성카드]<span style="color: orangered">12만원</span> 캐시백 프로모션</a>
               <!-- <a class="top" href=""></a> -->
+         
           </div>
           
-          <nav class="topMenu">
+   <%--        <nav class="topMenu">
             <ul>
                <c:choose>
               <c:when test="${sessionScope.login eq 'yes' }">
@@ -218,25 +168,34 @@
                </c:otherwise>
               </c:choose>
             </ul>
-          </nav>
+          </nav> --%>
 
-          <div class="topLine"></div>
 
           <nav class="head">
-            <a class="logo a-tag" href="">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>
+          
+            <a class="logo a-tag" href="">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>  
+            
            <div class="searchbox">
-            <input id="search" type="search" placeholder=" 검색어 입력">
-            <button id="searchBtn">검색</button>
+           		 <a href=""><i id="readglasses" class="fa-solid fa-magnifying-glass"></i></a>
+           		 <a class="lastHead Mypage a-tag" href=""><i class="fa-regular fa-user icon mypage"></i></a>
+                 <a class="lastHead like a-tag" href="register"><i class="fa-solid fa-won-sign icon Like"></i></a>
            </div>
-           <!--  <i id="readglasses" class="fa-solid fa-magnifying-glass"></i> -->
+           
+          	<ul class="category">
+          		<li class="items"><a href="">ALL</a></li>
+          		<li class="items"><a href="">SHOES</a></li>
+          		<li class="items"><a href="">WOMEN</a></li>
+          		<li class="items"><a href="">MAN</a></li>
+          		<li class="items"><a href="">BABY</a></li>
+          		<li class="items"><a href="">ACC</a></li>
+          		<li class="items"><a href="">BRAND</a></li>
+          		<li class="items"><a href="">PET</a></li>
+          		<li class="items"><a href="">BAG</a></li>
+          	</ul>
+      
           </nav>
 
-       
-          <div class="LastHead">
-            <!-- <div><i class="fa-solid fa-door-open icon"></i><a class="lastHead" href="">채팅 </a></div> -->
-            <div><a class="lastHead Mypage a-tag" href=""><i class="fa-regular fa-user icon mypage"></i>마이페이지</a></div>
-            <div><a class="lastHead like a-tag" href="register"><i class="fa-solid fa-won-sign icon Like"></i>판매하기</a></div>
-          </div>
+      
 
         </header>
 

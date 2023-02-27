@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품등록</title>
 <style>
+
  	.container{
 		
 		position: relative;
@@ -25,27 +26,31 @@
 	.line {
 	
 		border: 1px solid #e2e2e2;
-		width: 1100px;
+		width: 1060px;
 		margin-top: 50px;
 		
 	}
 	
 	.line2 {
+	
 		border: 1px solid #e2e2e2;
-		width: 1100px;
+		width: 1060px;
 		margin-top: 36px;
+		
 	}
 	
 	.line3 {
-        	border: 1px solid white;
-			width: 1100px;
-        	margin-top: 200px;
-        	margin-left: 450px;
-        }
+	
+        border: 1px solid white;
+		width: 1060px;
+        margin-top: 200px;
+        margin-left: 450px;
+        
+    }
         
      .line4 {
      	border: 1px solid #e2e2e2;
-		width: 1100px;
+		width: 1060px;
         margin-top: 300px;
      }
 	
@@ -163,7 +168,7 @@
 
         }
         
-        .btnContainer {
+    /*     .btnContainer {
         	position: relative;
         	top: 50px;
         	left: 70%;
@@ -172,19 +177,19 @@
         	width: 180px;
         	height: 70px;
         	
-        }
+        } */
         
         .submit-background {
         	position: sticky; 
         	 top: 2px; 
         	bottom: 0;
         	border: 1px solid rgb(234, 234, 234);
-        	width: 1920px;
+        	width: 1902px;
         	height: 150px;
         	background-color: rgb(234, 234, 234);
         }
         
-        .my_button {
+ 	    /*   .my_button {
         	position: relative;
         	top: 5px;
         	left: 25px;
@@ -192,10 +197,22 @@
         	font-size: 30px;
 	
         }
-        
+         */
+         
         #add_btn{
         	width: 200px;
         	height: 180px;
+        }
+        
+        #registerBtn {
+        	position: relative;
+        	top: 40px;
+        	left: 71%;
+        	color: white;	
+        	background: black;
+        	font-size: 30px;
+        	width: 180px;
+        	height: 70px;
         }
         
         
@@ -205,10 +222,12 @@
 </head>
 <body>
  
- 	<%-- <jsp:include page="./include/header.jsp" />
- 	<jsp:include page="line.jsp" />
- 	<jsp:include page="side.jsp" /> --%>
+    <jsp:include page="../include/header.jsp" />
+ 	<jsp:include page="../include/side.jsp" /> 
  
+ <!-- 내가 만든 메서드 경로 주소 -> action -->
+<form action="./insert" method="POST">
+
  <div class="container">
    
 	 <!-- <div class="line"></div> -->
@@ -241,7 +260,7 @@
 	
 	<div class="flex-wrap">
 	<div class="title">제목</div>
-	 <input type="text" id="product_title" class="textbox short-title" placeholder="상품 제목을 입력해주세요.">
+	 <input type="text" id="product_title" class="textbox short-title" name="title" placeholder="상품 제목을 입력해주세요.">
 	</div>
 	 
 	 <div class="line2"></div>
@@ -250,7 +269,7 @@
        <div class="title">카테고리</div>
 	        <div class="Category"> 
             <!-- value : category_id-->
-           <select name="category"  class="textbox dropbar">
+           <select name="category_id"  class="textbox dropbar">
               <option value="">카테고리를 선택하세요</option>
               <option value="1">남성의류</option>
               <option value="2">여성의류</option>
@@ -278,7 +297,7 @@
 	<div class="flex-wrap">
 	  <div class="title">거래지역</div>
 	  <div class="textbox address">
-	      <input type="text" id="sample5_address" placeholder="거래지역">
+	      <input type="text" id="sample5_address" placeholder="거래지역" name="post_address">
 	      <input type="button" id="addressBtn" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 	      <div id="map" style="width:290px;height:280px;margin-top:10px;display:none"></div>
 	  </div>
@@ -287,7 +306,7 @@
 	<div class="line4"></div>
 	
 	<div class="flex-wrap">
-     <div class="title">가격 <input type="text" class="textbox short-title price" placeholder="숫자만 입력해주세요.">원</div>
+     <div class="title">가격 <input type="text" class="textbox short-title price" name="price" placeholder="숫자만 입력해주세요.">원</div>
 	<!-- <input type="radio"> 배송비 포함 -->
 	</div>
 	
@@ -295,22 +314,26 @@
       
 	  <div class="flex-wrap">
         <div class="title">상품설명</div>
-        <textarea class="textbox" cols="60" rows="8" placeholder=
+        <textarea class="textbox" cols="60" rows="8" name="post_content" placeholder=
         "여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)"></textarea>
 	  </div>
 	</div>
 	
-	 <div class="line3"></div> 
-<form action="./insert" method="POST">
-	<div class="submit-background">
-     <div class="btnContainer"><a href="javascript:" class="my_button" onclick="submitAction();">등록하기</a></div>
-	</div>
+	<!-- form태그로 감싸서 type을 submit으로 -->
+	<div class="line3"></div> 
+	
+	<div class="submit-background">		
+			<button type="submit" id="registerBtn">등록하기</button>	
+	</div> 
+
+ 	
 </form>
 
+	<!-- 	<div class="submit-background">																		
+        <div class="btnContainer"><a href="javascript:" class="my_button" onclick="submitAction();"></a></div>
+		</div>  -->
 
-	<%-- 
- <jsp:include page="bottom.jsp" />  
- --%>
+
 
 
 

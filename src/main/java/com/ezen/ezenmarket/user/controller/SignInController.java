@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.ezenmarket.user.service.LoginService;
 
@@ -35,6 +37,7 @@ public class SignInController {
 	@PostMapping(value="/signin")
 	public String signIn(String user_id, String user_pw, HttpServletRequest req, HttpServletResponse resp) {
 		
+		
 		System.out.println("아이디" + user_id);
 		System.out.println("패스워드" + user_pw);
 		if(loginService.login(user_id, user_pw, req, resp)) {
@@ -44,6 +47,5 @@ public class SignInController {
 		
 		return "redirect:/signin";
 	}
-	
-	
+
 }
