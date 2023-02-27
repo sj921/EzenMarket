@@ -32,7 +32,7 @@ public class MyPageController {
 	@GetMapping(value="/review")
 	public String review() {
 		
-		return "mypage/review";
+		return "mypage/starReview";
 	}
 	
 	

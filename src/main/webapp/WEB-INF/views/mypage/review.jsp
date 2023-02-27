@@ -62,6 +62,7 @@
             <span id="left">상품</span>
             <span id="right">2</span>
           </div>
+          
           <div class="review">
             <span id="left2">거래후기</span>
             <span id="right2">★★★★★ 3</span>

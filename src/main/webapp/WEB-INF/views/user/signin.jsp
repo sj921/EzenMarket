@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
+	
 	String errorMsg = (String)session.getAttribute("errorMsg");
 
 	if (errorMsg == null) 
 		errorMsg ="";
-	session.invalidate();
 
 %>
 <!doctype html>

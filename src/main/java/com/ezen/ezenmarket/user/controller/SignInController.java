@@ -28,12 +28,6 @@ public class SignInController {
 		return "user/signin";
 	}
 	
-	@GetMapping(value="/signup")
-	public String signUp() {
-		
-		return "user/signup";
-	}
-	
 	@PostMapping(value="/signin")
 	public String signIn(String user_id, String user_pw, HttpServletRequest req, HttpServletResponse resp) {
 		
@@ -47,5 +41,12 @@ public class SignInController {
 		
 		return "redirect:/signin";
 	}
+	
+	@GetMapping(value="/signup")
+	public String signUp() {
+		
+		return "user/signup";
+	}
+	
 
 }

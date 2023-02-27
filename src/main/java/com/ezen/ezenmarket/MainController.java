@@ -33,7 +33,7 @@ public class MainController {
 			model.addAttribute("posts", posts.subList(0, 15));			
 		}
 		
-		return "mainTest"; 
+		return "main"; 
 	}
 	
 	
