@@ -33,11 +33,11 @@ public class LoginServiceImpl implements LoginService{
 				
 		for (User user : userList) {
 			if (user_id.equals(user.getUser_ID()) && user_pw.equals(user.getUser_PW())) {
-		    	// getSession()ì€ ì„¸ì…˜ì´ ìˆìœ¼ë©´ ìˆëŠ” ì„¸ì…˜ì„ ë°˜í™˜í•˜ê³ , ì—†ìœ¼ë©´ ì‹ ê·œ ì„¸ì…˜ì„ ìƒì„±í•œë‹¤
-				 // ì„¸ì…˜ì˜ ë¡œê·¸ì¸ íšŒì› ì •ë³´ë¥¼ ë³´ê´€í•œë‹¤
+		    	// getSession()Àº ¼¼¼ÇÀÌ ÀÖÀ¸¸é ÀÖ´Â ¼¼¼ÇÀ» ¹İÈ¯ÇÏ°í, ¾øÀ¸¸é ½Å±Ô ¼¼¼ÇÀ» »ı¼ºÇÑ´Ù
+				 // ¼¼¼ÇÀÇ ·Î±×ÀÎ È¸¿ø Á¤º¸¸¦ º¸°üÇÑ´Ù
 				session.setAttribute("login", "yes");
 				
-				// ì¿ í‚¤ì— user_id ë„£ìŒ
+				// ÄíÅ°¿¡ user_id ³ÖÀ½
 				Cookie cookie = new Cookie("user_id", user_id);
 				cookie.setPath(req.getContextPath());
 				resp.addCookie(cookie);
@@ -46,7 +46,7 @@ public class LoginServiceImpl implements LoginService{
  
 			} else {
 				
-				session.setAttribute("errorMsg", "ë¡œê·¸ì¸ ì •ë³´ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				session.setAttribute("errorMsg", "·Î±×ÀÎ Á¤º¸°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
 			}
 		}
 		return false;

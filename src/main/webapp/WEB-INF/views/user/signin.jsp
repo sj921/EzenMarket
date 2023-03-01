@@ -84,7 +84,10 @@
              
                 
                 <button id="signin-btn" class="w-100 btn btn-lg btn-primary" type="submit" id="signin">로그인</button>
-               
+              	<a href=
+              	"https://kauth.kakao.com/oauth/authorize?client_id=539b9f686a3ecf1e986fc50b088309c0&redirect_uri=http://localhost:8888/ezenmarket/kakao&response_type=code">
+		            <img src="https://i.imgur.com/52mZm2M.png">
+		        </a>
                 <button id="signup-btn" class="w-100 btn btn-lg btn-primary" id="signup">회원가입</button>
            </form>
                  

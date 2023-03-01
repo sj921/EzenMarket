@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.ezenmarket.user.service.LoginService;
@@ -32,8 +33,8 @@ public class SignInController {
 	public String signIn(String user_id, String user_pw, HttpServletRequest req, HttpServletResponse resp) {
 		
 		
-		System.out.println("ì•„ì´ë””" + user_id);
-		System.out.println("íŒ¨ìŠ¤ì›Œë“œ" + user_pw);
+		System.out.println("¾ÆÀÌµğ" + user_id);
+		System.out.println("ÆĞ½º¿öµå" + user_pw);
 		if(loginService.login(user_id, user_pw, req, resp)) {
 			
 			return "redirect:/";
@@ -41,6 +42,7 @@ public class SignInController {
 		
 		return "redirect:/signin";
 	}
+
 	
 	@GetMapping(value="/signup")
 	public String signUp() {
