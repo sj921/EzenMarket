@@ -16,7 +16,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <img style="height: 50px" src="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png"/ >
                    
-                <div class="sidebar-brand-text mx-3">BrickUp <sup>Market</sup></div>
+                <div class="sidebar-brand-text mx-3">EzenMarket <sup></sup></div>
             </a>
 
             <!-- Divider -->
