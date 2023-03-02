@@ -93,7 +93,7 @@ public class KakaoLoginService {
             int responseCode = conn.getResponseCode();
             System.out.println("responseCode : " + responseCode);
             
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
             
             String line = "";
             String result = "";
@@ -105,6 +105,7 @@ public class KakaoLoginService {
             
             JsonParser parser = new JsonParser();
             JsonElement element = parser.parse(result);
+            
             
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
@@ -122,5 +123,32 @@ public class KakaoLoginService {
         
         return userInfo;
     }
+    
+    public void kakaoLogout(String access_Token) {
+        String reqURL = "https://kapi.kakao.com/v1/user/logout";
+        try {
+            URL url = new URL(reqURL);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+            
+            int responseCode = conn.getResponseCode();
+            System.out.println("responseCode : " + responseCode);
+            
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            
+            String result = "";
+            String line = "";
+            
+            while ((line = br.readLine()) != null) {
+                result += line;
+            }
+            System.out.println(result);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 
 }

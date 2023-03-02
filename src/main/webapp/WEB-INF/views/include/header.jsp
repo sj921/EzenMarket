@@ -208,10 +208,16 @@
           
           <nav class="topMenu">
             <ul>
-               <c:choose>
-              <c:when test="${sessionScope.login eq 'yes' }">
-              <li><a class="menuLink a-tag" href="logout">로그아웃</a></li>
+               <c:choose >
+              <c:when test="${not empty sessionScope.access_Token}">
+              <li><a class="menuLink a-tag" href="https://kauth.kakao.com/oauth/logout?client_id=539b9f686a3ecf1e986fc50b088309c0&logout_redirect_uri=http://localhost:8888/ezenmarket/logout">카카오 로그아웃</a></li>
+              <li>${sessionScope.nickname}님</li>
               </c:when>
+              <c:when test="${sessionScope.login eq 'yes' }">
+              <li><a class="menuLink a-tag" href="logout">로그아웃</a></li>     
+              <li >${sessionScope.nickname}님</li>
+              </c:when>
+
 			  <c:otherwise>              
               <li><a class="menuLink a-tag" href="signup">회원가입</a></li>
               <li><a class="menuLink a-tag" href="signin">로그인</a></li>
@@ -219,6 +225,7 @@
               </c:choose>
             </ul>
           </nav>
+
 
           <div class="topLine"></div>
 

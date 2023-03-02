@@ -36,6 +36,7 @@ public class LoginServiceImpl implements LoginService{
 		    	// getSession()은 세션이 있으면 있는 세션을 반환하고, 없으면 신규 세션을 생성한다
 				 // 세션의 로그인 회원 정보를 보관한다
 				session.setAttribute("login", "yes");
+				session.setAttribute("nickname", user.getNickname());
 				
 				// 쿠키에 user_id 넣음
 				Cookie cookie = new Cookie("user_id", user_id);
