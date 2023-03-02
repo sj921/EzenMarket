@@ -40,7 +40,8 @@ public class KakaoController {
         if (userInfo.get("email") != null) {
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("access_Token", access_Token);
+            session.setAttribute("login", "yes");
         }
-        return "redirect:/signin";
+        return "redirect:/";
     }
 }
