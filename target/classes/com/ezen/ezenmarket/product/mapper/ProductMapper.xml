@@ -36,7 +36,8 @@
 		FROM post p
 		INNER JOIN postimage i
 		ON  p.post_id = i.post_id
-		WHERE category_id=#{category_id}   		
+		WHERE category_id=#{category_id}   	
+		ORDER BY p.post_id DESC
 	</select>  
 	
 	<!-- 상품 상세페이지(상품정보 + 상품이미지정보 + 판매자정보) -->
