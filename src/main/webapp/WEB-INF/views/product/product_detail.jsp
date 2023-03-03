@@ -67,7 +67,7 @@
                             <li>거래지역&emsp;&emsp;<span>${post.post_address}</span></li>
                         </ul>
                         <div class="d-flex justify-content-around" style="margin-right: 50px;">
-                            <button class="btn btn-secondary flex-shrink-0 opacity-50" type="button"
+                            <button id="wishlist" class="btn btn-secondary flex-shrink-0 opacity-50" type="button"
                                 style="width: 150px; height: 60px;">
                                 <i class="bi bi-heart-fill"></i>
                                 찜

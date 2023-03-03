@@ -41,12 +41,13 @@
 	</div>
 	
 	
+<!--  
 	<div class="pagination">	
 		<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i" >
 			<a href="./category?category_id=<'%=request.getParameter("category_id")%>&page=${i }">${i }</a>
 		</c:forEach>	
 	</div>
-	
+-->	
 	
 	<nav aria-label="Page navigation example">
 		<ul class="pagination">
