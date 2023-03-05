@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.ezen.ezenmarket.admin.dto.AdminDTO;
 import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
 
@@ -26,4 +27,7 @@ public interface AdminMapper{
 			+ "=#{report_id}")
 	Integer updateReport(ReportDTO report);
 	
+	public AdminDTO getAdminInfo(String admin_id);
+	
+	public List<AdminDTO> getAdmin();
 }
