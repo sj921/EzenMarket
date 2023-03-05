@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ezen.ezenmarket.admin.dto.ReportDTO;
+import com.ezen.ezenmarket.admin.dto.UserListDTO;
 import com.ezen.ezenmarket.admin.mapper.AdminMapper;
 
 @RequestMapping("/admin")
@@ -26,6 +28,26 @@ public class AdminController {
 		model.addAttribute("userlist", adminMapper.getUser());
 		
 		return "admin/userlist";
+	}
+	@GetMapping(value={"/userlist/ban"})
+	public String banUser(UserListDTO userlist) {
+		adminMapper.banUser(userlist);
+		
+		return "redirect:/admin/userlist";
+	}
+	
+	@GetMapping(value={"/userlist/unban"})
+	public String unbanUser(UserListDTO userlist) {
+		adminMapper.unbanUser(userlist);
+		
+		return "redirect:/admin/userlist";
+	}
+	
+	@GetMapping(value={"/reportlist/modify"})
+	public String modifyReport(ReportDTO report) {
+		adminMapper.updateReport(report);
+		
+		return "redirect:/admin/reportlist";
 	}
 	
 	@GetMapping(value={"/reportlist"})

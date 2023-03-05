@@ -171,189 +171,22 @@
 									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 									<a href="#" class="settings" title="Settings"
 										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+										 <c:choose >
+							             <c:when test="${board.banned == 0}">
+											<a href="userlist/ban?user_number=${board.user_number}" class="delete" title="πÍ"
+											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+							             </c:when>
+							             <c:otherwise>              
+								              <a href="userlist/ban?user_number=${board.user_number}" class="check" title="πÍ «ÿ¡¶"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+								               </c:otherwise>
+							             </c:choose>
+										
 									</td>
                                         </tr>
                                         </c:forEach>
                                         
-                                         <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-                                       
-                                          <tr>
-                                            <td>2</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
-								 <tr>
-                                            <td>1</td>
-                                            <td>¿¸¿Œ¿Á</td>
-                                             <td>±Ù¬¶∞®¿⁄</td>
-                                             <td>asd1234</td>
-                                             <td>01097042815</td>
-                                             <td>dd@naver.com</td>
-                                             <td>BAN</td>
-									<td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-										<a href="#" class="delete" title="Delete"
-										data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-									</td>
-								</tr> 
+                                      
                                        
 
 

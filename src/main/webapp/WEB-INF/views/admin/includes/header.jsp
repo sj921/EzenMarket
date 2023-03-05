@@ -40,7 +40,7 @@ table.table td a.check {
 </style>
 
 
-    <title>BrickUp 包府磊其捞瘤</title>
+    <title>EzenMarket 包府磊其捞瘤</title>
 
     <!-- Custom fonts for this template -->
     <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
