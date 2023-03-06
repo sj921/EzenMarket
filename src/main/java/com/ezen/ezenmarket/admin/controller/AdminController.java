@@ -24,7 +24,7 @@ public class AdminController {
 	}
 
 	@GetMapping(value={"/userlist"})
-	public String index(Model model) {
+	public String userlist(Model model) {
 		model.addAttribute("userlist", adminMapper.getUser());
 		
 		return "admin/userlist";
@@ -50,8 +50,22 @@ public class AdminController {
 		return "redirect:/admin/reportlist";
 	}
 	
+	@GetMapping("/reportlist/deletePost")
+	public String deletePost(Integer post_id) {
+		adminMapper.deletePost(post_id);
+		return "redirect:/admin/reportlist";
+	
+	}
+	
+	@GetMapping("/reportlist/deleteReview")
+	public String deleteReview(Integer review_id) {
+		adminMapper.deleteReview(review_id);
+		return "redirect:/admin/reportlist";
+	
+	}
+	
 	@GetMapping(value={"/reportlist"})
-	public String index4(Model model) {
+	public String reportlist(Model model) {
 		model.addAttribute("report", adminMapper.getReport());
 		
 		return "admin/reportlist";
@@ -59,17 +73,18 @@ public class AdminController {
 
 	
 	@GetMapping(value={"/mainpage"})
-	public String index6() {
+	public String mainpage() {
 		
 		
 		return "admin/mainpage";
 	}
 	
 	@GetMapping(value={"/login"})
-	public String index7() {
+	public String login() {
 		
 		
 		return "admin/login";
 	}
+	
 	
 }

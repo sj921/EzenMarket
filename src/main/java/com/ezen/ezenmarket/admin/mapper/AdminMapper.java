@@ -2,6 +2,7 @@ package com.ezen.ezenmarket.admin.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -27,7 +28,11 @@ public interface AdminMapper{
 			+ "=#{report_id}")
 	Integer updateReport(ReportDTO report);
 	
-	public AdminDTO getAdminInfo(String admin_id);
+	@Delete("DELETE FROM post WHERE post_id=#{post_id}")
+	Integer deletePost(Integer post_id);
 	
-	public List<AdminDTO> getAdmin();
+	@Delete("DELETE FROM review WHERE review_id=#{review_id}")
+	Integer deleteReview(Integer review_id);
+	
+	
 }

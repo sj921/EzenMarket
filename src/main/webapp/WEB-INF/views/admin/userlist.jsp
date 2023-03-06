@@ -168,9 +168,7 @@
                                             <td>${board.email }</td>
                                             <td>${board.banned == 0 ? '' : 'BAN' }</td>
                                             <td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-									<a href="#" class="settings" title="Settings"
-										data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+									<a href="../mypage?user_number=${board.user_number }" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 										 <c:choose >
 							             <c:when test="${board.banned == 0}">
 											<a href="userlist/ban?user_number=${board.user_number}" class="delete" title="¹ê"

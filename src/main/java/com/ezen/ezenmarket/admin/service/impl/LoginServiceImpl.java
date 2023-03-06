@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.ezenmarket.admin.dto.AdminDTO;
-import com.ezen.ezenmarket.admin.mapper.AdminMapper;
+import com.ezen.ezenmarket.admin.mapper.LoginMapper;
 import com.ezen.ezenmarket.admin.service.LoginService;
 
 @Service
@@ -19,13 +19,13 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Autowired
-	AdminMapper adminMapper;
+	LoginMapper loginMapper;
 	
 	
 	@Override
 	public boolean login(String admin_id, String admin_pw, HttpServletRequest req, HttpServletResponse resp) {
 		
-		List<AdminDTO> adminList = adminMapper.getAdmin();
+		List<AdminDTO> adminList = loginMapper.getAdmin();
 		
 		HttpSession session = req.getSession();
 				

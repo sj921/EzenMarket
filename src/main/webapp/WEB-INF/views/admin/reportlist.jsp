@@ -166,19 +166,46 @@
                                             <td>${report.report_detail }</td>
                                             <td>${report.user_number }</td>
                                             <td>${report.report_content }</td>
-                                            <td><c:choose>
+                                            
+                                            <td>
+                                            <c:choose>
 										        <c:when test="${report.report_status == 0}">
 										          <span class="status text-danger">&bull;</span> 대기중
+										   </td>
+										          <td>
+                                             <c:choose>
+											      <c:when test="${report.report_type == 1}">
+											        <a href="ezenmarket/mypage?user_number=${report.report_detail}" class="view" title="마이페이지로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+											      </c:when>
+											      
+											      <c:when test="${report.report_type == 2}">
+											        <a href="ezenmarket/post?id=${report.report_detail}" class="view" title="포스트로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+											        <a href="reportlist/deletePost?post_id=${report.report_detail }" class="delete" title="삭제"
+											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+											      </c:when>
+											      
+											      <c:when test="${report.report_type == 3}">
+											        <a href="ezenmarket/review?id=${report.report_detail}" class="view" title="리뷰로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+													<a href="reportlist/deleteReview?review_id=${report.report_detail }" class="delete" title="삭제" 
+											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>									     
+											      </c:when>
+											    </c:choose>
+								
+										<a href="reportlist/modify?report_id=${report.report_id }" class="check" title="처리완료"
+										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+										
+											</td>
+										          
 										        </c:when>
 										        <c:when test="${report.report_status == 1}">
 										          <span class="status text-success">&bull;</span> 처리완료
+										        </td>
+										          <td></td>
+										    
 										        </c:when>
-										      </c:choose></td>
-                                            <td>
-									<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										<a href="reportlist/modify?report_id=${report.report_id }" class="check" title="check"
-										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
-									</td>
+										    </c:choose>
+										  
+                                            
                                         </tr>
                                         </c:forEach>
                                          
