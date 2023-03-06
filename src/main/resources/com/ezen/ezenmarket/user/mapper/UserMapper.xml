@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.ezenmarket.user.mapper.UserMapper">
+   
+   <select id="getUserInfo" resultType="com.ezen.ezenmarket.user.dto.User">
+      SELECT * FROM userlist WHERE user_id=#{user_id}
+   </select>
+   
+   <select id="getUserList" resultType="com.ezen.ezenmarket.user.dto.User">
+      SELECT * FROM userlist
+   </select>
+   
+</mapper>

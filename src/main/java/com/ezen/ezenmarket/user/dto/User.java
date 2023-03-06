@@ -18,5 +18,6 @@ public class User {
 	private String phoneNumber;
 	private String email;
 	private String user_image;
+	private String user_address;
 	private Date bannedDate;
 }
