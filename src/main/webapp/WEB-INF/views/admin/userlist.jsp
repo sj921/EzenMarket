@@ -177,7 +177,7 @@
 											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 							             </c:when>
 							             <c:otherwise>              
-								              <a href="userlist/ban?user_number=${board.user_number}" class="check" title="¹ê ÇØÁ¦"
+								              <a href="userlist/unban?user_number=${board.user_number}" class="check" title="¹ê ÇØÁ¦"
 										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
 								               </c:otherwise>
 							             </c:choose>

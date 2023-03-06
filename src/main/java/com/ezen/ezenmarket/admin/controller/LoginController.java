@@ -19,25 +19,25 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	@GetMapping(value="/signin")
+	@GetMapping(value="/login")
 	public String moveTosignInPage() {
 		
 		
-		return "user/signin";
+		return "admin/signin";
 	}
 	
-	@PostMapping(value="/signin")
+	@PostMapping(value="/login")
 	public String signIn(String admin_id, String admin_pw, HttpServletRequest req, HttpServletResponse resp) {
 		
 		
-		System.out.println("¾ÆÀÌµð" + admin_id);
-		System.out.println("ÆÐ½º¿öµå" + admin_pw);
+		System.out.println("아이디" + admin_id);
+		System.out.println("비밀번호" + admin_pw);
 		if(loginService.login(admin_id, admin_pw, req, resp)) {
 			
 			return "redirect:/";
 		}
 		
-		return "redirect:/signin";
+		return "redirect:/login";
 	}
 
 	

@@ -47,11 +47,11 @@
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="exampleInputEmail" aria-describedby="emailHelp" name="admin_id
                                                 placeholder="아이디를 입력해주세요">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user" name="admin_pw"
                                                 id="exampleInputPassword" placeholder="비밀번호를 입력해주세요">
                                         </div>
                                      
