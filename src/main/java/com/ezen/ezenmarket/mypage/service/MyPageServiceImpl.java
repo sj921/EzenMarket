@@ -69,6 +69,7 @@ public class MyPageServiceImpl implements MyPageService{
 		int pagination_end = (page / page_size + 1) * page_size;
 		pagination_end = pagination_end > max_page ? max_page : pagination_end;
 		
+		req.setAttribute("user_number", req.getParameter("user_number"));
 		req.setAttribute("profile", p);
 		req.setAttribute("post", post.subList(start_index, end_index));
 		req.setAttribute("pagination_start", pagination_start);
@@ -98,7 +99,7 @@ public class MyPageServiceImpl implements MyPageService{
 			req.setAttribute("verified", "no");
 		}
 		
-		List<Post> zzim = mapper.getZzim(user_num);
+		List<Post> zzim = mapper.getZzim(user_number);
 		
 		Profile p = mapper.getUserProfile(user_number);
 		p.setReviewCount(mapper.getReviewCount(user_number));
@@ -127,6 +128,7 @@ public class MyPageServiceImpl implements MyPageService{
 		int pagination_end = (page / page_size + 1) * page_size;
 		pagination_end = pagination_end > max_page ? max_page : pagination_end;
 		
+		req.setAttribute("user_number", req.getParameter("user_number"));
 		req.setAttribute("profile", p);
 		req.setAttribute("zzim", zzim.subList(start_index, end_index));
 		req.setAttribute("pagination_start", pagination_start);
@@ -185,6 +187,7 @@ public class MyPageServiceImpl implements MyPageService{
 		int pagination_end = (page / page_size + 1) * page_size;
 		pagination_end = pagination_end > max_page ? max_page : pagination_end;
 		
+		req.setAttribute("user_number", req.getParameter("user_number"));
 		req.setAttribute("profile", p);
 		req.setAttribute("review", review.subList(start_index, end_index));
 		req.setAttribute("pagination_start", pagination_start);
@@ -200,6 +203,7 @@ public class MyPageServiceImpl implements MyPageService{
 	
 	@Override
 	public void deletePost(Integer post_Id) {
+		
 		mapper.deletePost(post_Id);
 	}
 	

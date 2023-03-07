@@ -50,7 +50,7 @@
                 <a class="logo" href="<%=request.getContextPath() %>">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>               
                <!--  <h3 class="h3 mb-3 fw-normal">회원 로그인</h3> -->
                 
-            <form action="signin" method="POST">
+            <form action="<%=request.getContextPath() %>/signin" method="POST">
                 
                 <div class="form-floating">
                     <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="user_id">

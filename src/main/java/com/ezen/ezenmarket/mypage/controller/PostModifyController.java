@@ -24,10 +24,11 @@ public class PostModifyController {
 		Integer post_Id 
 			= Integer.parseInt(req.getParameter("post_Id"));
 		
+		String user_number = req.getParameter("user_number");
 		
 		service.updatePost(post_Id);
 		
-		return "redirect:/mypage/sales_list";
+		return "redirect:/mypage/sales_list?user_number="+user_number;
 	}
 	
 	@GetMapping(value="/delete")
@@ -35,9 +36,11 @@ public class PostModifyController {
 		Integer post_Id 
 		= Integer.parseInt(req.getParameter("post_Id"));
 		
+		String user_number = req.getParameter("user_number");
+		
 		service.deletePost(post_Id);
 		
-		return "redirect:/mypage/sales_list";
+		return "redirect:/mypage/sales_list?user_number="+user_number;
 	}
 	
 	@GetMapping(value="/deleteZzim")
@@ -45,8 +48,9 @@ public class PostModifyController {
 		Integer post_Id 
 		= Integer.parseInt(req.getParameter("post_Id"));
 		
+		String user_number = req.getParameter("user_number");
 		//service.deleteZzim(post_Id);
 		
-		return "redirect:/mypage/zzim";
+		return "redirect:/mypage/zzim?user_number="+user_number;
 	}
 }

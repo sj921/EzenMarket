@@ -32,7 +32,7 @@
 	
 	<select id="getReviewList" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.Review">
 		SELECT 
-			u.nickname, p.title AS title, u.user_image, r.review_Content AS review_content
+			u.user_number, u.nickname, p.title AS title, u.user_image, r.review_Content AS review_content
 		FROM 
 			endDeal e
 		INNER JOIN 
@@ -59,7 +59,7 @@
 		INNER JOIN 
 			review r ON e.endDeal_Id = r.endDeal_Id
 		WHERE 
-			e.seller_user_number = 2
+			e.seller_user_number = #{user_num}
 	</select>
 	
 	<select id="getUserProfile" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.Profile">

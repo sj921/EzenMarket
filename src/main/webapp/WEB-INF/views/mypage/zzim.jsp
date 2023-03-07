@@ -100,12 +100,12 @@
               <div class="tabmenu out-tabmenu">
                 <ul>
                   <li id="tab1" class="btnCon"> 
-                    <input type="radio" checked name="tabmenu" id="tabmenu1" onclick="location.href='./?user_number=${sessionScope.user_number}'">
+                    <input type="radio" checked name="tabmenu" id="tabmenu1" onclick="location.href='./?user_number=${user_number}'">
                     <label for="tabmenu1">상품</label>
                     <div class="tabCon" >                      
                     </div>                    
                   </li>
-                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='./review?user_number=${sessionScope.user_number}'">
+                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='./review?user_number=${user_number}'">
                     <label for="tabmenu2">후기</label>
                     <div class="tabCon" >                      
                     </div>                    
@@ -135,6 +135,9 @@
                               <br>
                           	  </div>
                           	</c:forEach>
+                          	<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+	                          <a id="page" href="./sales_list?user_number=${user_number }&page=${i }">${i }</a>
+	                        </c:forEach>
                         </div>
                       </div>                      
                     </div>

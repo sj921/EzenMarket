@@ -131,9 +131,9 @@
 	                              <div class="card-body">
 	                                <span class="d-inline-block text-truncate card-text" style="max-width: 150px;">${post.title }</span><br>
 	                                <b>${post.price }</b>
-	                                <button class="up-btn" onclick="location.href='./update?post_Id=${post.post_Id }'">Up</button>
+	                                <button class="up-btn" onclick="location.href='./update?post_Id=${post.post_Id }&user_number=${user_number }'">Up</button>
 	                                <button class="up-btn" onclick="location.href='./product'">수정</button>
-	                                <button class="up-btn" onclick="location.href='./delete?post_Id=${post.post_Id }'">삭제</button>
+	                                <button class="up-btn" onclick="location.href='./delete?post_Id=${post.post_Id }&user_number=${user_number }'">삭제</button>
 	                              </div>
 	                            </div>
 	                          </a>
@@ -141,7 +141,7 @@
 	                        </div> <!-- 1 of 3 end-->
                         </c:forEach>
                         <c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
-                          <a id="page" href="./sales_list?page=${i }">${i }</a>
+                          <a id="page" href="./sales_list?user_number=${user_number }&page=${i }">${i }</a>
                         </c:forEach>
                       </div>
 
@@ -149,13 +149,13 @@
                     </div>                      
                   </li>
 
-                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='review?user_number=${sessionScope.user_number}'">
+                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='review?user_number=${user_number}'">
                     <label for="tabmenu2">후기</label>
                     <div class="tabCon">
                     </div>
                   </li>  
 
-                  <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='zzim\?user_number=${sessionScope.user_number}'">
+                  <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='zzim\?user_number=${user_number}'">
                     <label for="tabmenu3">찜</label>
                     <div class="tabCon">
                     </div>                    

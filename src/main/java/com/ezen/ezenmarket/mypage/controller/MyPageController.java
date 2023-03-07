@@ -24,10 +24,15 @@ public class MyPageController {
 	
 	@GetMapping(value={"/", "/sales_list"})
 	public String salesList(HttpServletRequest req) {
+		if(req.getParameter("user_number").equals("")) {
+			return "user/signin";
+		} else {
+			service.getSaleList(req);
+			
+			return "mypage/sales_list";
+		}
 		
-		service.getSaleList(req);
 		
-		return "mypage/sales_list";
 	}
 	
 	@GetMapping(value="/buy_list")

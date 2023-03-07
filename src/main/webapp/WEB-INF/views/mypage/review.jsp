@@ -94,7 +94,7 @@
                 <div class="tabmenu out-tabmenu">
                   <ul>
                     <li id="tab1" class="btnCon"> 
-                      <input type="radio" name="tabmenu" id="tabmenu1" onclick="location.href='./?user_number=${sessionScope.user_number}'">
+                      <input type="radio" name="tabmenu" id="tabmenu1" onclick="location.href='./?user_number=${user_number}'">
                       <label for="tabmenu1">상품</label>
                       <div class="tabCon" >
               
@@ -117,11 +117,10 @@
                               	<c:forEach items="${review }" var="review">
 	                                <div class="member-image">
 	                                  <div class="member-image-box">
-	                                    <a href="#">
-	                                      <img src="https://ditoday.com/wp-content/uploads/2018/11/%ED%8F%AC%EC%8A%A4%ED%84%B0-e1543393143722-425x353.jpg" alt="프로필이미지">
-	                                    </a>
+	                                      <img src="${review.user_image }" >
+	                                    
 	                                  </div>
-	                                  <a href="#">
+	                                  <a href="./sales_list?user_number=${review.user_number }">
 	                                    <div class="title">${review.nickname }</div> <!--리뷰 작성자 닉네임-->
 	                                  </a>
 	                                </div>
@@ -130,14 +129,14 @@
 	                                  <span class="description" width="0">
 	                                    <span> 
 	                                      <span class="d-inline-block text-truncate" style="max-width: 300px;">${review.review_content }</span>
-	                                      <span></span>    
+	                                      <span></span>
 	                                      <span></span>                                    
 	                                    </span>
 	                                  </span>
 	                                </div>
 	                             </c:forEach>
 	                             <c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
-			                      <a href="./review?page=${i }">${i }</a>
+			                      <a href="./review?user_number=${user_number }&page=${i }">${i }</a>
 			                    </c:forEach>
                               </li>
                               <li></li>
@@ -148,7 +147,7 @@
                       </div>
                     </li> 
                         
-                    <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='./zzim?user_number=${sessionScope.user_number}'">
+                    <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='./zzim?user_number=${user_number}'">
                       <label for="tabmenu3">찜</label>
                       <div class="tabCon" >
                       
