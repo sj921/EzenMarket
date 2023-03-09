@@ -118,32 +118,6 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.cntWishlist(post_id);
 	}
 
-	
-	 /* 상세페이지에서 찜하기 */
-//	@Override
-//	public int insertWish(Wishlist wishlist) {
-//		// TODO Auto-generated method stub
-//		return productMapper.insertWish(wishlist);
-//	}
-//
-//	
-//	
-//	 /* 상세페이지에서 찜취소 */
-//	@Override
-//	public int deleteWish(Wishlist wishlist) {
-//		// TODO Auto-generated method stub
-//		return productMapper.deleteWish(wishlist);
-//	}
-//	
-//	 /* 찜여부 확인 */
-//	@Override
-//	public String isSavedWish(Integer user_number, Integer post_id) {
-//		// TODO Auto-generated method stub
-//		return productMapper.isSavedWish(user_number, post_id);
-//	}
-
-
-
 
 
 }

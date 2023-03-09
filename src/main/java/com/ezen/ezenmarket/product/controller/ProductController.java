@@ -65,7 +65,7 @@ public class ProductController {
 	@GetMapping("/category")
 	public String cateList(@RequestParam(required = false, defaultValue = "1") Integer category_id,
 	                       @RequestParam(required = false, defaultValue = "1") Integer page,
-	                       HttpServletRequest req, Model model) {
+	                       HttpServletRequest req, Integer post_id, Model model) {
 		model.addAttribute("id", productService.paging(req, category_id));
 		model.addAttribute("cateList", req.getAttribute("boards"));		
 		model.addAttribute("page",  req.getParameter("page"));
@@ -137,55 +137,10 @@ public class ProductController {
 		// 찜목록 개수 가져오기
 		int cntWishlist = productService.cntWishlist(p.getPost_id());		
 		model.addAttribute("cntWishlist", cntWishlist);
-				
-		// 찜여부 확인하기
-		// 유저 넘버 2번에 대해서만 조회 -> 로그인 여부 반영되어야 함
-		Wishlist w = new Wishlist();
-		int loginUser = w.getUser_number();
-		
-//		String isSavedWish =  productService.isSavedWish(w.getUser_number(), p.getPost_id());
-		
-		model.addAttribute("loginUser", loginUser);
-//		model.addAttribute("isSavedWish", isSavedWish);
+	
 		
 		return "product/product_detail";		
 	}
-
-	
-	/*
-	* 해당 상품 찜 여부 확인하기
-	*  
-	* 상품 상세페이지 찜하기 (찜하기 중복되면 X)
-	* 
-	* 상품 상세페이지 찜취소 기능
-	* 
-	*/
-	
-//	// 상품 상세페이지 찜하기 기능
-//	@PostMapping(value="/insertWish")
-//	@ResponseBody
-//	public String insertWish(Wishlist wishlist, Model model) {
-//		Wishlist w = new Wishlist();
-//		int loginUser = w.getUser_number();
-//		
-//		model.addAttribute("loginUser", loginUser);
-//		
-//		
-//		productService.insertWish(wishlist);
-//
-//		return "product/product_detail";			
-//	}
-//	
-//	
-//	// 상품 상세페이지 찜취소 기능
-//	@DeleteMapping(value="/deleteWish")
-//	@ResponseBody
-//	public String deleteWish(Wishlist wishlist) {		
-//		
-//		productService.deleteWish(wishlist);
-//		
-//		return "product/product_detail";		
-//	}
 
 
 	

@@ -22,18 +22,26 @@
 		<c:forEach items="${cateList}" var="list">	
 			<div class="item_card">
 				<div class="item_img">
+					<a href="product?id=${post.post_id }">
 					<img src="${list.image_url }" alt="상품">
+					</a>
 				</div>
 				<div class="text">
 					<h5>
+						<a href="product?id=${p.post_id }">
 						<i class="fa-regular fa-heart" style="float: right;"></i>${list.title }
+						</a>
 					</h5>
-					<p>
+						<a href="product?id=${p.post_id }">
+					<p>						
 						<fmt:formatNumber value="${list.price }" pattern="#,###" />
 						원
 					</p>
-					<p>${list.createdTimeAgo }</p>
-					<p>${list.post_address}</p>
+					</a>
+					<a href="product?id=${p.post_id }">
+					<p>${list.createdTimeAgo }</p></a>
+					<a href="product?id=${p.post_id }">
+					<p>${list.post_address}</p></a>
 					<!-- <button><i class="fas fa-check"></i>사러가기</button> -->
 				</div>				
 			</div>	

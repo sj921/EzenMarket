@@ -34,15 +34,5 @@ public interface ProductService {
 	 /* 찜 개수 가져오기 */
 	 public int cntWishlist (Integer post_id);
 
-//	 /* 상세페이지에서 찜하기 */
-//	 public int insertWish(Wishlist wishlist);
-//	 
-//	 /* 상세페이지에서 찜취소 */
-//	 public int deleteWish(Wishlist wishlist);
-//	
-//	 /* 찜여부 확인 */
-//	 public String isSavedWish(Integer user_number, Integer post_id);
-
-
 	 
 }
