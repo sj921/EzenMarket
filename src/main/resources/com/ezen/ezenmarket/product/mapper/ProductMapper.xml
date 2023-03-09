@@ -4,27 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.ezenmarket.product.mapper.ProductMapper">
 
-<!--	<select id="selectAllProducts" resultType="Integer">-->
+
+	<select id="selectAllProducts" resultType="com.ezen.ezenmarket.product.dto.Post">
 		<!-- SELECT * FROM 
 		(SELECT * FROM post INNER JOIN postImage USING (post_id) ORDER BY post_id DESC) 
 		WHERE <![CDATA[rownum<=15]]>--> 
-<!-- 		SELECT DISTINCT post_id FROM post INNER JOIN postImage USING (post_id) ORDER BY post_id DESC
-	</select> -->	
-<!-- 	
-	<select id="selectProduct" resultType="com.ezen.ezenmarket.product.dto.Post">
-		SELECT * FROM post INNER JOIN postImage USING (post_id) WHERE post_image_id = (SELECT min(post_image_id) FROM postimage WHERE post_id = #{id})
-	</select>	-->	
-
-
-	<select id="deduplicatedProd" resultType="com.ezen.ezenmarket.product.dto.Post">
 		SELECT * FROM post INNER JOIN postImage USING (post_id)
-		WHERE (post_id, post_image_id) in 
-		( select post_id, min(post_image_id) FROM postImage GROUP BY post_id)
-		ORDER BY post_id DESC	
+      WHERE (post_id, post_image_id) in 
+      (select post_id, min(post_image_id) FROM postImage GROUP BY post_id)
+      ORDER BY updated DESC
 	</select>
 	
-	
-	
+	<select id="selectProduct" resultType="com.ezen.ezenmarket.product.dto.Post">
+		SELECT * FROM post INNER JOIN postImage USING (post_id) WHERE post_image_id = (SELECT min(post_image_id) FROM postimage WHERE post_id = #{id})
+	</select>
+
+
 	<!-- ※※※※※ 여기부터 내가 한 것 (위에 것 건들지 말기!!) ※※※※※ -->	
 	
 	
@@ -41,7 +36,7 @@
 	</select>  
 	
 	<!-- 상품 상세페이지(상품정보 + 상품이미지정보 + 판매자정보) -->
-	<select id="getDetails" resultType="com.ezen.ezenmarket.product.dto.Post">
+	<!-- <select id="getDetails" resultType="com.ezen.ezenmarket.product.dto.Post">
 		SELECT 
 		    p.*,
 		    u.nickname, u.user_image,
@@ -52,7 +47,17 @@
 		INNER JOIN postimage i
 		ON  p.post_id = i.post_id    
 		WHERE p.post_id = #{post_id}	
-	</select>	
+	</select>-->  
+	
+	 
+	<select id="getDetails" resultType="com.ezen.ezenmarket.product.dto.Post">
+      SELECT * FROM post 
+      INNER JOIN postImage USING (post_id) 
+      INNER JOIN userlist USING (user_number)
+      WHERE post_image_id = (SELECT min(post_image_id) FROM postimage WHERE post_id = #{post_id})
+   </select> 
+	
+	
 	
 	<!-- 판매자가 등록한 상품 개수 가져오기 -->
 	<select id="cntProdBySeller" resultType="int">
@@ -74,7 +79,13 @@
 		ORDER BY p.post_id DESC
 	</select>
 	
-	<!-- 찜 개수 가져오기 -->
+		
+	<!-- 조회수 가져오기 -->
+	<update id="plusView">
+		UPDATE post SET post_view=post_view+1 WHERE post_id=#{post_id}	
+	</update>
+	
+	<!-- 찜 개수 가져오기(상세페이지) -->
 	<select id="cntWishlist" resultType="int">
 		SELECT 
 		    count(*) 
@@ -84,10 +95,35 @@
 		WHERE post_id=#{post_id}
 	</select>
 	
-	<!-- 조회수 가져오기 -->
-	<update id="plusView">
-		UPDATE post SET post_view=post_view+1 WHERE post_id=#{post_id}	
-	</update>
+	<!-- 찜여부 확인 (true, false)-->
+	<!-- <select id="isSavedWish" resultType="String" parameterType="com.ezen.ezenmarket.product.dto.Wishlist">
+		SELECT DECODE(count(*), 0, 'false', 'true') FROM wishlist
+		WHERE user_number= ${user_number} and post_id=${post_id}
+    </select> --> 	
+	<select id="countNumOfZzim" resultType="int">
+		SELECT 
+		    count(*) 
+		FROM wishlist w
+		INNER JOIN post p
+		ON  w.post_id = p.post_id   
+		WHERE w.user_number=#{user_number} AND w.post_id=#{post_id}
+	</select>	
 	
+	<!-- 상세페이지에서 찜하기 -->
+	<insert id="insertZzim">
+		INSERT INTO wishlist VALUES (wishlist_id_seq.nextval, #{user_number}, #{post_id})
+	</insert>
+
+	<!-- 상세페이지에서 찜취소 -->
+	<delete id="deleteZzim">
+		DELETE FROM wishlist 
+		WHERE user_number=#{user_number} AND post_id=#{post_id}
+	</delete>
+
+
+
+
+    
+
 	
 </mapper>

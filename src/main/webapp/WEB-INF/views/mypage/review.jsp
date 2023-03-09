@@ -90,7 +90,7 @@
                 <div class="tabmenu out-tabmenu">
                   <ul>
                     <li id="tab1" class="btnCon"> 
-                      <input type="radio" name="tabmenu" id="tabmenu1" onclick="location.href='mypage-상품.html'">
+                      <input type="radio" name="tabmenu" id="tabmenu1" onclick="location.href='sales_list'">
                       <label for="tabmenu1">상품</label>
                       <div class="tabCon" >
               
@@ -98,7 +98,7 @@
                       
                     </li>
                     <li id="tab2" class="btnCon">
-                      <input type="radio" name="tabmenu" id="tabmenu2" checked onclick="location.href='mypage-후기.html'">
+                      <input type="radio" name="tabmenu" id="tabmenu2" checked onclick="location.href='review'">
                       <label for="tabmenu2">후기</label>
                       <div class="tabCon" >
                         <div class="review-section">
@@ -140,7 +140,7 @@
                       </div>
                       
                     </li>    
-                    <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='mypage-찜.html'">
+                    <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" onclick="location.href='zzim'">
                       <label for="tabmenu3">찜</label>
                       <div class="tabCon" >
                       

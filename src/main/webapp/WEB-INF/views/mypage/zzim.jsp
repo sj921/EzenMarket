@@ -90,17 +90,17 @@
               <div class="tabmenu out-tabmenu">
                 <ul>
                   <li id="tab1" class="btnCon"> 
-                    <input type="radio" checked name="tabmenu" id="tabmenu1" onclick="location.href='mypage-상품.html'">
+                    <input type="radio" checked name="tabmenu" id="tabmenu1" onclick="location.href='sales_list'">
                     <label for="tabmenu1">상품</label>
                     <div class="tabCon" >                      
                     </div>                    
                   </li>
-                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='mypage-후기.html'">
+                  <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2" onclick="location.href='review'">
                     <label for="tabmenu2">후기</label>
                     <div class="tabCon" >                      
                     </div>                    
                   </li>    
-                  <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" checked onclick="location.href='mypage-찜.html'">
+                  <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3" checked onclick="location.href='zzim'">
                     <label for="tabmenu3">찜</label>
                     <div class="tabCon" >                        
                         <div class="zzim-section">
@@ -108,6 +108,8 @@
                           <span style="color: crimson; font-weight: 700;">1</span> <!--후기 등록될 때마다 숫자 증가해야 함-->
                         </div>
                         <br> 
+                        
+                        
                       <div class="container">
                         <div class="row">
                           <div class="col-4">
@@ -123,7 +125,10 @@
                             </a>
                           </div>
                         </div>
-                      </div>                      
+                      </div> 
+
+
+                    
                     </div>
                   </li>
               </ul>              

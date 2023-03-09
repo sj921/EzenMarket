@@ -9,10 +9,12 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.ezenmarket.product.dto.Post;
+import com.ezen.ezenmarket.product.dto.Wishlist;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -102,6 +104,13 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.getRelatedProd(user_number, post_id);
 	}
 
+	/* 조회수 가져오기 */
+	@Override
+	public Integer plusView(Integer post_id) {
+		// TODO Auto-generated method stub
+		return productMapper.plusView(post_id);
+	}
+	
 	/* 찜 개수 가져오기 */
 	@Override
 	public int cntWishlist (Integer post_id) {
@@ -109,12 +118,29 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.cntWishlist(post_id);
 	}
 
-	/* 조회수 가져오기 */
-	@Override
-	public Integer plusView(Integer post_id) {
-		// TODO Auto-generated method stub
-		return productMapper.plusView(post_id);
-	}
+	
+	 /* 상세페이지에서 찜하기 */
+//	@Override
+//	public int insertWish(Wishlist wishlist) {
+//		// TODO Auto-generated method stub
+//		return productMapper.insertWish(wishlist);
+//	}
+//
+//	
+//	
+//	 /* 상세페이지에서 찜취소 */
+//	@Override
+//	public int deleteWish(Wishlist wishlist) {
+//		// TODO Auto-generated method stub
+//		return productMapper.deleteWish(wishlist);
+//	}
+//	
+//	 /* 찜여부 확인 */
+//	@Override
+//	public String isSavedWish(Integer user_number, Integer post_id) {
+//		// TODO Auto-generated method stub
+//		return productMapper.isSavedWish(user_number, post_id);
+//	}
 
 
 

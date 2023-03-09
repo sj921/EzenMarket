@@ -1,7 +1,5 @@
 package com.ezen.ezenmarket;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +19,22 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Controller
 public class MainController {
-	
-	
-	@Autowired
-	ProductMapper productMapper;
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		
-		List<Post> posts = productMapper.deduplicatedProd();
-		if(posts != null && posts.size() >= 15) {
-			model.addAttribute("posts", posts.subList(0, 15));			
-		}
-		return "main";
-	}
-	
-	
-	
+   
+   
+   
+   @Autowired
+   ProductMapper productMapper;
+   
+   @RequestMapping(value = "/", method = RequestMethod.GET)
+   public String home(Model model) {
+      
+      List<Post> posts = productMapper.selectAllProducts();
+      if(posts != null && posts.size() >= 15) {
+         model.addAttribute("posts", posts.subList(0, 15));         
+      }
+      return "main";
+   }
+   
+   
+   
 }

@@ -27,5 +27,5 @@
 		<mybatis-spring:scan base-package="com.ezen.ezenmarket.admin.mapper"/>
 		<mybatis-spring:scan base-package="com.ezen.ezenmarket.chat.mapper"/>
 		<mybatis-spring:scan base-package="com.ezen.ezenmarket.mypage.mapper"/>
-		<mybatis-spring:scan base-package="com.ezen.ezenmarket.user.ma-pper"/>
+		<mybatis-spring:scan base-package="com.ezen.ezenmarket.user.mapper"/>
 </beans>

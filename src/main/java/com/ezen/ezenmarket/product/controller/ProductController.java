@@ -1,7 +1,5 @@
 package com.ezen.ezenmarket.product.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -9,18 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.CookieGenerator;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.ezenmarket.product.dto.Post;
+import com.ezen.ezenmarket.product.dto.Wishlist;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
 import com.ezen.ezenmarket.product.service.ProductService;
-import com.ezen.ezenmarket.user.dto.User;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -34,6 +37,14 @@ public class ProductController {
 	@Autowired
 	ProductService productService;	// 내가 추가한 것
 
+	
+//	@GetMapping(value="/product")
+//	public String productDetail(String id, Model model) {
+//		
+//		model.addAttribute("post", productMapper.selectProduct(id));
+//		
+//		return "product/product_detail";
+//	}
 	
 	@GetMapping(value="/search")
 	public String searchProduct() {
@@ -69,14 +80,13 @@ public class ProductController {
 	 /* 상품 상세페이지(상품정보 + 상품이미지정보 + 판매자정보) */
 	@GetMapping(value="/product")
 	public String productDetail(@RequestParam("id") Integer post_id, 
-												HttpServletRequest request, 
-												HttpServletResponse response, 
-												Model model) {
+							HttpServletRequest request, HttpServletResponse response, Model model) {
 		             
 		Post p =  productService.getDetails(post_id);	
 		int cntProd = productService.cntProdBySeller(p.getUser_number());	
 		model.addAttribute("cntProd", cntProd);	
 		model.addAttribute("post", p); 	
+		
 			
 		// 판매자가 등록한 연관상품 목록 가져오기
 		List<Post> lists = productService.getRelatedProd(p.getUser_number(), p.getPost_id());
@@ -85,11 +95,6 @@ public class ProductController {
 		} else if(lists != null){
 			model.addAttribute("lists", lists);
 		}
-		
-		// 찜목록 개수 가져오기
-		int cntWishlist = productService.cntWishlist(p.getPost_id());		
-		model.addAttribute("cntWishlist", cntWishlist);
-				
 		
 		/* 조회수 가져오기 (새로고침 시  중복 방지) */			
 		
@@ -124,14 +129,65 @@ public class ProductController {
 	        // 3) 쿠키X&방문X  -> new cookie 생성 & id 추가
 	        visitCookieValue += "/" + p.getPost_id();
 	        Cookie newCookie = new Cookie("visit_cookie", visitCookieValue);
-	        newCookie.setMaxAge(60 * 60 * 24);	// 쿠키는 24시간(하루) 동안 유효
+	        newCookie.setMaxAge(60*60*24);	// 쿠키는 24시간(하루) 동안 유효
 	        response.addCookie(newCookie);	     
 	        productService.plusView(p.getPost_id());
 	    }
+			    
+		// 찜목록 개수 가져오기
+		int cntWishlist = productService.cntWishlist(p.getPost_id());		
+		model.addAttribute("cntWishlist", cntWishlist);
+				
+		// 찜여부 확인하기
+		// 유저 넘버 2번에 대해서만 조회 -> 로그인 여부 반영되어야 함
+		Wishlist w = new Wishlist();
+		int loginUser = w.getUser_number();
 		
-		return "product/product_detail";
+//		String isSavedWish =  productService.isSavedWish(w.getUser_number(), p.getPost_id());
 		
+		model.addAttribute("loginUser", loginUser);
+//		model.addAttribute("isSavedWish", isSavedWish);
+		
+		return "product/product_detail";		
 	}
 
+	
+	/*
+	* 해당 상품 찜 여부 확인하기
+	*  
+	* 상품 상세페이지 찜하기 (찜하기 중복되면 X)
+	* 
+	* 상품 상세페이지 찜취소 기능
+	* 
+	*/
+	
+//	// 상품 상세페이지 찜하기 기능
+//	@PostMapping(value="/insertWish")
+//	@ResponseBody
+//	public String insertWish(Wishlist wishlist, Model model) {
+//		Wishlist w = new Wishlist();
+//		int loginUser = w.getUser_number();
+//		
+//		model.addAttribute("loginUser", loginUser);
+//		
+//		
+//		productService.insertWish(wishlist);
+//
+//		return "product/product_detail";			
+//	}
+//	
+//	
+//	// 상품 상세페이지 찜취소 기능
+//	@DeleteMapping(value="/deleteWish")
+//	@ResponseBody
+//	public String deleteWish(Wishlist wishlist) {		
+//		
+//		productService.deleteWish(wishlist);
+//		
+//		return "product/product_detail";		
+//	}
+
+
+	
 	
 }
