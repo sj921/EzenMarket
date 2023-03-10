@@ -83,16 +83,7 @@ public class MyPageController {
 		model.addAttribute("keyword", myPageTitle); // 검색한 키워드
 		model.addAttribute("myPageTitle", mypageMapper.mypageManaging(user_number, myPageTitle, vo));
 		
-		// 검색어가 없을 때 없다고 화면에 나오게 하려고 이렇게 만듬
-//		List<Post> list = mypageMapper.mypageManaging(user_number, myPageTitle, vo);
-
-//		if (!list.isEmpty()) {
-//			model.addAttribute("myPageTitle", list);
-//			System.out.println("검색어가 있는 경우 출력");
-//		} else {
-//			model.addAttribute("searchKeyword", "empty");
-//			System.out.println("검색어가 없는 경우 출력 제발!!!");
-//		}			
+		
 		
 		
 		return "mypage/storeManaging";

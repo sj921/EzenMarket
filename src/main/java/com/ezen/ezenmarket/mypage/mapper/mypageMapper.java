@@ -17,4 +17,6 @@ public interface mypageMapper {
 	// 총 상품 등록한 개수를 가져옴
 	public int countMyPageProduct(@Param("myPageTitle") String mypageTitle, @Param("user_number") Integer user_number); 
 
+	// 판매완료
+	public int soldOut();
 }
