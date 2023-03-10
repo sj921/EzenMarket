@@ -7,6 +7,9 @@
 
 	if (errorMsg == null) 
 		errorMsg ="";
+	
+	// 이거 지우면 메인으로 갔다가 다시 로그인 창으로 돌아왔을 떄 에러메세지가 그대로임
+	session.invalidate();
 
 %>
 <!doctype html>

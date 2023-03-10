@@ -8,8 +8,6 @@
 </head>
 <body>
 
-	<jsp:include page="./includeTest/headerTest.jsp"></jsp:include>
-	<jsp:include page="./includeTest/middleTest.jsp"></jsp:include>
 
 </body>
 </html>

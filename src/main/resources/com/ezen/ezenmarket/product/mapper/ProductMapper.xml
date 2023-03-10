@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.ezenmarket.product.mapper.ProductMapper">
+
 	<select id="selectAllProducts" resultType="com.ezen.ezenmarket.product.dto.Post">
-		<!-- SELECT * FROM 
-		(SELECT * FROM post INNER JOIN postImage USING (post_id) ORDER BY post_id DESC) 
-		WHERE <![CDATA[rownum<=15]]>--> 
-		SELECT * FROM post INNER JOIN postImage USING (post_id) ORDER BY post_id DESC
+		SELECT * FROM post INNER JOIN postImage USING (post_id)
+		WHERE (post_id, post_image_id) in 
+		(select post_id, min(post_image_id) FROM postImage GROUP BY post_id)
+		ORDER BY post_id DESC
 
 	</select>
 	
@@ -19,5 +20,50 @@
 		INSERT INTO post VALUES (post_id_cnt_seq.NEXTVAL, #{user_number}, #{post_address}, #{title}, #{post_content}, #{category_id}, #{price}, 
 			<![CDATA[sysdate]]>, <![CDATA[sysdate]]>, 0)
 	</select>
+	
+	<!-- 검색 기능 -->
+	<select id="searchProduct" resultType="com.ezen.ezenmarket.product.dto.Post">
+	 	SELECT * FROM post INNER JOIN postImage USING (post_id)
+      WHERE (post_id, post_image_id) in 
+      (select post_id, min(post_image_id) FROM postImage GROUP BY post_id) 
+        AND
+        (title LIKE '%'||#{search}||'%'
+        OR
+        post_content LIKE '%'||#{search}||'%')
+      ORDER BY post_id DESC -
+      SELECT title, post_content FROM post WHERE 
+	</select>
+
+	<!-- 검색 + 페이징 처리 -->
+	<select id="getProductWithPaging" resultType="com.ezen.ezenmarket.product.dto.Post">  
+       SELECT * FROM (SELECT A.*, ROWNUM AS RN FROM (SELECT * FROM post INNER JOIN postimage USING (post_id)
+      WHERE (post_id, post_image_id) IN 
+      (SELECT post_id, min(post_image_id) FROM postImage GROUP BY post_id) AND (title LIKE '%'||#{title}||'%' OR post_content LIKE '%'||#{title}||'%') ORDER BY updated DESC) A
+      WHERE rownum <![CDATA[<=]]> #{vo.end})WHERE RN <![CDATA[>=]]> #{vo.start}     
+	</select>
+	
+	<!-- 검색한 상품 총 개수 출력 -->
+	<select id="countProduct" resultType="int">
+		 SELECT COUNT(*) FROM post INNER JOIN postImage USING (post_id) WHERE (title LIKE '%'||#{title}||'%' OR post_content LIKE '%'||#{title}||'%')
+	</select>
+	
+		<!-- 가격 높은순 -->
+	<select id="getProductHighPrice" resultType="com.ezen.ezenmarket.product.dto.Post">  
+       SELECT * FROM (SELECT A.*, ROWNUM AS RN FROM (SELECT * FROM post INNER JOIN postimage USING (post_id)
+      WHERE (post_id, post_image_id) IN 
+      (SELECT post_id, min(post_image_id) FROM postImage GROUP BY post_id) AND (title LIKE '%'||#{title}||'%' OR post_content LIKE '%'||#{title}||'%') ORDER BY price DESC) A
+      WHERE rownum <![CDATA[<=]]> #{vo.end})WHERE RN <![CDATA[>=]]> #{vo.start}     
+	</select>
+	
+		<!-- 가격 낮은순 -->
+	<select id="getProductLowPrice" resultType="com.ezen.ezenmarket.product.dto.Post">  
+       SELECT * FROM (SELECT A.*, ROWNUM AS RN FROM (SELECT * FROM post INNER JOIN postimage USING (post_id)
+      WHERE (post_id, post_image_id) IN 
+      (SELECT post_id, min(post_image_id) FROM postImage GROUP BY post_id) AND (title LIKE '%'||#{title}||'%' OR post_content LIKE '%'||#{title}||'%') ORDER BY price ASC) A
+      WHERE rownum <![CDATA[<=]]> #{vo.end})WHERE RN <![CDATA[>=]]> #{vo.start}     
+	</select>
+	
+
+
 	
 </mapper>

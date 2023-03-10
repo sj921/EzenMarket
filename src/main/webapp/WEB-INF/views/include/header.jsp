@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> <!-- 부트스트랩-->
@@ -167,7 +167,7 @@
       
       #search {
       	margin-top: 5px;
-      	width : 350px;
+      	width : 380px;
       	border : 0px;
       	outline : none;
       	
@@ -217,6 +217,7 @@
               <li><a class="menuLink a-tag" href="signin">로그인</a></li>
                </c:otherwise>
               </c:choose>
+              <li><a class="menuLink a-tag" href="mypage/storeManagingWithPaging">내상점</a></li>
             </ul>
           </nav>
 
@@ -224,10 +225,13 @@
 
           <nav class="head">
             <a class="logo a-tag" href="">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>
+      <form id="searchForm" action="./searchPagenation" method="GET">
            <div class="searchbox">
-            <input id="search" type="search" placeholder=" 검색어 입력">
-            <button id="searchBtn">검색</button>
-           </div>
+            <input class="search" id="search" type="search" name="title" autocomplete="off" placeholder=" 검색어 입력" onclick="keydown();">
+            <button type="submit" id="searchBtn">검색</button>
+           </div>     
+      </form>
+    	
            <!--  <i id="readglasses" class="fa-solid fa-magnifying-glass"></i> -->
           </nav>
 
@@ -239,6 +243,18 @@
           </div>
 
         </header>
+        
+        
+    <script>
+    
+     
+      
+     
+   
+    </script>
+     	
+
+    
 
 
 </body>

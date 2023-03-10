@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.ezenmarket.mypage.mapper.mypageMapper">
+
+
+	<!-- 내 상점 관리 -->
+	<select id="mypageManaging" resultType="com.ezen.ezenmarket.product.dto.Post">
+	  SELECT * FROM (SELECT A.*, ROWNUM AS RN FROM (SELECT * FROM post INNER JOIN postimage USING (post_id)
+      	WHERE (post_id, post_image_id) IN 
+      	(SELECT post_id, min(post_image_id) FROM postImage GROUP BY post_id) AND user_number = #{user_number} AND
+     	(title LIKE '%'||#{myPageTitle}||'%' OR post_content LIKE '%'||#{myPageTitle}||'%') ORDER BY updated DESC) A
+      WHERE rownum <![CDATA[<=]]> #{vo.end})WHERE RN <![CDATA[>=]]> #{vo.start}     
+	</select>
+	
+	
+	<!-- 검색한 상품 총 개수 출력 -->
+	<select id="countMyPageProduct" resultType="int">
+		 SELECT COUNT(*) FROM post INNER JOIN postImage USING (post_id) WHERE user_number = #{user_number} AND (title LIKE '%'||#{myPageTitle}||'%' OR post_content LIKE '%'||#{myPageTitle}||'%')
+	</select>
+	
+	<select id="soldOut" resultType="int">
+		INSERT INTO enddeal values (enddeal_id_seq.nextval,#{seller_user_number},#{buyer_user_number},#{post_id})
+	</select>
+	
+</mapper>

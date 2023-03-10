@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.ezenmarket.mypage.mapper.mypageMapper;
 import com.ezen.ezenmarket.user.controller.LogOutController;
 import com.ezen.ezenmarket.user.dto.User;
 import com.ezen.ezenmarket.user.mapper.UserMapper;
@@ -22,6 +23,8 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	UserMapper userMapper;
+	
+	
 	
 	
 	@Override
@@ -41,6 +44,9 @@ public class LoginServiceImpl implements LoginService{
 				Cookie cookie = new Cookie("user_id", user_id);
 				cookie.setPath(req.getContextPath());
 				resp.addCookie(cookie);
+				
+				
+				session.setAttribute("user_number", user.getUser_Number());
 				
 				return true;
  

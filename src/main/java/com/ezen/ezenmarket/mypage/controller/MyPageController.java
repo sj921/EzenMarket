@@ -1,8 +1,21 @@
 package com.ezen.ezenmarket.mypage.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ezen.ezenmarket.mypage.mapper.mypageMapper;
+import com.ezen.ezenmarket.product.dto.PagingVO;
+import com.ezen.ezenmarket.product.dto.Post;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -10,6 +23,11 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 @RequestMapping(value="/mypage")
 public class MyPageController {
+	
+	@Autowired
+	mypageMapper mypageMapper;
+
+	
 
 	@GetMapping(value={"/", "/sales_list"})
 	public String salesList() {
@@ -35,7 +53,54 @@ public class MyPageController {
 		return "mypage/starReview";
 	}
 	
+	@GetMapping(value="/storeManagingWithPaging")
+	public String sellingProducts(@Param("vo")PagingVO vo, @Param("myPageTitle") String myPageTitle, 
+			Post post, Model model,
+			@RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, HttpServletRequest req) {
+		
+		
+		
+		HttpSession session =  req.getSession();
+		Integer user_number = Integer.parseInt(session.getAttribute("user_number").toString());
+		
+		int total = mypageMapper.countMyPageProduct(myPageTitle, user_number);
+		
+		
+		
+		// 이게 이해가 잘 안됨
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "5";
+		}
+
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", vo); // 페이지네이션
+		model.addAttribute("keyword", myPageTitle); // 검색한 키워드
+		model.addAttribute("myPageTitle", mypageMapper.mypageManaging(user_number, myPageTitle, vo));
+		
+		// 검색어가 없을 때 없다고 화면에 나오게 하려고 이렇게 만듬
+//		List<Post> list = mypageMapper.mypageManaging(user_number, myPageTitle, vo);
+
+//		if (!list.isEmpty()) {
+//			model.addAttribute("myPageTitle", list);
+//			System.out.println("검색어가 있는 경우 출력");
+//		} else {
+//			model.addAttribute("searchKeyword", "empty");
+//			System.out.println("검색어가 없는 경우 출력 제발!!!");
+//		}			
+		
+		
+		return "mypage/storeManaging";
+		
+		
+		
+	}
 	
-	
+
 	
 }
