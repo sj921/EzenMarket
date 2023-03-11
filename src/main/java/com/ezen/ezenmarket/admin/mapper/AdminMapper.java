@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.ezen.ezenmarket.admin.dto.AdminDTO;
 import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
 
@@ -34,5 +33,9 @@ public interface AdminMapper{
 	@Delete("DELETE FROM review WHERE review_id=#{review_id}")
 	Integer deleteReview(Integer review_id);
 	
+	@Select("SELECT COUNT(*) FROM report WHERE report_status = '0'")
+	Integer selectUnresolved(Integer report_id);
+	
+
 	
 }

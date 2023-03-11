@@ -51,6 +51,35 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>신고 관리</span></a>
             </li>
+            
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>관리자 기능</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">관리자 기능</h6>
+                        <a class="collapse-item" href="buttons.html">배너 변경</a>
+                        
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+
+        </ul>
+        <!-- End of Sidebar -->
 
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
@@ -174,12 +203,18 @@
 										   </td>
 										          <td>
                                              <c:choose>
-											      <c:when test="${report.report_type == 1}">
+											      <c:when test="${report.report_type == 0}">
 											        <a href="ezenmarket/mypage?user_number=${report.report_detail}" class="view" title="마이페이지로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 											      </c:when>
 											      
-											      <c:when test="${report.report_type == 2}">
+											      <c:when test="${report.report_type == 1}">
 											        <a href="ezenmarket/post?id=${report.report_detail}" class="view" title="포스트로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+											        <a href="reportlist/deletePost?post_id=${report.report_detail }" class="delete" title="삭제"
+											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+											      </c:when>
+											      
+											      <c:when test="${report.report_type == 2}">
+											        <a href="ezenmarket/chattingroom?id=${report.report_detail}" class="view" title="채팅으로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 											        <a href="reportlist/deletePost?post_id=${report.report_detail }" class="delete" title="삭제"
 											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 											      </c:when>

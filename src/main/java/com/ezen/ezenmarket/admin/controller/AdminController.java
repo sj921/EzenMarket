@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
 import com.ezen.ezenmarket.admin.mapper.AdminMapper;
+import com.ezen.ezenmarket.admin.service.AdminMainPageService;
 
 @RequestMapping("/admin")
 @Controller
@@ -17,6 +18,8 @@ public class AdminController {
 	@Autowired
 	AdminMapper adminMapper;
 	
+	@Autowired
+	private AdminMainPageService adminMainPageService;
 	
 	@GetMapping("/error")
 	public String error() {
@@ -73,8 +76,12 @@ public class AdminController {
 
 	
 	@GetMapping(value={"/mainpage"})
-	public String mainpage() {
+	public String mainpage(Model model) {
 		
+		int reportCount = adminMainPageService.getReportCount();
+		int postCount = adminMainPageService.getPostCount();
+	    model.addAttribute("reportCount", reportCount);
+	    model.addAttribute("postCount", postCount);
 		
 		return "admin/mainpage";
 	}

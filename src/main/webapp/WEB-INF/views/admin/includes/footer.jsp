@@ -67,16 +67,16 @@
       reportTypeCells.forEach(cell => {
         const reportType = parseInt(cell.textContent);
         switch (reportType) {
-          case 1:
+          case 0:
             cell.textContent = '유저';
             break;
-          case 2:
+          case 1:
             cell.textContent = '게시물';
             break;
-          case 3:
+          case 2:
               cell.textContent = '채팅';
               break;
-          case 4:
+          case 3:
               cell.textContent = '리뷰';
               break;
           default:

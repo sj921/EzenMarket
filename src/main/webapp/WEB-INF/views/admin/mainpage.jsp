@@ -4,6 +4,9 @@
 
 <%@include file="./includes/header.jsp" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -47,6 +50,22 @@
                 <a class="nav-link" href="reportlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>신고 관리</span></a>
+            </li>
+            
+            		<!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>관리자 기능</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">관리자 기능</h6>
+                        <a class="collapse-item" href="buttons.html">배너 변경</a>
+                        
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -132,7 +151,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">일별통계</h1>
+                        <h1 class="h3 mb-0 text-gray-800">이젠마켓 월별통계</h1>
                        
                     </div>
 
@@ -146,8 +165,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                               오늘 새로 등록된 글 </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">7</div>
+                                               대기중인 신고 </div>
+                                                                                
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${reportCount}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -164,8 +184,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               오늘 올라온 글</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                                               이번달 등록된 게시물</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${postCount}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
