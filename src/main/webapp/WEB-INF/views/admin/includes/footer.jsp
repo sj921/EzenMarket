@@ -60,7 +60,7 @@
 
 
     <!-- Page level custom scripts -->
-    <%-- <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script> --%>
+    <%-- <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>  --%>
     
     <!-- report scripts -->
 
@@ -100,8 +100,8 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
-</script>  
-    <script>
+</script>
+<script>
       const reportTypeCells = document.querySelectorAll('#report-type');
       reportTypeCells.forEach(cell => {
         const reportType = parseInt(cell.textContent);
