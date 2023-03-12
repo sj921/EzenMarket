@@ -26,16 +26,14 @@ public class ReportController {
 		 String etc = req.getParameter("etc");
 		 String currentPage = req.getParameter("currentPage");
 		 
-		 System.out.println("currentPage: " + currentPage);
+		 // System.out.println("currentPage: " + currentPage);
 		 
 		 if (etc != null) {
 			 cause = cause + "  " + etc;
-			 
-			
 		 } 
 		 
-		 System.out.println(cause);
+		//  System.out.println("사유: " + cause);
 		 reportmapper.insertReport(currentPage, cause, Integer.parseInt(post_id));
 		 return "redirect:/";
 	 }
-} 
+}

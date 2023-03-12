@@ -19,6 +19,6 @@ public class User {
 	private String email;
 	private String user_address;
 	private String user_image;
-	private Integer banned;
 	private String user_intro;
+	private Integer banned;
 }

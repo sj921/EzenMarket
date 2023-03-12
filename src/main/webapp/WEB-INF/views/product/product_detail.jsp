@@ -58,12 +58,14 @@
         
         
     </style>
+    
 </head>
 
 <body>
-
+<jsp:include page="../include/header.jsp"/>
+ <jsp:include page="./product_category.jsp" />
     <!-- Product section-->    
-    <div style="width: 1200px; clear: both; margin: auto;">
+    <div style="width: 1200px; clear: right; margin-left: 500px;">
         <section class="py-5">
             <hr style="border: 1px black solid;">
             <div class="container px-lg-5 my-5" style="width: 1050px;">
@@ -81,9 +83,8 @@
               		<div class="swiper-pagination"></div> 
 					</div>
 					</div>
-                    &emsp;
-                    &emsp;
-                    &emsp;
+                    &emsp;&emsp;&emsp;
+                  
                     <div class="col-md-6" style="margin-left: 15px;">
                         <div class="fs-5 large mb-1 fw-bolder">${post.title}</div>
                         <h3 class="display-6 fw-bolder"><fmt:formatNumber value="${post.price}" pattern="#,###" />원</h3>
@@ -91,8 +92,9 @@
                         <div class="fs-5 mb-4">
                             <i class="bi bi-heart-fill"></i>&nbsp;${cntWishlist}&nbsp;
                             <i class="bi bi-eye-fill"></i>&nbsp;${post.post_view}&nbsp;
-                            <i class="bi bi-clock-fill"></i>&nbsp;${post.createdTimeAgo }
-                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                            <i class="bi bi-clock-fill"></i>&nbsp;${post.createdTimeAgo}
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         
                         <jsp:include page="./report.jsp" />
   
@@ -246,6 +248,7 @@
 		document.querySelector("#close").addEventListener("click", close);
 	</script>
 	
+	               
 	                        
    
       

@@ -40,10 +40,4 @@ public interface ProductMapper {
 	/* 조회수 가져오기 */
 	 public Integer plusView(Integer post_id);
 	 
-
-	 
-	 
-	 
-	 
-	 
 }
