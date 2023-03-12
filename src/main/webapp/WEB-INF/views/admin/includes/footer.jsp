@@ -5,7 +5,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>±¸¸®ÀÌÁ¨ ÆÀÇÁ·ÎÁ§Æ® </span>
+                        <span>êµ¬ë¦¬ì´ì   íŒ€í”„ë¡œì íŠ¸ </span>
                     </div>
                 </div>
             </footer>
@@ -24,15 +24,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">·Î±×¾Æ¿ô</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">ë¡œê·¸ì•„ì›ƒ</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">¡¿</span>
+                        <span aria-hidden="true">Ã—</span>
                     </button>
                 </div>
-                <div class="modal-body">·Î±×¾Æ¿ôÀ» ´©¸¦½Ã ÁøÇà»óÈ²ÀÌ ÀúÀåµÇÁö ¾Ê½À´Ï´Ù.</div>
+                <div class="modal-body">ë¡œê·¸ì•„ì›ƒì„ ëˆ„ë¥¼ì‹œ ì§„í–‰ìƒí™©ì´ ì €ì¥ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</div>
                 <div class="modal-footer">
-                    <a class="btn btn-primary" href="login.html">·Î±×¾Æ¿ô</a>
-                    <button class="btn btn-secondary " type="button" data-dismiss="modal" >Ãë¼Ò</button>
+                    <a class="btn btn-primary" href="login.html">ë¡œê·¸ì•„ì›ƒ</a>
+                    <button class="btn btn-secondary " type="button" data-dismiss="modal" >ì·¨ì†Œ</button>
                 </div>
             </div>
         </div>
@@ -56,28 +56,67 @@
     <script src="${pageContext.request.contextPath}/resources/js/demo/datatables-demo.js"></script>
 	
 	 <!-- Page level plugins -->
-    <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script> 
+
 
     <!-- Page level custom scripts -->
     <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
     
     <!-- report scripts -->
+
+<script>
+    // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["ì˜ë¥˜", "ì „ìê¸°ê¸°", "ê°€ì •ìš©í’ˆ"],
+    datasets: [{
+      data: [${categoryFirst}, ${categorySecond}, ${categoryThird}],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+</script>  
     <script>
       const reportTypeCells = document.querySelectorAll('#report-type');
       reportTypeCells.forEach(cell => {
         const reportType = parseInt(cell.textContent);
         switch (reportType) {
           case 0:
-            cell.textContent = 'À¯Àú';
+            cell.textContent = 'ìœ ì €';
             break;
           case 1:
-            cell.textContent = '°Ô½Ã¹°';
+            cell.textContent = 'ê²Œì‹œë¬¼';
             break;
           case 2:
-              cell.textContent = 'Ã¤ÆÃ';
+              cell.textContent = 'ì±„íŒ…';
               break;
           case 3:
-              cell.textContent = '¸®ºä';
+              cell.textContent = 'ë¦¬ë·°';
               break;
           default:
             cell.textContent = reportType;
@@ -85,7 +124,6 @@
         }
       });
 	</script>
-    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 	<!-- <script>
 	$(document).ready(function() {
 	

@@ -80,9 +80,16 @@ public class AdminController {
 		
 		int reportCount = adminMainPageService.getReportCount();
 		int postCount = adminMainPageService.getPostCount();
-	    model.addAttribute("reportCount", reportCount);
+		int categoryFirst = adminMainPageService.getCategoryFirst();
+		int categorySecond = adminMainPageService.getCategorySecond();
+		int categoryThird = adminMainPageService.getCategoryThird();
+
+		model.addAttribute("reportCount", reportCount);
 	    model.addAttribute("postCount", postCount);
-		
+		model.addAttribute("categoryFirst", categoryFirst);
+		model.addAttribute("categorySecond", categorySecond);
+		model.addAttribute("categoryThird", categoryThird);
+	    
 		return "admin/mainpage";
 	}
 	

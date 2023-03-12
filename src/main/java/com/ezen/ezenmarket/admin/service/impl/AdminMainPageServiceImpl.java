@@ -49,4 +49,53 @@ public class AdminMainPageServiceImpl implements AdminMainPageService {
 			}
 	        return count;
 	}
+	
+	@Override
+	public int getCategoryFirst() {
+		int count = 0;
+		try (Connection conn = dataSource.getConnection();
+	             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM post WHERE category_id = 1");
+	             ResultSet rs = ps.executeQuery()) {
+	            if (rs.next()) {
+	                count = rs.getInt(1);
+	            }
+	        } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return count;
+	}
+	
+	@Override
+	public int getCategorySecond() {
+		int count = 0;
+		try (Connection conn = dataSource.getConnection();
+	             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM post WHERE category_id = 2");
+	             ResultSet rs = ps.executeQuery()) {
+	            if (rs.next()) {
+	                count = rs.getInt(1);
+	            }
+	        } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return count;
+	}
+	
+	@Override
+	public int getCategoryThird() {
+		int count = 0;
+		try (Connection conn = dataSource.getConnection();
+	             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM post WHERE category_id = 3");
+	             ResultSet rs = ps.executeQuery()) {
+	            if (rs.next()) {
+	                count = rs.getInt(1);
+	            }
+	        } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return count;
+	}
+	
 }
