@@ -19,6 +19,38 @@ public class AdminMainPageServiceImpl implements AdminMainPageService {
     private DataSource dataSource;
 	
 	@Override
+	public int getTodayVisitor() {
+		int count = 0;
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM visitor WHERE TRUNC(visit_time) = TRUNC(SYSDATE)");
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return count;
+	}
+	
+	@Override
+	public int getThisMonthVisitor() {
+		int count = 0;
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM visitor WHERE visit_time >= TRUNC(SYSDATE, 'MONTH') AND visit_time < ADD_MONTHS(TRUNC(SYSDATE, 'MONTH'), 1)");
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return count;
+	}
+	
+	@Override
 	public int getReportCount() {
 		int count = 0;
         try (Connection conn = dataSource.getConnection();

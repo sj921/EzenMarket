@@ -5,7 +5,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>êµ¬ë¦¬ì´ì   íŒ€í”„ë¡œì íŠ¸ </span>
+                        <span>±¸¸®ÀÌÁ¨ ÆÀÇÁ·ÎÁ§Æ® </span>
                     </div>
                 </div>
             </footer>
@@ -24,15 +24,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ë¡œê·¸ì•„ì›ƒ</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">·Î±×¾Æ¿ô</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Ã—</span>
+                        <span aria-hidden="true">¡¿</span>
                     </button>
                 </div>
-                <div class="modal-body">ë¡œê·¸ì•„ì›ƒì„ ëˆ„ë¥¼ì‹œ ì§„í–‰ìƒí™©ì´ ì €ì¥ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</div>
+                <div class="modal-body">·Î±×¾Æ¿ôÀ» ´©¸¦½Ã ÁøÇà»óÈ²ÀÌ ÀúÀåµÇÁö ¾Ê½À´Ï´Ù.</div>
                 <div class="modal-footer">
-                    <a class="btn btn-primary" href="login.html">ë¡œê·¸ì•„ì›ƒ</a>
-                    <button class="btn btn-secondary " type="button" data-dismiss="modal" >ì·¨ì†Œ</button>
+                    <a class="btn btn-primary" href="login.html">·Î±×¾Æ¿ô</a>
+                    <button class="btn btn-secondary " type="button" data-dismiss="modal" >Ãë¼Ò</button>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
 
     <!-- Page level custom scripts -->
-    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
+    <%-- <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script> --%>
     
     <!-- report scripts -->
 
@@ -74,7 +74,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["ì˜ë¥˜", "ì „ìê¸°ê¸°", "ê°€ì •ìš©í’ˆ"],
+    labels: ["³²¼ºÀÇ·ù", "¿©¼ºÀÇ·ù", "½Å¹ß"],
     datasets: [{
       data: [${categoryFirst}, ${categorySecond}, ${categoryThird}],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
@@ -107,34 +107,147 @@ var myPieChart = new Chart(ctx, {
         const reportType = parseInt(cell.textContent);
         switch (reportType) {
           case 0:
-            cell.textContent = 'ìœ ì €';
+            cell.textContent = 'À¯Àú';
             break;
           case 1:
-            cell.textContent = 'ê²Œì‹œë¬¼';
+            cell.textContent = '°Ô½Ã¹°';
             break;
           case 2:
-              cell.textContent = 'ì±„íŒ…';
+              cell.textContent = 'Ã¤ÆÃ';
               break;
           case 3:
-              cell.textContent = 'ë¦¬ë·°';
+              cell.textContent = '¸®ºä';
               break;
           default:
             cell.textContent = reportType;
             break;
         }
       });
-	</script>
-	<!-- <script>
-	$(document).ready(function() {
-	
-	$('#dataTables-example').DataTable({
-					responsive : true
-				});
-				$(".sidebar-nav").attr("class", "sidebar-nav navbar-collapse")
-						.attr("aria-expanded", 'false').attr("style",
-								"height:1px");
-			});
-</script> -->
+</script>
+
+<script>
+//Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+function number_format(number, decimals, dec_point, thousands_sep) {
+  // *     example: number_format(1234.56, 2, ',', ' ');
+  // *     return: '1 234,56'
+  number = (number + '').replace(',', '').replace(' ', '');
+  var n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    s = '',
+    toFixedFix = function(n, prec) {
+      var k = Math.pow(10, prec);
+      return '' + Math.round(n * k) / k;
+    };
+  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+  if ((s[1] || '').length < prec) {
+    s[1] = s[1] || '';
+    s[1] += new Array(prec - s[1].length + 1).join('0');
+  }
+  return s.join(dec);
+}
+
+// Area Chart Example
+var ctx = document.getElementById("myAreaChart");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä", "ÀÏ"],
+    datasets: [{
+      label: "",
+      lineTension: 0.3,
+      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      borderColor: "rgba(78, 115, 223, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointBorderColor: "rgba(78, 115, 223, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [0, 10, 50, 150, 100, 200, 150],
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          maxTicksLimit: 5,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return number_format(value);
+          }
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      intersect: false,
+      mode: 'index',
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return 'Users : ' + number_format(tooltipItem.yLabel);
+        }
+      }
+    }
+  }
+});
+
+</script>
+
+
 
 </body>
 

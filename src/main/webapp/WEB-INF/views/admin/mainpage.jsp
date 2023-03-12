@@ -170,7 +170,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${reportCount}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-triangle-exclamation fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${postCount}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -201,23 +201,23 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">일일 사이트 접속자
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">일일 사이트 접속자 수
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">125,011</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${todayVisitor}</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: 15%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-user-large fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -231,11 +231,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                오늘 추가된 신고</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                이번달 사이트 접속자 수</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${thisMonthVisitor }</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-user-group fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">월별 사이트 접속자 수</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">주간 사이트 접속자 수</h6>
                                    
                                 </div>
                                 <!-- Card Body -->
@@ -271,7 +271,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">카테고리별 게시물</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">카테고리별 게시물(상위 3개)</h6>
                                    
                                 </div>
                                 <!-- Card Body -->
@@ -281,13 +281,13 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> 의류
+                                            <i class="fas fa-circle text-primary"></i> 남성의류
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> 전자기기
+                                            <i class="fas fa-circle text-success"></i> 여성의류
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> 가정용품
+                                            <i class="fas fa-circle text-info"></i> 신발 
                                         </span>
                                     </div>
                                 </div>

@@ -1,5 +1,8 @@
 package com.ezen.ezenmarket.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,7 @@ import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
 import com.ezen.ezenmarket.admin.mapper.AdminMapper;
 import com.ezen.ezenmarket.admin.service.AdminMainPageService;
+import com.ezen.ezenmarket.admin.service.VisitService;
 
 @RequestMapping("/admin")
 @Controller
@@ -20,6 +24,10 @@ public class AdminController {
 	
 	@Autowired
 	private AdminMainPageService adminMainPageService;
+	
+	@Autowired
+	private VisitService visitService;
+	
 	
 	@GetMapping("/error")
 	public String error() {
@@ -74,29 +82,38 @@ public class AdminController {
 		return "admin/reportlist";
 	}
 
-	
-	@GetMapping(value={"/mainpage"})
-	public String mainpage(Model model) {
-		
+	@GetMapping(value = { "/mainpage" })
+	public String mainpage(Model model, HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+
+		if (session.isNew()) {
+			visitService.increaseVisitCount();
+		}
+
 		int reportCount = adminMainPageService.getReportCount();
 		int postCount = adminMainPageService.getPostCount();
 		int categoryFirst = adminMainPageService.getCategoryFirst();
 		int categorySecond = adminMainPageService.getCategorySecond();
 		int categoryThird = adminMainPageService.getCategoryThird();
+		int todayVisitor = adminMainPageService.getTodayVisitor();
+		int thisMonthVisitor = adminMainPageService.getThisMonthVisitor();
 
 		model.addAttribute("reportCount", reportCount);
-	    model.addAttribute("postCount", postCount);
+		model.addAttribute("postCount", postCount);
 		model.addAttribute("categoryFirst", categoryFirst);
 		model.addAttribute("categorySecond", categorySecond);
 		model.addAttribute("categoryThird", categoryThird);
-	    
+		model.addAttribute("todayVisitor", todayVisitor);
+		model.addAttribute("thisMonthVisitor", thisMonthVisitor);
+		
+		
 		return "admin/mainpage";
 	}
-	
-	@GetMapping(value={"/login"})
+
+	@GetMapping(value = { "/login" })
 	public String login() {
-		
-		
+
 		return "admin/login";
 	}
 	
