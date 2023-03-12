@@ -7,6 +7,7 @@ public interface AdminMainPageService{
 	int getPostCount();
 	int getTodayVisitor();
 	int getThisMonthVisitor();
+	int[] getWeekdayVisitorCount();
 	
 	int getCategoryFirst();
 	int getCategorySecond();

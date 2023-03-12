@@ -174,7 +174,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10, 50, 150, 100, 200, 150],
+      data: [${thisWeekVisitor[0]}, ${thisWeekVisitor[1]}, ${thisWeekVisitor[2]}, ${thisWeekVisitor[3]}, ${thisWeekVisitor[4]}, ${thisWeekVisitor[5]}, ${thisWeekVisitor[6]}],
     }],
   },
   options: {

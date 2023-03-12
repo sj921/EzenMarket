@@ -98,6 +98,7 @@ public class AdminController {
 		int categoryThird = adminMainPageService.getCategoryThird();
 		int todayVisitor = adminMainPageService.getTodayVisitor();
 		int thisMonthVisitor = adminMainPageService.getThisMonthVisitor();
+		int[] thisWeekVisitor = adminMainPageService.getWeekdayVisitorCount();
 
 		model.addAttribute("reportCount", reportCount);
 		model.addAttribute("postCount", postCount);
@@ -106,6 +107,8 @@ public class AdminController {
 		model.addAttribute("categoryThird", categoryThird);
 		model.addAttribute("todayVisitor", todayVisitor);
 		model.addAttribute("thisMonthVisitor", thisMonthVisitor);
+		model.addAttribute("thisWeekVisitor", thisWeekVisitor);
+		
 		
 		
 		return "admin/mainpage";
