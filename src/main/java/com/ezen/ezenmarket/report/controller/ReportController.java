@@ -20,12 +20,12 @@ public class ReportController {
 	ProductMapper productMapper;
 	
 	 @GetMapping(value="/report")
-	 public String paramTest(HttpServletRequest req, String  post_id) {
+	 public String paramTest(HttpServletRequest req, String  post_id, String user_number) {
 	      
 		 String cause = req.getParameter("cause");
 		 String etc = req.getParameter("etc");
 		 String currentPage = req.getParameter("currentPage");
-		 String user_number = req.getParameter("user_number");
+		
 		 
 		 // System.out.println("currentPage: " + currentPage);
 		 

@@ -17,6 +17,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
+
+  @font-face {
+       font-family: 'SUIT-Regular';
+       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+       font-weight: normal;
+       font-style: normal;
+   }
+   
+   * {
+     font-family: 'SUIT-Regular';
+     
+   }
+
+.title{
+	font-weight: bold;
+}
+
 .background {
 	position: fixed;
 	top: 0;
@@ -46,8 +63,16 @@
 }
 
 #reportbtn {
-  display: inline-block;
-  width: 120px;
+  	display: inline-block;
+  	width: 120px;
+	background: black;
+	border: gray;
+	color: white;
+}
+
+#reportbtn2 {
+  	display: inline-block;
+  	width: 120px;
 	background: gray;
 	border: gray;
 	color: white;
@@ -104,7 +129,6 @@
 
 .modal-body {
 	font-size: 17px;
-	font-weight: bolder;
 }
 
 
@@ -123,7 +147,7 @@
 	<div class="background">
 		<div class="window">
 			<div class="popup">
-				<h3 class="title">신고 사유를 선택해 주세요.</h3>
+				<h3 class="title" >신고 사유를 선택해 주세요.</h3>
 				<hr>
 				<form method="get" action="./report" id="myForm">
 					<input id="cause" type="radio" name="cause" value="안전결제 거부" checked/> 안전결제 거부<br> 
@@ -142,10 +166,14 @@
 
 					<!-- 주소에 있는 post_id(상품번호)를 숨겨서 가져오기 위해  -->
 					<input name="post_id" value="${post.post_id}" type="hidden" /> <br>
+					
+					<!-- 세션에서 로그인 정보(유저넘버) 가져오기 위해 -->
+					<input name="user_number" value="${sessionScope.user_number}" type="hidden" /> 
+					
 					<div class="reportBtns">
 					<button type="button" id=reportbtn data-toggle="modal" data-target="#exampleModal" >신고하기</button>
 					&emsp;
-					<button type="button"  id=reportbtn onClick='window.close()' >닫기</button>
+					<button type="button"  id=reportbtn2 onClick='window.close()' >닫기</button>
 					</div>
 					
 			</div>
@@ -164,7 +192,7 @@
         </button>
       </div>
       <div class="modal-body">
-        게시물을 신고하시겠습니까?
+      			게시물을 신고하시겠습니까?
       </div>
       <div class="modal-footer">
       	<button type="submit" class="btn btn-warning" >신고</button>
