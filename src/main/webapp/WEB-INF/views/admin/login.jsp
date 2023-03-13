@@ -47,21 +47,17 @@
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp" name="admin_id
-                                                placeholder="아이디를 입력해주세요">
+                                                id="exampleInputEmail" aria-describedby="emailHelp" name="admin_id"
+                                                value="admin1">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="admin_pw"
-                                                id="exampleInputPassword" placeholder="비밀번호를 입력해주세요">
+                                                id="exampleInputPassword" value="qwert1234">
                                         </div>
                                      
                                         <a href="mainpage" class="btn btn-primary btn-user btn-block">
                                             로그인
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> 카카오로 간편 로그인
-                                        </a>
+                                        </a>                              
                                     </form>
                                     <hr>
 

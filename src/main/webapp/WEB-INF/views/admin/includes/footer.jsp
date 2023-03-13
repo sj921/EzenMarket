@@ -246,7 +246,38 @@ var myLineChart = new Chart(ctx, {
 });
 
 </script>
-
+<script>
+    function postDeleteAndModify(postId, reportId) {
+        // Delete link
+        var deleteUrl = "reportlist/deletePost?post_id=" + postId;
+        fetch(deleteUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                // Modify link
+                var modifyUrl = "reportlist/modify?report_id=" + reportId;
+                window.location.href = modifyUrl;
+            })
+            .catch(error => console.log(error));
+    }
+</script>
+<script>
+    function reviewDeleteAndModify(reviewId, reportId) {
+        // Delete link
+        var deleteUrl = "reportlist/deleteReview?review_id=" + reviewId;
+        fetch(deleteUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                // Modify link
+                var modifyUrl = "reportlist/modify?report_id=" + reportId;
+                window.location.href = modifyUrl;
+            })
+            .catch(error => console.log(error));
+    }
+</script>
 
 
 </body>
