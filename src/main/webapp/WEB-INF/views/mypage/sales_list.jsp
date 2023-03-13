@@ -72,7 +72,7 @@
         <div>
           <button id="follow-btn" type="button" class="btn btn-outline-secondary" onclick = "location.href = '' ">
             <i class="fa-solid fa-user-plus"></i>팔로우</button>
-         <button id="setting-btn" type="button" class="btn btn-outline-secondary" onclick="location.href='./management'">상점관리</button>
+         <button id="setting-btn" type="button" class="btn btn-outline-secondary" onclick="location.href='./management?user_number=${sessionScope.user_number}'">상점관리</button>
 
         </div>
       </div> <!--profile-section end-->
