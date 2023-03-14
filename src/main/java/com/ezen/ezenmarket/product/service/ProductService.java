@@ -3,13 +3,9 @@ package com.ezen.ezenmarket.product.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
-
-import com.ezen.ezenmarket.product.dto.Pagination;
 import com.ezen.ezenmarket.product.dto.Post;
-import com.ezen.ezenmarket.product.dto.Wishlist;
+import com.ezen.ezenmarket.product.dto.PostImage;
 
 public interface ProductService {
 
@@ -27,12 +23,15 @@ public interface ProductService {
 	
 	 /* 판매자가 등록한 연관상품 목록 가져오기 */
 	 public List<Post> getRelatedProd(Integer user_number, Integer post_id);
-	 
-	 /* 조회수 가져오기 */
-	 public Integer plusView(Integer post_id);
 	
 	 /* 찜 개수 가져오기 */
 	 public int cntWishlist (Integer post_id);
-
+	 
+	/* 조회수 가져오기 */
+	 public Integer plusView(Integer post_id);
+	 
+	 public List<PostImage> getPostImages(Integer post_id);
+	 
+	 
 	 
 }

@@ -5,25 +5,22 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.ezenmarket.product.dto.Post;
-import com.ezen.ezenmarket.product.dto.Wishlist;
+import com.ezen.ezenmarket.product.dto.PostImage;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
 import com.ezen.ezenmarket.product.service.ProductService;
+import com.ezen.ezenmarket.user.dto.User;
+import com.ezen.ezenmarket.user.mapper.UserMapper;
+import com.ezen.ezenmarket.user.service.UserService;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -35,8 +32,15 @@ public class ProductController {
 	ProductMapper productMapper;
 	
 	@Autowired
-	ProductService productService;	// 내가 추가한 것
-
+	UserService userService;
+	
+	@Autowired
+	UserMapper userMapper;
+	
+	@Autowired
+	ProductService productService;	
+	
+	
 	
 //	@GetMapping(value="/product")
 //	public String productDetail(String id, Model model) {
@@ -53,19 +57,56 @@ public class ProductController {
 	}
 	
 	@GetMapping(value="/register")
-	public String registerProduct() {
+	public String registerProduct(HttpServletRequest req) {
+		//List<PostImage> postImages = productMapper.getPostImages(73);
+		HttpSession session = req.getSession();
+		if(session.getAttribute("login") == null || !session.getAttribute("login").equals("yes")) {
+			req.setAttribute("requestUri", "/register");
+			return "user/signin";
+		} else {
+			return "product/product_register";
+		}
 		
-		return "product/product_register";
+		
 	}
 	
-	/* 여기부터 내가 만든 것! 위의 것은 건들지 말기!!*/
+	@PostMapping(value="/insert")
+	public String insertProduct(HttpServletRequest req, String post_address, String title, String post_content, Integer category_id, Integer price) {
+	
+		
+		String user_id = userService.getUserId(req);
+		User user = userMapper.getUserInfo(user_id);
+		int user_number = user.getUser_number();
+		
+		Post post = new Post (user_number, post_address, title, post_content, category_id, price);
+		
+		productMapper.insertProduct(post);
+		
+		// main을 /로 해놔서 main으로 가게 한다는 의미
+		return "redirect:/";
+	}
+	
+	
+	
+/* 여기부터 내가 만든 것! 위의 것은 건들지 말기!!*/
+	
+	/* 전체보기 */
+	@GetMapping("/viewAll")
+	public String getViewAll (Model model) {
+		
+		
+		return "product/product_menu";
+	}
+	
+		
+	
 	
 	/* 카테고리별로 상품 조회하기 (+페이징) */
 	// http://localhost:8888/ezenmarket/category?category_id=1&page=2
 	@GetMapping("/category")
 	public String cateList(@RequestParam(required = false, defaultValue = "1") Integer category_id,
 	                       @RequestParam(required = false, defaultValue = "1") Integer page,
-	                       HttpServletRequest req, Integer post_id, Model model) {
+	                       HttpServletRequest req, Model model) {
 		model.addAttribute("id", productService.paging(req, category_id));
 		model.addAttribute("cateList", req.getAttribute("boards"));		
 		model.addAttribute("page",  req.getParameter("page"));
@@ -80,13 +121,14 @@ public class ProductController {
 	 /* 상품 상세페이지(상품정보 + 상품이미지정보 + 판매자정보) */
 	@GetMapping(value="/product")
 	public String productDetail(@RequestParam("id") Integer post_id, 
-							HttpServletRequest request, HttpServletResponse response, Model model) {
+												HttpServletRequest request, 
+												HttpServletResponse response, 
+												Model model) {
 		             
 		Post p =  productService.getDetails(post_id);	
 		int cntProd = productService.cntProdBySeller(p.getUser_number());	
 		model.addAttribute("cntProd", cntProd);	
 		model.addAttribute("post", p); 	
-		
 			
 		// 판매자가 등록한 연관상품 목록 가져오기
 		List<Post> lists = productService.getRelatedProd(p.getUser_number(), p.getPost_id());
@@ -95,6 +137,11 @@ public class ProductController {
 		} else if(lists != null){
 			model.addAttribute("lists", lists);
 		}
+			
+		// 찜목록 개수 가져오기
+		int cntWishlist = productService.cntWishlist(p.getPost_id());		
+		model.addAttribute("cntWishlist", cntWishlist);
+				
 		
 		/* 조회수 가져오기 (새로고침 시  중복 방지) */			
 		
@@ -129,20 +176,32 @@ public class ProductController {
 	        // 3) 쿠키X&방문X  -> new cookie 생성 & id 추가
 	        visitCookieValue += "/" + p.getPost_id();
 	        Cookie newCookie = new Cookie("visit_cookie", visitCookieValue);
-	        newCookie.setMaxAge(60*60*24);	// 쿠키는 24시간(하루) 동안 유효
+	        newCookie.setMaxAge(60);	// 쿠키는 24시간(하루) 동안 유효
 	        response.addCookie(newCookie);	     
 	        productService.plusView(p.getPost_id());
 	    }
-			    
-		// 찜목록 개수 가져오기
-		int cntWishlist = productService.cntWishlist(p.getPost_id());		
-		model.addAttribute("cntWishlist", cntWishlist);
-	
+	    
+	    
+	    //이 포스트의 포스트 이미지들 모두 가져오기
+	    model.addAttribute("postImages", productMapper.getPostImages(post_id));
+	    
+	    //세션 객체 생성
+	    HttpSession session = request.getSession();
+	    
+	    // 찜 여부 체크
+	    if(session.getAttribute("user_number") != null) {
+	    	if(productMapper.countNumOfZzim(Integer.parseInt(session.getAttribute("user_number").toString()), post_id) > 0) {
+	    		model.addAttribute("zzim", "yes");
+	    	}	    	
+	    }
 		
-		return "product/product_detail";		
+	    // 상세페이지에 판매자 프로필 사진 가져오기	  
+	    model.addAttribute("profileImg", productMapper.getProfileImg(p.getUser_number(), p.getPost_id()));
+	    
+	    
+	    
+		return "product/product_detail";
+		
 	}
-
-
-	
 	
 }

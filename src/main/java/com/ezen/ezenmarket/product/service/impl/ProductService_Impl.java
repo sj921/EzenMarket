@@ -1,21 +1,17 @@
-package com.ezen.ezenmarket.product.service;
+package com.ezen.ezenmarket.product.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.ezenmarket.product.dto.Post;
-import com.ezen.ezenmarket.product.dto.Wishlist;
+import com.ezen.ezenmarket.product.dto.PostImage;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
+import com.ezen.ezenmarket.product.service.ProductService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -104,18 +100,24 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.getRelatedProd(user_number, post_id);
 	}
 
+	/* 찜 개수 가져오기 */
+	@Override
+	public int cntWishlist (Integer post_id) {
+		// TODO Auto-generated method stub
+		return productMapper.cntWishlist(post_id);
+	}
+
 	/* 조회수 가져오기 */
 	@Override
 	public Integer plusView(Integer post_id) {
 		// TODO Auto-generated method stub
 		return productMapper.plusView(post_id);
 	}
-	
-	/* 찜 개수 가져오기 */
+
 	@Override
-	public int cntWishlist (Integer post_id) {
-		// TODO Auto-generated method stub
-		return productMapper.cntWishlist(post_id);
+	public List<PostImage> getPostImages(Integer post_id) {
+		
+		return productMapper.getPostImages(post_id);
 	}
 
 

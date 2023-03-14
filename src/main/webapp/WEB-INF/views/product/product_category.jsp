@@ -9,11 +9,9 @@
     
 
 <style>
-
       a:link {
         text-decoration: none;
       }
-
       a {
         color: black;
       }
@@ -24,7 +22,6 @@
         margin-left: 70px;
         font-size: 15px;
         color: hsla(0, 1%, 15%, 0.651);
-
       } 
       .dropbarBtn {
   
@@ -32,7 +29,6 @@
         color: hsla(0, 0%, 0%, 0.651);
       }
   
-
     #Category {
         /* overflow:visible; */
         float: left;
@@ -46,6 +42,8 @@
 <title>카테고리</title>
 </head>
 <body>
+
+		<!-- include/category2로 변경 -->
 
       <div class="flex-shrink-0 p-2 bg-white dropbar" id="Category" style="width: 220px;">
             <!-- <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"> -->
@@ -72,7 +70,7 @@
                 </button>
                 <div class="collapse" id="dashboard-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="category?category_id=3 " class="link-dark d-inline-flex text-decoration-none rounded">신발</a></li>
+                    <li><a href="category?category_id=3" class="link-dark d-inline-flex text-decoration-none rounded">신발</a></li>
                     <li><a href="category?category_id=4" class="link-dark d-inline-flex text-decoration-none rounded">가방</a></li>
                     <li><a href="category?category_id=5" class="link-dark d-inline-flex text-decoration-none rounded">시계</a></li>
                   </ul>
