@@ -25,5 +25,9 @@ public interface MyPageService {
 	public void modifyNick(String nickName);
 	
 	public void modifyIntro(String userintro);
+	
+	public String getmanagement(HttpServletRequest req);
+		
+	public String getBuyList(HttpServletRequest req);
 
 }

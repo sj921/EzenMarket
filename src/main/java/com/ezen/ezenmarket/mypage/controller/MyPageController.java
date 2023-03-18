@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.ezenmarket.mypage.dto.Post;
 import com.ezen.ezenmarket.mypage.service.MyPageServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -37,7 +38,9 @@ public class MyPageController {
 	}
 	
 	@GetMapping(value="/buy_list")
-	public String buyList() {
+	public String buyList (HttpServletRequest req) {
+		
+		service.getBuyList(req);
 		
 		return "mypage/buy_list";
 	}
@@ -80,4 +83,25 @@ public class MyPageController {
 		
 		return nickCheck;
 	}
+	
+	@GetMapping(value="/management")
+	public String getmanagement(HttpServletRequest req) {
+			
+		Post p = new Post();
+	
+		String posts = service.getmanagement(req);
+		
+		//	model.addAttribute("posts", posts);
+
+		//model.addAttribute("Post", mypageMapper.getmanagement(user_number));
+	
+		System.out.println("사용자번호: " + req);
+		// 서비스 없이 매퍼랑만 하는것, number와 num
+		return "mypage/sales_management";
+	}
+
+	
+	
+	
+	
 }

@@ -34,8 +34,8 @@
         width: 74%;
         height: 90%;
         margin-top: 14px;
-        margin-left: 25%;
-        /* margin-right: 12%; */
+        margin-left: 20%;
+        margin-right: 20%;
         display: flex;
         flex-wrap: wrap;
         /* justify-content: space-between; */
@@ -101,31 +101,35 @@
         padding: 10px 0 0 5px; 
       }
 
-      .item_list .item_card .text2 #address {
+	#icon-location {
+	  	position: relative; 
+	  	float: left; 
+	  	margin: 5px 5px 5px 0;
+	}
+	.item_list .item_card .text2 #address {
         font-weight: 400;
         font-size: 15px;
-        color: black;   
-        max-width: 120px;
-        overflow: hidden;        
-        text-overflow: ellipsis;     
-        white-space: nowrap;       
-        word-break:break-all;
-      }
-
+        color: black;     
+        float: left;   
+        max-width: 170px; 
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        margin-top: 5px;       
+	}
+	
       #recommend {        
         margin-top: 200px;
         font-size: 30px;
-        margin-left:380px;
+        margin-left:20%;
         /* margin-bottom: 40px; */      
-      }
-      
-      #icon-location {
-      	color: black;
       }
 
 	.page {
 		width: 100%;
 		position:relative;
+		margin-top: 60px; margin-bottom: 243px;
 	}
 	
 	#page2 {
@@ -152,11 +156,9 @@
 <body>
 
    <jsp:include page="../include/header.jsp"/>
-   
-      
+         
    <main>
-   
-<jsp:include page="../include/category2.jsp"/>    	
+  
         
   <div id="recommend">오늘의 상품 추천</div>
   <!-- 상품 사진들 넣기-->

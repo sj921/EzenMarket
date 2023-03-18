@@ -2,6 +2,7 @@ package com.ezen.ezenmarket.mypage.mapper;
 
 import java.util.List;
 
+import com.ezen.ezenmarket.mypage.dto.EndDeal;
 import com.ezen.ezenmarket.mypage.dto.Post;
 import com.ezen.ezenmarket.mypage.dto.Profile;
 import com.ezen.ezenmarket.mypage.dto.Review;
@@ -31,7 +32,13 @@ public interface MyPageXmlMapper {
 	public void modifyNick(String nickName);
 	
 	public void modifyIntro(String userintro);
+	
+	public Integer getZzimCount (Integer user_number);	
 
-
+	public List<Post> getmanagement(Integer user_number);
+	
+	public List<EndDeal> getBuying (Integer user_number);
+	
+	public Integer getBuyingCount (Integer user_number);
 	
 }

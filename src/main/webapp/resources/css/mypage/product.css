@@ -1,45 +1,6 @@
 @charset "UTF-8";
 
-/*헤더-배너*/
-.Top {
-/* display: flex;
-justify-content: space-around; */
-/* margin-left: 80%;         */
-/* margin-top: 15px; */
 
-border: 4px solid black;
-background-color: black;
-
-}
-
-.top1 {
-
-margin-left: 35%;
-color: white;
-font-size: 15px;
-font-weight: bold;   
-}
-
-.top2 {
-font-weight: bold;   
-color: white;
-font-size: 15px;   
-}
-
-/* topMenu의 ID를 가진 태그 안에 <ul> 태그 안에 <li> 태그의 스타일을 지정 */
-.topMenu ul li {   
-
-list-style: none;
-color: hsl(0, 1%, 27%);
-float: right;
-margin-right: 30px;
-}
-
-/*로고*/
-#logo {
-font-size: 40px;
-font-family: 'Knewave', cursive;
-}
 
 
 a:link {
@@ -134,9 +95,6 @@ color: black;
   margin-left: 5px;
 }
 
-
-
-
 /* 탭메뉴 */
 /* 탭 전체 스타일 */
 *{
@@ -154,8 +112,8 @@ ul{list-style:none;}
   position: relative;
 }
 .tabmenu ul li{
-  display:  inline-block;
-  width:33.33%; 
+  display: inline-block;
+  width:calc(100%/4);; 
   float:left;  
   text-align:center; 
   background :white;
@@ -197,47 +155,6 @@ ul{list-style:none;}
 
 
 
-/*상품*/
-
-/* 상품 제목 가격*/
-.card-body {
-  position: relative;
-}
-
-.card-body span {
-  color: black;
-}
-
-.card-body b {
-  color: black;
-  font-size: 1.5em;
-  float: left;
-}
-
-.card-body .modify-btn  {
-  margin-top: 5px;
-  padding: 0 5px 0 5px;
-  float: right;
-  border: 1px black solid;
-  border-radius: 3px;
-  color: white;
-  background-color: black;
-}
 
 
-.card-body .up-btn  {
-  margin-top: 5px;
-  margin-left: 5px;
-  padding: 0 5px 0 5px;
-  float: right;
-  border: 1px black solid;
-  border-radius: 3px;
-  color: white;
-  background-color: black;
-}
 
-
-/*footer 자리 여백 두기*/
-#footer {
-  margin-top: 350px;
-}

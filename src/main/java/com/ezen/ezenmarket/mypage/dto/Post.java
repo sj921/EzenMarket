@@ -11,15 +11,18 @@ public class Post {
 	private Integer post_Id;
 	private String title;
 	private Integer price;
-	private String image_URL;
+	private String image_url;
 	private Integer user_number;
 	
+	private String updated;
 	
-	public Post(Integer post_Id, Integer user_number) {
-		this.post_Id = post_Id;
-		this.user_number = user_number;
-		
-	}
+	private Integer buyer_user_number;	
+   
+    public Post(Integer post_Id, Integer user_number) {
+      this.post_Id = post_Id;
+      this.user_number = user_number;
+      
+    }
 	
 	
 	

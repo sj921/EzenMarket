@@ -27,7 +27,7 @@
 		#nav ul.menu li{ position:relative; float:left; width:210px; list-style-type:none; font-size:40px;}
 		#nav ul.menu li a{ display:block; width:100%; height:100%; line-height:50px; text-indent:30px; color:#000; font-weight:bold; text-decoration:none; }
 		#nav ul.menu li a:hover{ background:#eee; }
-		#nav ul.menu li .sub a{ position:relative; float:left; display:block; width:210px; z-index:999; background:#ccc; }
+		#nav ul.menu li .sub a{ position:relative; float:left; display:block; width:250px; z-index:999; background:#ccc; }
 		#nav ul.menu li .sub a:hover{ background:#444; color:#fff; }
 		
 	</style>

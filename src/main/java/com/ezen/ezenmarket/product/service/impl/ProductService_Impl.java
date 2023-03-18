@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.ezenmarket.product.dto.PagingVO;
 import com.ezen.ezenmarket.product.dto.Post;
 import com.ezen.ezenmarket.product.dto.PostImage;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
@@ -21,6 +22,52 @@ public class ProductService_Impl implements ProductService {
 		
 	@Autowired
 	ProductMapper productMapper;
+	
+	
+	@Override
+	public String pagingAllProd(HttpServletRequest req) {
+		String pageStr = req.getParameter("page");
+
+		List<Post> boards = new ArrayList<>();
+		
+		boards = productMapper.selectAllProducts();
+		boards.add(new Post());		
+
+		int page;
+		
+		if (pageStr == null) {
+			page = 1;
+		} else {
+			page = Integer.parseInt(pageStr);
+		}
+
+		int page_size = 40;		
+		int board_size = boards.size() - 1;	
+		int start_index = (page - 1) * page_size;	
+		int end_index = page * page_size;
+		end_index = end_index > board_size ? board_size : end_index;
+				
+		System.out.printf("현재 페이지는 %d페이지이고, 시작 인덱스는 %d, 마지막 인덱스는 %d입니다.\n",
+				page, start_index, end_index);
+
+		int max_page = board_size % page_size == 0 ? 
+				board_size / page_size : board_size / page_size + 1;
+
+		int pagination_start = (page / page_size) * page_size + 1 ;
+		int pagination_end = (page / page_size + 1) * page_size;
+		pagination_end = pagination_end > max_page ? 
+				max_page : pagination_end;
+		
+		System.out.printf("현재 페이지는 %d이고, 페이지 네비게이션 시작 숫자는 %d, 마지막 숫자는 %d입니다.\n",
+				 page, pagination_start, pagination_end);
+				
+		req.setAttribute("page", page);
+		req.setAttribute("boards", boards.subList(start_index, end_index));		
+		req.setAttribute("pagination_start", pagination_start);	
+		req.setAttribute("pagination_end", pagination_end);	
+				
+		return "product/product_viewAll";
+	}	
 	
 	@Override
 	public List<Post> getCateList(Integer category_id) {
@@ -46,7 +93,7 @@ public class ProductService_Impl implements ProductService {
 			page = Integer.parseInt(pageStr);
 		}
 
-		int page_size = 10;		
+		int page_size = 20;		
 		int board_size = boards.size() - 1;	
 		int start_index = (page - 1) * page_size;	
 		int end_index = page * page_size;
@@ -120,6 +167,22 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.getPostImages(post_id);
 	}
 
+	@Override
+	public int countProduct(String title) {
+		System.out.println("countProduct...............");
+		
+		return productMapper.countProduct(title);
+	}
+	
+	@Override
+	public List<Post> getProductWithPaging(String title, PagingVO vo) {
+		System.out.println("getProductWithPaging............");
+		
+		return productMapper.getProductWithPaging(title, vo);
+	}
 
+
+	
+	
 
 }

@@ -15,6 +15,7 @@
         position: fixed;
         top: 50%;
         left: 97%;
+        z-index: 999;
       }
       .sideBtn {
         /* position: fixed;

@@ -2,47 +2,6 @@
 
 
 
-/*헤더-배너*/
-.Top {
-  /* display: flex;
-  justify-content: space-around; */
-  /* margin-left: 80%;         */
-  /* margin-top: 15px; */
-
-  border: 4px solid black;
-  background-color: black;
-
-}
-
-.top1 {
-
-  margin-left: 35%;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;   
-}
-
-.top2 {
-  font-weight: bold;   
-  color: white;
-  font-size: 15px;   
-}
-
-/* topMenu의 ID를 가진 태그 안에 <ul> 태그 안에 <li> 태그의 스타일을 지정 */
-.topMenu ul li {   
-
-  list-style: none;
-  color: hsl(0, 1%, 27%);
-  float: right;
-  margin-right: 30px;
-}
-
-/*로고*/
-#logo {
-  font-size: 40px;
-  font-family: 'Knewave', cursive;
-}
-
 
 a:link {
   text-decoration: none;
@@ -158,8 +117,8 @@ a {
     position: relative;
   }
   .tabmenu ul li{
-    display:  inline-block;
-    width:33.33%; 
+    display: inline-block;
+     width:calc(100%/4);; 
     float:left;  
     text-align:center; 
     background :white;
@@ -222,8 +181,3 @@ a {
     font-size: 2em;
   }
 
-
-  /*footer 자리 여백 두기*/
-  #footer {
-    margin-top: 350px;
-  }
