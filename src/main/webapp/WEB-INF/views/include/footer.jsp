@@ -68,7 +68,7 @@
 	.section3 i {
 		text-decoration: none;		
 		color: black;
-		font-size: 25px;
+		font-size: 35px;
 		margin-right: 5px;
 	}
 	.section4 {	
