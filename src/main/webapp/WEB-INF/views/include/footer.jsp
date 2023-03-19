@@ -109,7 +109,7 @@
 			        	COMPANY INFO
 			        </li>
 		            <li class="text">
-		                상호 : (주)EzenMarket&emsp;|&emsp;대표자 : 3조&emsp;|&emsp;개인정보보호책임자 : 권혁준
+		                상호 : (주)EzenMarket&emsp;|&emsp;대표자 : 남성훈&emsp;|&emsp;개인정보보호책임자 : 배원일
 		            </li> 
 		            <li class="text">
 		                사업자등록번호 : 811-86-02421&emsp;|&emsp;통신판매업신고 : 2021-경기구리-1097
