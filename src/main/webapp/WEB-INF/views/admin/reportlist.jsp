@@ -203,25 +203,29 @@
 										          <td>
                                              <c:choose>
 											      <c:when test="${report.report_type == 0}">
-											        <a href="ezenmarket/mypage?user_number=${report.report_detail}" class="view" title="마이페이지로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+											        <a href="../mypage?user_number=${report.report_detail}" class="view" title="마이페이지로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 											      </c:when>
 											      
 											      <c:when test="${report.report_type == 1}">
-											        <a href="ezenmarket/post?id=${report.report_detail}" class="view" title="포스트로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-											        <a href="reportlist/deletePost?post_id=${report.report_detail }" class="delete" title="삭제"
-											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+											        <a href="../post?id=${report.report_detail}" class="view" title="포스트로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+											        <a href="#" class="delete" onclick="event.preventDefault(); 
+													    postDeleteAndModify('${report.report_detail}', '${report.report_id}');" 
+													    title="삭제" data-toggle="tooltip">
+													    <i class="material-icons">&#xE5C9;</i>
+													</a>
 											      </c:when>
 											      
 											      <c:when test="${report.report_type == 2}">
-											        <a href="ezenmarket/chattingroom?id=${report.report_detail}" class="view" title="채팅으로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-											        <a href="reportlist/deletePost?post_id=${report.report_detail }" class="delete" title="삭제"
-											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+											        <a href="../chattingroom?id=${report.report_detail}" class="view" title="채팅으로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 											      </c:when>
 											      
 											      <c:when test="${report.report_type == 3}">
-											        <a href="ezenmarket/review?id=${report.report_detail}" class="view" title="리뷰로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-													<a href="reportlist/deleteReview?review_id=${report.report_detail }" class="delete" title="삭제" 
-											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>									     
+											        <a href="../review?id=${report.report_detail}" class="view" title="리뷰로 이동" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+													<a href="reportlist/deleteReview?review_id=${report.report_detail }" class="delete" onclick="event.preventDefault(); 
+													    reviewDeleteAndModify('${report.report_detail}', '${report.report_id}');" 
+													    title="삭제" data-toggle="tooltip">
+													    <i class="material-icons">&#xE5C9;</i>
+													</a>		     
 											      </c:when>
 											    </c:choose>
 								
