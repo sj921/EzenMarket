@@ -13,9 +13,8 @@
             <!-- Sidebar - Brand -->
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img style="height: 50px" src="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png"/ >
-                   
-                <div class="sidebar-brand-text mx-3">EzenMarket<sup></sup></div>
+                <img style="height: 50px" src="https://i.ibb.co/whqc36R/Kakao-Talk-20230320-160546680-removebg-preview-2.png"/ >
+
             </a>
 
             <!-- Divider -->
