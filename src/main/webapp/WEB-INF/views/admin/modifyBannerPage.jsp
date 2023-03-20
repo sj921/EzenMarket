@@ -37,7 +37,7 @@
             
             
             
-           <li class="nav-item active">
+           <li class="nav-item">
                 <a class="nav-link" href="userlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>유저 관리</span></a>
@@ -59,7 +59,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">관리자 기능</h6>
-                        <a class="collapse-item" href="modifyBannerPage">배너 변경</a>
+                        <a class="collapse-item active" href="modifyBannerPage">배너 변경</a>
                         
                     </div>
                 </div>
@@ -151,74 +151,23 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">유저 목록</h1>
-               
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">유저 목록</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>유저 번호</th>
-                                            <th>이름</th>
-                                            <th>ID</th>
-                                            <th>닉네임</th>
-                                            <th>전화번호</th>
-                                            <th>이메일</th>
-                                            <th>BAN 여부</th>
-                                            <th>관리</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${userlist}" var="board">
-                                        <tr>
-                                            <td>${board.user_number }</td>
-                                            <td>${board.user_name }</td>
-                                            <td>${board.user_id }</td>
-                                            <td>${board.nickname }</td>
-                                            <td>${board.phonenumber}</td>
-                                            <td>${board.email }</td>
-                                            <td>${board.banned == 0 ? '' : 'BAN' }</td>
-                                            <td>
-									<a href="../mypage?user_number=${board.user_number }" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-										 <c:choose >
-							             <c:when test="${board.banned == 0}">
-											<a href="userlist/ban?user_number=${board.user_number}" class="delete" title="밴"
-											data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-							             </c:when>
-							             <c:otherwise>              
-								              <a href="userlist/unban?user_number=${board.user_number}" class="check" title="밴 해제"
-										data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
-								               </c:otherwise>
-							             </c:choose>
-										
-									</td>
-                                        </tr>
-                                        </c:forEach>
-                                        
-                                      
-                                       
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                
-                <!-- /.container-fluid -->
-
-            </div>
+               <div class="inputArea">
+				   <label for="gdsImg">이미지</label>
+				   <input type="file" id="gdsImg" name="file" />
+				   <div class="select_img"><img src="" /></div>
+				   
+				   <script>
+				    $("#gdsImg").change(function(){
+				     if(this.files &amp;&amp; this.files[0]) {
+				      var reader = new FileReader;
+				      reader.onload = function(data) {
+				       $(".select_img img").attr("src", data.target.result).width(500);          
+				      }
+				      reader.readAsDataURL(this.files[0]);
+				     }
+				    });
+				   </script>
+				</div>
             <!-- End of Main Content -->
 
           

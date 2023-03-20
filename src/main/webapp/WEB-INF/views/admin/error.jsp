@@ -12,14 +12,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img style="height: 50px" src="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png"/ >
-                   
-                <div class="sidebar-brand-text mx-3">EzenMarket <sup></sup></div>
-            </a>
+             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <img style="height: 50px" src="https://i.ibb.co/bXJWJZL/1233.png"/ >
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            </a>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
@@ -42,7 +38,7 @@
             
             
             
-           <li class="nav-item active">
+           <li class="nav-item">
                 <a class="nav-link" href="userlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>유저 관리</span></a>
@@ -63,7 +59,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">관리자 기능</h6>
-                        <a class="collapse-item" href="buttons.html">배너 변경</a>
+                        <a class="collapse-item" href="modifyBannerPage">배너 변경</a>
                         
                     </div>
                 </div>
@@ -71,12 +67,6 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-            
 
         </ul>
         <!-- End of Sidebar -->
@@ -153,8 +143,8 @@
                     <div class="text-center">
                         <div class="error mx-auto" data-text="404">404</div>
                         <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                        <a href="mainpage">&larr; Back to Dashboard</a>
+                        <p class="text-gray-500 mb-0">페이지를 찾을수 없습니다.</p>
+                        <a href="mainpage">&larr; 메인페이지로</a>
                     </div>
 
                 </div>

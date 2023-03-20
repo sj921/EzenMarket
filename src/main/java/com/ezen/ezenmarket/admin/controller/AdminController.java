@@ -120,5 +120,10 @@ public class AdminController {
 		return "admin/login";
 	}
 	
+	@GetMapping(value={"/modifyBannerPage"})
+	public String modifyBannerPage() {
+		
+		return "admin/modifyBannerPage";
+	}
 	
 }
