@@ -44,6 +44,7 @@ public interface ProductService {
 	// 페이징 처리 게시글 조회
 	public List<Post> getProductWithPaging(String title, PagingVO vo);
 	 
-	 
+	// 검색된 결과의 개수
+	public Integer getSearchCnt (String title); 
 	 
 }

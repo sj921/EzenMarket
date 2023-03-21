@@ -10,6 +10,7 @@
       <title>Document</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
       <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+      <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
 
       <style>
        
@@ -62,6 +63,26 @@
         #sign_up_box {
           margin-left: 430px;
         }
+       	@font-face {
+			font-family: 'Tenada';
+			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+       	.logo {
+			font-family: 'Tenada';
+			margin-left: 15px;
+			text-decoration: none;
+			font-size: 60px;
+			font-weight: bold; 
+			color: black;
+	    }
+		.logoIcon {
+			font-size: 1em;
+		}        
+		.logo:hover {
+			color: black;
+		}
       </style>
 
 
@@ -70,10 +91,7 @@
       <div class="container">
         <main>
           <div class="py-5 text-center" id="logo">
-            <img class="d-block mx-auto mb-4"
-              src="https://t4.ftcdn.net/jpg/03/48/11/53/360_F_348115379_nLV6ulz8NDrY7McW2z6J6m7AI5ciBN3p.jpg" alt=""
-              width="72" height="57">
-            <h2>Ezen Market</h2>
+			<a class="logo a-tag" href="<%=request.getContextPath()%>">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>
           </div>
 
 

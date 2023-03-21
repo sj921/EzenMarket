@@ -152,5 +152,15 @@
       WHERE rownum <![CDATA[<=]]> #{vo.end})WHERE RN <![CDATA[>=]]> #{vo.start}     
 	</select>
 	
+	<!-- 검색 결과 개수 출력 -->
+	<select id="getSearchCnt" resultType="Integer">
+		SELECT COUNT(*) FROM post 
+		INNER JOIN postImage USING (post_id) 
+		WHERE (post_id, post_image_id) in (select post_id, min(post_image_id) FROM postImage GROUP BY post_id) 
+		AND (title LIKE '%'||#{title}||'%' OR post_content LIKE '%'||#{title}||'%')	
+	</select>
+	
+	
+	
 	
 </mapper>

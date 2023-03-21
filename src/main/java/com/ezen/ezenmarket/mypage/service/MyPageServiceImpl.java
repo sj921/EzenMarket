@@ -47,7 +47,7 @@ public class MyPageServiceImpl implements MyPageService{
 		Profile p = mapper.getUserProfile(user_number);
 		p.setReviewCount(mapper.getReviewCount(user_number));
 		p.setPostCount(mapper.getPostCount(user_number));
-		
+	
 		String pageStr = req.getParameter("page");
 		
 		int page;

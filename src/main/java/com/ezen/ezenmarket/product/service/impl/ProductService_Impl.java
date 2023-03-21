@@ -181,6 +181,12 @@ public class ProductService_Impl implements ProductService {
 		return productMapper.getProductWithPaging(title, vo);
 	}
 
+	@Override
+	public Integer getSearchCnt(String title) {
+		// TODO Auto-generated method stub
+		return productMapper.getSearchCnt(title);
+	}
+
 
 	
 	

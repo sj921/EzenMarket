@@ -30,10 +30,15 @@
       var headerbar = document.getElementById("headerbar");
       
       var currentScrollpos = window.pageYOffset;
+      console.log("current Y offset: " + currentScrollpos)
       if (prevScrollpos < currentScrollpos) {
          headerbar.style.opacity = 0.7;
+         headerbar.style.top = 0;
+
+         
       } else {
          headerbar.style.opacity = 1;
+         headerbar.style.top = "";
       }
    }
 </script>
@@ -209,7 +214,6 @@
       
      #user_nickname{
         font-weight: bold;
-        
      }
           
      @font-face {
@@ -381,9 +385,9 @@
             </form>
                  
       </div>
-               
+    </div>           
        
- <%--   <div class="LastHead">
+        <%--   <div class="LastHead">
             <!-- <div><i class="fa-solid fa-door-open icon"></i><a class="lastHead" href="">채팅 </a></div> -->
             <div><a class="lastHead Mypage a-tag" href="<%=request.getContextPath() %>/mypage/?user_number=${sessionScope.user_number }"><i class="fa-regular fa-user icon mypage"></i>마이페이지</a></div>
             <div><a class="lastHead like a-tag" href="<%=request.getContextPath() %>/register"><i class="fa-solid fa-won-sign icon Like"></i>판매하기</a></div>

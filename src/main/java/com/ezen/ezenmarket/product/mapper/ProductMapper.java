@@ -70,7 +70,9 @@ public interface ProductMapper {
 	// 가격 낮은순으로 정렬
 	public List<Post> getProductLowPrice(@Param("title") String title, @Param("vo")PagingVO vo);
 	 
-	 
+	// 검색된 결과의 개수
+	public Integer getSearchCnt (String title);
+
 	 
 	
 }

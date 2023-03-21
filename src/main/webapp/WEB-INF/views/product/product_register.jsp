@@ -16,6 +16,7 @@
       left: 15%;
       font-size: 25px;
       
+    
    }
    
    .Title {
@@ -62,7 +63,7 @@
    
    .flex-wrap {
       display: flex;
-        flex-wrap: wrap;
+      flex-wrap: wrap;
       margin-top: 50px;
    }
    
@@ -109,15 +110,16 @@
       margin-left: 43px;
    }
    
-     input[type=file] {
+    input[type=file] {
             display: none;
         }
-        #imgs_box{
+    #imgs_box {
+    
             position: relative;    
             width: 1200px;
-            min-height: 460px;
+            min-height: 658px;
             padding-bottom: 40px;
-                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                              
         }
         #left_block{
             float: left;
@@ -140,37 +142,31 @@
            
             padding-top: 40px;
             padding-bottom: 10px;
-            margin-left: 300px;
+            margin-left: 200px;
             margin-bottom: 10px;
+            
+            display: flex;
+            flex-wrap: wrap;
             
         }
         .imgs_wrap img {
             width: 215px;
             height: 215px;
             margin-left: 15px;
-            margin-right: 15px;
+            margin-right: 30px;
             margin-bottom: 15px;
         }
+   
+        
         #description{
-              margin-top: 30px;
-            margin-left: 300px;
+            margin-top: -190px;
+            margin-left: 250px;
             color: gray;
             width: 800px;
             padding: 10px;
             font-size: 14px;
         }
-        
-    /*     .btnContainer {
-           position: relative;
-           top: 50px;
-           left: 70%;
-           border: 1px solid black;
-           background-color: black;
-           width: 180px;
-           height: 70px;
-           
-        } */
-        
+       
         .submit-background {
            position: sticky; 
             top: 2px; 
@@ -195,6 +191,9 @@
         #add_btn{
            width: 200px;
            height: 180px;
+           margin-left: 0px;
+           margin-bottom: 30px;
+          
         }
         
         #registerBtn {
@@ -213,7 +212,6 @@
 <body>
  
     <jsp:include page="../include/header.jsp" />
-    <jsp:include page="../include/side.jsp" /> 
  
  <!-- 내가 만든 메서드 경로 주소 -> action -->
 <form action="./insert" method="POST" name="myForm" onsubmit="return validateForm();">
@@ -225,7 +223,7 @@
    
     <div class="line"></div>
 
-<div>
+ <div>
    <div>
        <input type="file" id="input_imgs" multiple/>
    </div>
@@ -235,7 +233,6 @@
 <div id="left_block">상품이미지</div>
    <div class="imgs_wrap">
     <a href="javascript:" onclick="fileUploadAction();"><img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/></a>
-   </div>
    <div id="description"><b style="color: gray;">* 상품 이미지는 640x640에 최적화 되어 있습니다.</b><br>
         - 상품 이미지는 PC에서는 1:1, 모바일에서는 1:1.23 비율로 보여집니다.<br>
         - 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다.<br>
@@ -244,6 +241,8 @@
         - 큰 이미지일 경우 이미지가 깨지는 경우가 발생할 수 있습니다.<br>
             최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
    </div>
+   </div>
+   
 </div>
    
    <div class="line2"></div>
@@ -380,6 +379,8 @@
         
      // 이미지 정보들을 담을 배열 
         var sel_files = [];
+        var index = 0;
+     
         $(document).ready(function() {
             $("#input_imgs").on("change", handleImgFileSelect);
         }); 
@@ -388,26 +389,46 @@
             $("#input_imgs").trigger('click');
         }
         function handleImgFileSelect(e) {
-            
             var files = e.target.files;
             var filesArr = Array.prototype.slice.call(files);
-            var index = 0;
+            
+            // 최대 5장까지 업로드 가능 알림창
+            if (sel_files.length + filesArr.length > 5) {
+                alert("최대 5장까지 업로드 가능합니다.");
+                return;
+            }
+            
+            // 이미지 확장자만 업로드 가능 알림창
             filesArr.forEach(function(f) {
                 if(!f.type.match("image.*")) {
-                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    alert("이미지 확장자만 업로드 가능합니다.");
                     return;
                 }
+                // 중복된 이미지 제한하는 알림창
+                var isDuplicate = sel_files.some(function(sf) {
+                    return sf.name == f.name;
+                });
+                if (isDuplicate) {
+                    alert("중복된 이미지가 있습니다.");
+                    return;
+                }
+                
                 sel_files.push(f);
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+                    
+                    // 버튼 아래부터 이미지 나오게 하기
                     $(".imgs_wrap").append(html);
+
                     index++;
                 }
                 reader.readAsDataURL(f);
-                
+
             });
         }
+        
+        // 이미지 누르면 삭제되는 기능
         function deleteImageAction(index) {
             console.log("index : "+index);
             console.log("sel length : "+sel_files.length);
@@ -415,34 +436,9 @@
             var img_id = "#img_id_"+index;
             $(img_id).remove(); 
         }
-        function fileUploadAction() {
-            console.log("fileUploadAction");
-            $("#input_imgs").trigger('click');
-        }
-        function submitAction() {
-            console.log("업로드 파일 갯수 : "+sel_files.length);
-            var data = new FormData();
-            for(var i=0, len=sel_files.length; i<len; i++) {
-                var name = "image_"+i;
-                data.append(name, sel_files[i]);
-            }
-            data.append("image_count", sel_files.length);
-            
-            if(sel_files.length < 1) {
-                alert("한개이상의 파일을 선택해주세요.");
-                return;
-            }           
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST","./study01_af.php");
-            xhr.onload = function(e) {
-                if(this.status == 200) {
-                    console.log("Result : "+e.currentTarget.responseText);
-                }
-            }
-            xhr.send(data);
-        }
+
         
-        
+        // 빈칸 있을 때 알림창 나오기
         function validateForm() {
              var product_title = document.forms["myForm"]["title"].value;
              var category = document.forms["myForm"]["category_id"].value;     

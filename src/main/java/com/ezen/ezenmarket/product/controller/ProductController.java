@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.ezenmarket.mypage.dto.Profile;
 import com.ezen.ezenmarket.product.dto.PagingVO;
 import com.ezen.ezenmarket.product.dto.Post;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
@@ -178,7 +179,7 @@ public class ProductController {
 	        // 3) 쿠키X&방문X  -> new cookie 생성 & id 추가
 	        visitCookieValue += "/" + p.getPost_id();
 	        Cookie newCookie = new Cookie("visit_cookie", visitCookieValue);
-	        newCookie.setMaxAge(60);	// 쿠키는 24시간(하루) 동안 유효
+	        newCookie.setMaxAge(60*60*24);	// 쿠키는 24시간(하루) 동안 유효
 	        response.addCookie(newCookie);	     
 	        productService.plusView(p.getPost_id());
 	    }
@@ -221,17 +222,17 @@ public class ProductController {
 	public String searchProductList(@Param("vo")PagingVO vo, @Param("title") String title, Post post, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage, String type) {
-
+		
 		int total = productMapper.countProduct(title);
 				
 		// 이게 이해가 잘 안됨
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "15";
+			cntPerPage = "30";
 		} else if (nowPage == null) {
 			nowPage = "1";
 		} else if (cntPerPage == null) {
-			cntPerPage = "15";
+			cntPerPage = "30";
 		}
 		
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
@@ -263,6 +264,12 @@ public class ProductController {
 		} else if (type.equals("latest")){
 			model.addAttribute("title", list);
 		}
+		
+		int searchCnt = productService.getSearchCnt(title);
+		model.addAttribute("searchCnt", searchCnt);
+		
+		
+		
 		
 //		model.addAttribute("title", productMapper.getProductWithPaging(title, vo)); 
 				

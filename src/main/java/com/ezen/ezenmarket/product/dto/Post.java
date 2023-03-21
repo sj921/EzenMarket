@@ -43,7 +43,7 @@ public class Post extends PostImage {
 	private String created;
 	private Date updated;
 	private Integer post_view;
-	
+	private Integer searchCount;
 	
 	
 	

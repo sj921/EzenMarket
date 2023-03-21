@@ -11,7 +11,7 @@ public class Profile {
 	private String nickname;
 	private String user_intro;
 	private String user_image;
-		
+			
 	private Integer postCount;
 	private Integer reviewCount;
 	private Integer zzimCount;

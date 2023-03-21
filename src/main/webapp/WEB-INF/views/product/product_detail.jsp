@@ -48,6 +48,7 @@
 		    display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
 		    align-items:center; /* 위아래 기준 중앙정렬 */
 		    justify-content:center; /* 좌우 기준 중앙정렬 */
+
 		}		
 		.swiper-slide img {
 		   width:500px;
