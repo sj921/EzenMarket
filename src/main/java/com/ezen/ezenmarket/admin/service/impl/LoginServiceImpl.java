@@ -31,12 +31,11 @@ public class LoginServiceImpl implements LoginService{
 				
 		for (AdminDTO admin : adminList) {
 			if (admin_id.equals(admin.getAdmin_id()) && admin_pw.equals(admin.getAdmin_pw())) {
-		    	// getSession()Àº ¼¼¼ÇÀÌ ÀÖÀ¸¸é ÀÖ´Â ¼¼¼ÇÀ» ¹ÝÈ¯ÇÏ°í, ¾øÀ¸¸é ½Å±Ô ¼¼¼ÇÀ» »ý¼ºÇÑ´Ù
-				 // ¼¼¼ÇÀÇ ·Î±×ÀÎ È¸¿ø Á¤º¸¸¦ º¸°üÇÑ´Ù
+
 				session.setAttribute("Admin_login", "yes");
 				session.setAttribute("nickname", admin.getAdmin_id());
 				
-				// ÄíÅ°¿¡ user_id ³ÖÀ½
+
 				Cookie cookie = new Cookie("admin_id)", admin_id);
 				cookie.setPath(req.getContextPath());
 				resp.addCookie(cookie);
@@ -45,7 +44,7 @@ public class LoginServiceImpl implements LoginService{
  
 			} else {
 				
-				session.setAttribute("errorMsg", "·Î±×ÀÎ Á¤º¸°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+				session.setAttribute("errorMsg", "ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 			}
 		}
 		return false;

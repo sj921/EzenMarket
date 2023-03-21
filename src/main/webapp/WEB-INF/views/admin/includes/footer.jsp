@@ -277,7 +277,12 @@ var myLineChart = new Chart(ctx, {
             })
             .catch(error => console.log(error));
     }
+    function displayImage(event) {
+    	  var image = document.getElementById('myImage');
+    	  image.src = URL.createObjectURL(event.target.files[0]);
+    	}
 </script>
+
 
 
 </body>

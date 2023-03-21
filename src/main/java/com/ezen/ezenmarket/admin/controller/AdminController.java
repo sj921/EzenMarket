@@ -1,5 +1,9 @@
 package com.ezen.ezenmarket.admin.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
@@ -122,6 +129,39 @@ public class AdminController {
 	
 	@GetMapping(value={"/modifyBannerPage"})
 	public String modifyBannerPage() {
+		
+		return "admin/modifyBannerPage";
+	}
+	
+	@GetMapping("/upload")
+	public void form() {}
+	
+	@PostMapping("/upload_ok")
+	public String upload(@RequestParam("file") MultipartFile file, Model model) {
+		
+		String fileRealName = file.getOriginalFilename();
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		String fileName = uniqueName + fileExtension;
+		System.out.println(fileName);
+		
+		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String filePath = uploadFolder + "\\" + fileName;
+	    model.addAttribute("fileName", filePath);
+	    model.addAttribute("imageSrc", "file:///" + filePath.replace("\\", "/"));
 		
 		return "admin/modifyBannerPage";
 	}

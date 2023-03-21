@@ -146,29 +146,36 @@
                         </li>
 
                     </ul>
-
+				
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-               <div class="inputArea">
-				   <label for="gdsImg">이미지</label>
-				   <input type="file" id="gdsImg" name="file" />
-				   <div class="select_img"><img src="" /></div>
-				   
-				   <script>
-				    $("#gdsImg").change(function(){
-				     if(this.files &amp;&amp; this.files[0]) {
-				      var reader = new FileReader;
-				      reader.onload = function(data) {
-				       $(".select_img img").attr("src", data.target.result).width(500);          
-				      }
-				      reader.readAsDataURL(this.files[0]);
-				     }
-				    });
-				   </script>
-				</div>
-            <!-- End of Main Content -->
+               <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">현재 배너 이미지</h1>       
+               </div>
+               <div>
+               	<img class="img-fluid mb-4" src="http://jogunshop.img18.kr/web/upload/main/main_visua_thanksgivin_standard_Wrinkle_free_shirt.jpg" alt="사진">
+               </div>
+               
+               <div><img class="img-fluid mb-4" id="myImage" src="${imageSrc}" alt=""></div>
+
+		<form class="mb-4" action="upload_ok" method="post"
+			enctype="multipart/form-data">
+
+			<label class="btn btn-primary btn-file mb-4"> 이미지 찾기 
+				<input type="file" name="file" style="display: none;"
+					onchange="displayImage(event)">
+			</label> 
+				<img class="img-fluid mb-4" id="myImage" src="" alt=""> 
+			<label class="btn btn-primary btn-file mb-4"> 변경
+				<input type="submit" style="display: none;">
+			</label>
+		</form>
+	
+
+
+		<!-- End of Main Content -->
 
           
 
