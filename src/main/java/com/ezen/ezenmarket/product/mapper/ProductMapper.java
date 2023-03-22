@@ -64,6 +64,9 @@ public interface ProductMapper {
 	// 총 게시글 수를 가져옴
 	public int countProduct(String title); 
 	
+	// 검색된 결과의 개수
+	public Integer getSearchCnt (String title);
+
 	// 페이징 처리 상품 조회
 	public List<Post> getProductWithPaging(@Param("title") String title, @Param("vo")PagingVO vo);
 	
@@ -72,5 +75,8 @@ public interface ProductMapper {
 	
 	// 가격 낮은순으로 정렬
 	public List<Post> getProductLowPrice(@Param("title") String title, @Param("vo")PagingVO vo);
+	
+	/* 전체 상품 개수 */
+	public int countAllProduct();
     
 }
