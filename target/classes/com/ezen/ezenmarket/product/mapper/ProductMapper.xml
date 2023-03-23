@@ -159,6 +159,13 @@
         WHERE (post_id, post_image_id) IN (select post_id, MIN(post_image_id) FROM postImage GROUP BY post_id)
    </select>
       
-	
+   <select id="getPost_Id" resultType="int">
+      SELECT max(post_id) FROM post  
+   </select>
+   
+   
+   <insert id="insertPostImage" parameterType="com.ezen.ezenmarket.product.dto.Post">
+   	  Insert into postImage values(post_image_id_seq.nextval, #{post_id}, #{image_url})
+   </insert>
    
 </mapper>

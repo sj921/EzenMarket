@@ -3,6 +3,7 @@ package com.ezen.ezenmarket.product.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.ezenmarket.product.dto.PagingVO;
 import com.ezen.ezenmarket.product.dto.Post;
@@ -16,11 +17,9 @@ public interface ProductMapper {
    public Post selectProduct(String id);
    
    public void insertProduct(Post post); 
+   
+   public void insertPostImage(Post post);
 
-   
-   
-   
-   
    public List<Post> deduplicatedProd();
    
    /* 카테고리별로 조회 */
@@ -75,5 +74,9 @@ public interface ProductMapper {
 	
 	/* 전체 상품 개수 */
 	public int countAllProduct();
+	
+	
+	
+	public int getPost_Id();
     
 }

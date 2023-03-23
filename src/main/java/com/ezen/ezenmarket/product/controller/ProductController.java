@@ -1,5 +1,10 @@
 package com.ezen.ezenmarket.product.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.security.MessageDigest;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -7,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +20,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.ezenmarket.product.dto.PagingVO;
 import com.ezen.ezenmarket.product.dto.Post;
@@ -67,20 +75,90 @@ public class ProductController {
 		
 	}
 	
-	@PostMapping(value="/insert")
-	public String insertProduct(HttpServletRequest req, String post_address, String title, String post_content, Integer category_id, Integer price) {
+	public String generateHash(MultipartFile file) {
+	    // 파일의 바이트 스트림 생성
+	    try {
+	    	InputStream is = file.getInputStream();
+	    
+
+	    // SHA-256 해시 생성
+	    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	    byte[] buffer = new byte[4096];
+	    int bytesRead;
+	    while ((bytesRead = is.read(buffer)) != -1) {
+	        digest.update(buffer, 0, bytesRead);
+	    }
+	    byte[] hash = digest.digest();
+
+	    // 바이트 배열을 16진수 문자열로 변환
+	    StringBuffer sb = new StringBuffer();
+	    for (int i = 0; i < hash.length; i++) {
+	        sb.append(Integer.toString((hash[i] & 0xff) + 0x100, 16).substring(1));
+	    }
+
+	    return sb.toString();
+	    } catch (Exception e){
+	    	return "";
+	    }
+	}
 	
+	@PostMapping(value="/insert")
+	@ResponseBody
+	public String insertProduct(HttpServletRequest req, String post_address, String title, 
+			String post_content, Integer category_id, Integer price, MultipartFile[] file) {
 		
+		// post테이블 insert
 		String user_id = userService.getUserId(req);
 		User user = userMapper.getUserInfo(user_id);
 		int user_number = user.getUser_number();
-		
 		Post post = new Post (user_number, post_address, title, post_content, category_id, price);
+//		productMapper.insertProduct(post);
+		// postImage테이블 insert
+		int post_id = productMapper.getPost_Id();
 		
-		productMapper.insertProduct(post);
+		for (int i = 0; i < file.length; ++i) {
+
+			String imgName = generateHash(file[i]) + "." + FilenameUtils.getExtension(file[i].getOriginalFilename());
+
+			if (!file[i].isEmpty()) {
+			    try {
+			        byte[] bytes = file[i].getBytes();
+
+			        // Creating the directory to store file
+			        String rootPath = System.getProperty("catalina.home");
+			        File dir = new File(rootPath + File.separator + "tmpFiles");
+			        if (!dir.exists())
+			            dir.mkdirs();
+			        // Create the file on server
+			        File serverFile = new File(dir.getAbsolutePath()
+			                + File.separator + imgName);
+			        
+			        post.setPost_id(post_id);
+			        post.setImage_url("http://localhost:8888/ezenmarket/tmpFiles/" + imgName);
+			        productMapper.insertPostImage(post);
+			        
+			        BufferedOutputStream stream = new BufferedOutputStream(
+			                new FileOutputStream(serverFile));
+			        stream.write(bytes);
+			        stream.close();
+			        
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			        return "0";
+			    }
+			} else {
+			    return "0"; // 실패
+			}
+		}
 		
+		return "1"; // 성공
+	}
+	
+	@PostMapping(value="/insert2")
+	public String insertProduct2() {
+
 		// main을 /로 해놔서 main으로 가게 한다는 의미
-		return "redirect:/";
+		return  "redirect:/";
 	}
 	
 	

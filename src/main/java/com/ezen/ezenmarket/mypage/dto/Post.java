@@ -31,7 +31,6 @@ public class Post {
    public Post(Integer post_Id, Integer user_number) {
       this.post_Id = post_Id;
       this.user_number = user_number;
-      
    }
    
    public String getCreatedTimeAgo() {		

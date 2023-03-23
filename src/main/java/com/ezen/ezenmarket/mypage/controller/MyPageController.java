@@ -74,7 +74,6 @@ public class MyPageController {
 			@RequestPart(value="img", required=false) MultipartFile file) {
 		
 		
-		
 		int check = service.nickCheck(nickname);
 		if (check == 0 && nickChange.equals("yes")) {
 			service.modifyNick(nickname);
@@ -92,7 +91,7 @@ public class MyPageController {
 	
 	@GetMapping(value="/management")
 	public String getmanagement(HttpServletRequest req) {
-			
+	
 		service.getmanagement(req);
 		
 		System.out.println("사용자번호: " + req);
