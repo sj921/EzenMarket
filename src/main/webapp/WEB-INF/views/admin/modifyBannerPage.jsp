@@ -155,7 +155,7 @@
                         <h1 class="h3 mb-0 text-gray-800">현재 배너 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="http://jogunshop.img18.kr/web/upload/main/main_visua_thanksgivin_standard_Wrinkle_free_shirt.jpg" alt="사진">
+               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner.jpg" alt="사진">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage" src="${imageSrc}" alt=""></div>

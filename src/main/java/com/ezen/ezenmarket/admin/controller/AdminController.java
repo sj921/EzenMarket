@@ -150,7 +150,7 @@ public class AdminController {
 		String fileName = uniqueName + fileExtension;
 		System.out.println(fileName);
 		
-		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);
+		File saveFile = new File(uploadFolder+"\\banner.jpg");
 		try {
 			file.transferTo(saveFile);
 		} catch (IllegalStateException e) {
