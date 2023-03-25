@@ -20,6 +20,7 @@ import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
 import com.ezen.ezenmarket.admin.mapper.AdminMapper;
 import com.ezen.ezenmarket.admin.service.AdminMainPageService;
+import com.ezen.ezenmarket.admin.service.AdminPostlistService;
 import com.ezen.ezenmarket.admin.service.VisitService;
 
 @RequestMapping("/admin")
@@ -31,6 +32,9 @@ public class AdminController {
 	
 	@Autowired
 	private AdminMainPageService adminMainPageService;
+	
+	@Autowired
+	private AdminPostlistService adminPostlistService;
 	
 	@Autowired
 	private VisitService visitService;
@@ -49,9 +53,22 @@ public class AdminController {
 	}
 	@GetMapping(value={"/postlist"})
 	public String postlist(Model model) {
+		
+		int todayPostCount = adminPostlistService.getTodayPostCount();
+		int thisMonthPostCount = adminMainPageService.getPostCount();
+		int lastMonthPostCount = adminPostlistService.getLastMonthPostCount();
+		int thisMotnthEndDealCount = adminPostlistService.getThisMonthEndDealPostCount();
+		double percentage = ((double) adminPostlistService.getLastMonthPostCount() / adminMainPageService.getPostCount()) * 100;
+		double roundedPercentage = Math.round(percentage * 10) / 10.0;
+		
+		model.addAttribute("todayPostCount", todayPostCount);
+		model.addAttribute("thisMonthPostCount", thisMonthPostCount);
+		model.addAttribute("lastMonthPostCount", lastMonthPostCount);
+		model.addAttribute("thisMotnthEndDealCount", thisMotnthEndDealCount);		
 		model.addAttribute("postlist", adminMapper.getPost());
 		model.addAttribute("endDeal", adminMapper.getEndDeal());
-		
+		model.addAttribute("roundedPercentage", roundedPercentage);
+
 		return "admin/postlist";
 	}
 	
@@ -125,7 +142,6 @@ public class AdminController {
 		model.addAttribute("thisWeekVisitor", thisWeekVisitor);
 
 		model.addAttribute("reportCount", reportCount);
-		model.addAttribute("postCount", postCount);
 		model.addAttribute("categoryFirst", categoryFirst);
 		model.addAttribute("categorySecond", categorySecond);
 		model.addAttribute("categoryThird", categoryThird);
@@ -157,7 +173,7 @@ public class AdminController {
 		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		String uploadFolder = "C:/Users/admin/git/EzenMarket/src/main/webapp/resources/img";
 		
 		UUID uuid = UUID.randomUUID();
 		String[] uuids = uuid.toString().split("-");
@@ -187,7 +203,7 @@ public class AdminController {
 		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		String uploadFolder = "C:/Users/admin/git/EzenMarket/src/main/webapp/resources/img";
 		
 		UUID uuid = UUID.randomUUID();
 		String[] uuids = uuid.toString().split("-");
@@ -217,7 +233,7 @@ public class AdminController {
 		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		String uploadFolder = "C:/Users/admin/git/EzenMarket/src/main/webapp/resources/img";
 		
 		UUID uuid = UUID.randomUUID();
 		String[] uuids = uuid.toString().split("-");
@@ -247,7 +263,7 @@ public class AdminController {
 		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		String uploadFolder = "C:/Users/admin/git/EzenMarket/src/main/webapp/resources/img";
 		
 		UUID uuid = UUID.randomUUID();
 		String[] uuids = uuid.toString().split("-");

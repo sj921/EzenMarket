@@ -12,7 +12,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mainpage.html">
                 <img style="height: 50px" src="https://i.ibb.co/bXJWJZL/1233.png"/ >
             </a>
 
@@ -47,6 +47,12 @@
                 <a class="nav-link" href="reportlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>신고 관리</span></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="postlist">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>게시물 관리</span></a>
             </li>
             
             <!-- Nav Item - Pages Collapse Menu -->
@@ -155,7 +161,7 @@
                         <h1 class="h3 mb-0 text-gray-800">1번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner1.jpg" alt="배너1">
+               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner1.jpg" alt="배너1">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage1" src="${imageSrc1}" alt=""></div>
@@ -178,7 +184,7 @@
                         <h1 class="h3 mb-0 text-gray-800">2번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner2.jpg" alt="배너2">
+               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner2.jpg" alt="배너2">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage2" src="${imageSrc2}" alt=""></div>
@@ -201,7 +207,7 @@
                         <h1 class="h3 mb-0 text-gray-800">3번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner3.jpg" alt="배너3">
+               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner3.jpg" alt="배너3">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage3" src="${imageSrc3}" alt=""></div>
@@ -224,7 +230,7 @@
                         <h1 class="h3 mb-0 text-gray-800">4번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner4.jpg" alt="배너4">
+               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner4.jpg" alt="배너4">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage4" src="${imageSrc4}" alt=""></div>

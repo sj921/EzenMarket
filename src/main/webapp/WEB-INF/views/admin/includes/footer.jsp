@@ -124,6 +124,73 @@ var myPieChart = new Chart(ctx, {
             break;
         }
       });
+      
+      const categoryTypeCells = document.querySelectorAll('#category-type');
+      categoryTypeCells.forEach(cell => {
+        const categoryType = parseInt(cell.textContent);
+        switch (categoryType) {
+          case 1:
+            cell.textContent = '남성의류';
+            break;
+          case 2:
+            cell.textContent = '여성의류';
+            break;
+          case 3:
+            cell.textContent = '신발';
+            break;
+          case 4:
+            cell.textContent = '가방';
+            break;
+          case 6:
+            cell.textContent = '주방용품';
+            break;
+          case 7:
+            cell.textContent = '인테리어';
+            break;
+          case 8:
+            cell.textContent = '생필품';
+            break;
+          case 9:
+            cell.textContent = '건강용품';
+            break;
+          case 10:
+            cell.textContent = '반려용품';
+            break;
+          case 11:
+            cell.textContent = '사무용품';
+            break;
+          case 12:
+            cell.textContent = '아웃도어';
+            break;
+          case 13:
+            cell.textContent = '운동화';
+            break;
+          case 14:
+            cell.textContent = '노트북/PC';
+            break;
+          case 15:
+            cell.textContent = '휴대전화';
+            break;
+          case 16:
+            cell.textContent = '주변기기';
+            break;
+          case 17:
+            cell.textContent = '기타용품';
+            break;
+  
+          default:
+            cell.textContent = categoryType;
+            break;
+        }
+      });
+      
+      
+      
+      
+      
+      
+      
+      
 </script>
 
 <script>
@@ -294,6 +361,9 @@ var myLineChart = new Chart(ctx, {
   	  var image = document.getElementById('myImage4');
   	  image.src = URL.createObjectURL(event.target.files[0]);
   	}
+    
+    
+    
 </script>
 
 
