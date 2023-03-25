@@ -11,9 +11,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>마이페이지</title>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/mypage/buy_list.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/mypage/buy_list.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>  
 </head>
 <body>
 
@@ -31,12 +31,12 @@
          <div id="profile-section" class="col-2">
             <!--profile-section start-->
             <div class="profile-img" id="imgContainer" >
-             <img id="img" class="profile-img-img" src="${profile.user_image }"/>
-           </div>
-           <div class="profile-img" id="modifyimgContainer" onclick="fileUploadAction();" style="display: none;">
-             <img id="modifyImg" class="profile-img-img" src="" alt="">
-          </div>
-         <input type="file" id="input_imgs" style="display: none;"/>
+	          <img id="img" class="profile-img-img" src="http://localhost:8888/ezenmarket/tmpFiles/${profile.user_image }"/>
+	        </div>
+	        <div class="profile-img" id="modifyimgContainer" onclick="fileUploadAction();" style="display: none;">
+	          <img id="modifyImg" class="profile-img-img" src="" alt="">
+	    	</div>
+    	  <input type="file" id="input_imgs" style="display: none;"/>
             <div class="profile-txt">
                <div class="row">
                   <div id="nick">${profile.nickname }</div>
@@ -53,28 +53,28 @@
                   <span id="left">판매상품</span> <span id="right">${profile.postCount }</span>
                </div>
                <div class="review">
-                  <span id="left2">거래후기</span> 
+                  <span id="left2">거래후기 </span> 
                   <c:choose>
-                    <c:when test="${profile.ratingAvg > 4.0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★★</span>
-                    </c:when>     
-                    <c:when test="${profile.ratingAvg > 3.0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★☆</span>
-                    </c:when>  
-                    <c:when test="${profile.ratingAvg > 2.0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★☆☆</span>
-                    </c:when>   
-                    <c:when test="${profile.ratingAvg > 1.0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★☆☆☆</span>
-                    </c:when> 
-                    <c:when test="${profile.ratingAvg > 0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★☆☆☆☆</span>
-                    </c:when>   
-                    <c:when test="${profile.ratingAvg == 0}">
-                       <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">☆☆☆☆☆</span>
-                    </c:when>         
-                 </c:choose>           
-                 <span id="right2">${profile.reviewCount }</span>
+           			<c:when test="${profile.ratingAvg > 4.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★★</span>
+           			</c:when>     
+           			<c:when test="${profile.ratingAvg > 3.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★☆</span>
+           			</c:when>  
+           			<c:when test="${profile.ratingAvg > 2.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★☆☆</span>
+           			</c:when>   
+           			<c:when test="${profile.ratingAvg > 1.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★☆☆☆</span>
+           			</c:when> 
+           			<c:when test="${profile.ratingAvg > 0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★☆☆☆☆</span>
+           			</c:when>   
+           			<c:when test="${profile.ratingAvg == 0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">☆☆☆☆☆</span>
+           			</c:when>   		
+           		</c:choose>     		
+           		<span id="right2">${profile.ratingAvg }</span>
                </div>
 
                <div id="intro" class="intro" style="margin-left: 10px; border: 0px;">${profile.user_intro }</div>
@@ -90,7 +90,7 @@
                      </button>
                   </c:when>
                   <c:otherwise>
-                        
+                  		
                   </c:otherwise>
                </c:choose>
 
@@ -152,7 +152,7 @@
                                                 </c:forEach>   
                                              </ul>
                                           </nav>
-                                          </div>
+                                       	</div>
                                        </c:when>
                                        <c:otherwise>
                                           <span class="noList">구매내역이 없습니다</span>
@@ -235,7 +235,6 @@
           formData.append('nickname', nickname);
           formData.append('userintro', userintro);
           formData.append('nickChange', 'yes');
-          formData.append('user_number',${sessionScope.user_number});
             $.ajax({
                 url:'./modifynick', //Controller에서 요청 받을 주소
                 type:'post', //POST 방식으로 전달
@@ -277,7 +276,6 @@
           formData.append('nickname', nickname);
           formData.append('userintro', userintro);
           formData.append('nickChange', 'no');
-          formData.append('user_number',${sessionScope.user_number});
           $.ajax({
                 url:'./modifynick', //Controller에서 요청 받을 주소
                 type:'post', //POST 방식으로 전달
