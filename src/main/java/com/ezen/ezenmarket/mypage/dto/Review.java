@@ -16,4 +16,6 @@ public class Review {
 	private String user_image;
 	private String review_content;
 	private Integer post_id;
+	private Integer rating;
+
 }

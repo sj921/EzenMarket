@@ -4,6 +4,7 @@ body {
     margin-top: 10em;
 }
 
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -17,14 +18,15 @@ body {
       font-size: 3.5rem;
     }
   }
+
   
 .logo {
-     	text-decoration: none;
-        font-size: 50px;
-        font-weight: bold;
-        color: black; 
-        position: relative; 
-       	top: -20px;
+	text-decoration: none;
+	font-size: 50px;
+	font-weight: bold;
+	color: black; 
+	position: relative; 
+	top: -20px;
  }
 
 /*  .logo {

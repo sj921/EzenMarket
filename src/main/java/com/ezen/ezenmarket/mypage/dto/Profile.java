@@ -15,4 +15,12 @@ public class Profile {
 	private Integer buyingCount;
 	private Integer postCount;
 	private Integer reviewCount;
+	
+	private Review review;
+	private Integer rating;
+	private Integer enddeal_id;	
+	private Integer seller_user_number;
+	private double ratingAvg;	
+	
+
 }

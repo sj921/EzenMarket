@@ -32,4 +32,6 @@ public interface MyPageService {
    
    public String getBuyList(HttpServletRequest req);
 
+
+   
 }

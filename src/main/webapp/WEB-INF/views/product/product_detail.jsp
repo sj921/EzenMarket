@@ -15,11 +15,13 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<%=request.getContextPath()%>/resources/css/product/product_detail.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <style>
 
        a {
@@ -81,16 +83,16 @@
       #cntWishlist {
          color : black;      
       }
-      .icons > i:first-child {
+      #icon-wish {
          color: #FF8E99; 
          margin: 10px 0 10px 10px;         
       }      
-      .icons > i:nth-child(2) {
+      #icon-eye {
          color: #50C785; 
          border-left: 1px solid rgb(209, 209, 209); 
          padding-left: 10px;
       }      
-      .icons > i:nth-child(3) {
+      #icon-time {
          color: #dda0dd;
          border-left: 1px solid rgb(209, 209, 209);  
          padding-left: 10px;
@@ -282,7 +284,7 @@
 
       
     </style>
-    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 
@@ -322,10 +324,10 @@
                         <div id="prodPrice" class="display-6 fw-bolder"><fmt:formatNumber value="${post.price}" pattern="#,###" />원</div>               
                         <hr style="width: 650px; color: rgb(209, 209, 209); margin">
        
-                        <div class="fs-5 mb-4 icons">
-                            <i class="fa-solid fa-heart" style="font-style: normal">&nbsp;<span id="cntWishlist" >${cntWishlist}</span>&nbsp;</i>    
-                            <i class="fa-solid fa-eye">&nbsp;<span id="icon-text">${post.post_view}</span>&nbsp;</i>
-                            <i class="fa-solid fa-clock">&nbsp;<span id="icon-text">${post.createdTimeAgo }</span></i>
+                        <div class="fs-5 mb-4">
+                            <i id="icon-wish" class="fa-solid fa-heart" style="font-style: normal">&nbsp;<span id="cntWishlist" >${cntWishlist}</span>&nbsp;</i>    
+                            <i id="icon-eye" class="fa-solid fa-eye">&nbsp;<span id="icon-text">${post.post_view}</span>&nbsp;</i>
+                            <i id="icon-time" class="fa-solid fa-clock">&nbsp;<span id="icon-text">${post.createdTimeAgo }</span></i>
                                   
                         </div>
                         <ul class="explain">
@@ -355,7 +357,7 @@
                         <div class="btns2">                                                                              
                                   <button id="chatBtn" type="button"><i class="bi bi-messenger"></i> 채팅</button>  
                                </div>                                           
-                        <jsp:include page="../report.jsp"/>
+                        		<jsp:include page="../report.jsp"/>
                                </c:otherwise>
                             </c:choose>                                
                         </div>
@@ -437,10 +439,8 @@
                  
      </div>
 
-   
-      
-    <input name="currentPage"  value="0"  type="hidden"/>
-   </form> 
+
+    </form> 
    
     
 
@@ -581,6 +581,7 @@
       
    
    </script>
+
 
    
 </body>

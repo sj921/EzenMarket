@@ -15,12 +15,13 @@
     	
         *{
             box-sizing: border-box;
-            font-family: 'SUIT-Regular'!important;
+
         }
         
         body{
             margin: 0;
             padding: 0;
+            font-family: 'SUIT-Regular';
         }
         #container{
             width: 1903px;
@@ -404,6 +405,7 @@
         .topMenu{
         	margin-top:30px;
         }
+
         
        
     </style>

@@ -1,6 +1,7 @@
 package com.ezen.ezenmarket.mypage.service;
 
 import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -57,6 +58,7 @@ public class MyPageServiceImpl implements MyPageService{
       Profile p = mapper.getUserProfile(user_number);
       p.setReviewCount(mapper.getReviewCount(user_number));
       p.setPostCount(mapper.getPostCount(user_number));
+      p.setRatingAvg(mapper.getRatingAvg(user_number));
       
       
       String pageStr = req.getParameter("page");
@@ -118,8 +120,7 @@ public class MyPageServiceImpl implements MyPageService{
       p.setReviewCount(mapper.getReviewCount(user_number));
       p.setPostCount(mapper.getPostCount(user_number));
       p.setZzimCount(mapper.getZzimCount(user_number));
-      
-      
+      p.setRatingAvg(mapper.getRatingAvg(user_number));     
       
       
       String pageStr = req.getParameter("page");
@@ -180,6 +181,9 @@ public class MyPageServiceImpl implements MyPageService{
       Profile p = mapper.getUserProfile(user_number);
       p.setReviewCount(mapper.getReviewCount(user_number));
       p.setPostCount(mapper.getPostCount(user_number));
+      p.setRatingAvg(mapper.getRatingAvg(user_number));
+      
+      
       
       String pageStr = req.getParameter("page");
       
@@ -209,6 +213,7 @@ public class MyPageServiceImpl implements MyPageService{
       req.setAttribute("review", review.subList(start_index, end_index));
       req.setAttribute("pagination_start", pagination_start);
       req.setAttribute("pagination_end", pagination_end);
+
       
       return null;
    }
@@ -399,6 +404,7 @@ public class MyPageServiceImpl implements MyPageService{
       p.setReviewCount(mapper.getReviewCount(user_number));
       p.setPostCount(mapper.getPostCount(user_number));
       p.setBuyingCount(mapper.getBuyingCount(user_number));
+      p.setRatingAvg(mapper.getRatingAvg(user_number));
       
       String pageStr = req.getParameter("page");
       

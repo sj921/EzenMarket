@@ -2,12 +2,20 @@ package com.ezen.ezenmarket.report.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.ezenmarket.chat.dto.ChattingRoom;
+import com.ezen.ezenmarket.chat.mapper.ChatMapper;
+import com.ezen.ezenmarket.chat.service.ChatService;
+import com.ezen.ezenmarket.mypage.service.MyPageServiceImpl;
+import com.ezen.ezenmarket.product.dto.Post;
 import com.ezen.ezenmarket.product.mapper.ProductMapper;
+import com.ezen.ezenmarket.product.service.ProductService;
+import com.ezen.ezenmarket.report.dto.ReportDto;
 import com.ezen.ezenmarket.report.mapper.ReportMapper;
 
 @Controller
@@ -19,27 +27,26 @@ public class ReportController {
 	@Autowired
 	ProductMapper productMapper;
 	
-	 @GetMapping(value="/report")
-	 public String paramTest(HttpServletRequest req, String  post_id, String user_number) {
-	      
-		 String cause = req.getParameter("cause");
-		 String etc = req.getParameter("etc");
-		 String currentPage = req.getParameter("currentPage");
+	@Autowired
+	MyPageServiceImpl service;
+
 		
-		 
-		 // System.out.println("currentPage: " + currentPage);
-		 
-		 if (etc != null) {
-			 cause = cause + "  " + etc;
-		 } 
-		
-		//  System.out.println("사유: " + cause);
-		 reportmapper.insertReport(currentPage, cause, Integer.parseInt(post_id), Integer.parseInt(user_number));
-		 
-		 System.out.println("사용자번호: " + user_number);
-		 
-		 // 신고 후 기존에 신고했던 상세페이지로 
-		 return "redirect:/product?id=" + post_id;
-	 }
+	@GetMapping(value="/report")
+	public String paramTest(@RequestParam Integer report_type, @RequestParam Integer report_detail, 
+	    @RequestParam Integer user_number, @RequestParam String report_content,
+	    @RequestParam(required = false) String etc) {
+	    
+	    if (etc != null) {
+	        report_content = report_content + "  " + etc;
+	    } 
+	    
+	    reportmapper.insertReport(report_type, report_detail, user_number, report_content);
+	    
+	    System.out.println("사용자번호: " + user_number);
+	    
+	    return "redirect:/";
+	}
+
+
 
 }

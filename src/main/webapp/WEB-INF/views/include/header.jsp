@@ -46,7 +46,7 @@
 
 <style>
    @font-face {
-     font-family: 'Tenada';
+     font-family: 'Tenada' ;
      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
      font-weight: normal;
      font-style: normal;
@@ -77,7 +77,7 @@
    } 
    
    .logo {
-     font-family: 'Tenada';
+     font-family: 'Tenada' !important;
      margin-left: 30px;
      text-decoration: none;
      font-size: 39px;
@@ -124,8 +124,11 @@
      .Mypage {
         margin-right: -42px;
      }
+     a {
+     	 text-decoration: none !important;
+     }     
      .a-tag3:link {
-       text-decoration: none;
+       text-decoration: none !important;
      }
      .a-tag3 {
        color: black;
@@ -239,8 +242,8 @@
       .li-title {
         list-style-type: none;
         float:left;
-          margin-right: 30px;
-        overflow: hidden
+        margin-right: 30px;
+        overflow: hidden;
         
       }
 

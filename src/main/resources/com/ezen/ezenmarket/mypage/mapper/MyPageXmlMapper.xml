@@ -32,25 +32,63 @@
          (p.post_id, pi.post_image_id) IN (SELECT post_id, min(post_image_id) FROM postImage GROUP BY post_id) AND w.user_number = #{user_number}
    </select>
    
-   <select id="getReviewList" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.Review">
+<select id="getReviewList" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.Review">
+
+			SELECT 
+			    u.user_number, u.nickname, p.title AS title, u.user_image, r.review_Content AS review_content, 
+			    e.post_Id, e.buyer_user_number, e.seller_user_number, r.rating, r.review_id, r.enddeal_id
+			    , CASE WHEN r.user_number = e.seller_user_number THEN e.buyer_user_number
+            		WHEN r.user_number = e.buyer_user_number THEN e.seller_user_number
+       				END AS reviewer
+			FROM 
+			    endDeal e
+			INNER JOIN 
+				userlist u ON
+					e.seller_user_number = u.user_number		     
+			INNER JOIN 
+			    post p ON e.post_Id = p.post_id
+			INNER JOIN 
+			    (
+			        SELECT enddeal_id, MIN(review_id) AS review_id
+			        FROM review
+			        GROUP BY enddeal_id
+			    ) r_sub ON e.endDeal_Id = r_sub.enddeal_id
+			INNER JOIN 
+			    review r ON r_sub.enddeal_id = r.endDeal_Id AND r_sub.review_id = r.review_id
+			WHERE 
+					r.user_number = #{user_number}
+			ORDER BY 
+			    r.review_id DESC 		
+	
+</select>
+
+
+
+   
+   <select id="getReviewCount" resultType="Integer">
+   	<choose>
+	    <when test="enddeal_id != null and user_number != null and buyer_user_number == user_number">
       SELECT 
-         u.user_number, u.nickname, p.title AS title, u.user_image, r.review_Content AS review_content
+         count(*)
       FROM 
          endDeal e
       INNER JOIN 
-         userlist u ON e.buyer_user_number = u.user_number
+         userlist u ON e.seller_user_number = u.user_number
       INNER JOIN 
          post p ON e.post_Id = p.post_id
-      INNER JOIN 
-         review r ON e.endDeal_Id = r.endDeal_Id
+	  INNER JOIN 
+	     (
+	       SELECT enddeal_id, MIN(review_id) AS review_id
+	       FROM review
+	       GROUP BY enddeal_id
+	     ) r_sub ON e.endDeal_Id = r_sub.enddeal_id
+	  INNER JOIN 
+	     review r ON r_sub.enddeal_id = r.endDeal_Id AND r_sub.review_id = r.review_id
       WHERE 
-         e.seller_user_number = #{user_num}
-      ORDER BY 
-         review_id DESC
-   </select>
-   
-   <select id="getReviewCount" resultType="Integer">
-      SELECT 
+         e.seller_user_number = #{user_number}
+         </when>
+      <when test="enddeal_id != null and user_number != null and seller_user_number == user_number">
+            SELECT 
          count(*)
       FROM 
          endDeal e
@@ -58,11 +96,21 @@
          userlist u ON e.buyer_user_number = u.user_number
       INNER JOIN 
          post p ON e.post_Id = p.post_id
-      INNER JOIN 
-         review r ON e.endDeal_Id = r.endDeal_Id
+	  INNER JOIN 
+	     (
+	       SELECT enddeal_id, MIN(review_id) AS review_id
+	       FROM review
+	       GROUP BY enddeal_id
+	     ) r_sub ON e.endDeal_Id = r_sub.enddeal_id
+	  INNER JOIN 
+	     review r ON r_sub.enddeal_id = r.endDeal_Id AND r_sub.review_id = r.review_id
       WHERE 
-         e.seller_user_number = #{user_num}
+         e.buyer_user_number = #{user_number}      
+      </when>
+      </choose>
    </select>
+   
+   
    
    <select id="getUserProfile" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.Profile">
       SELECT 
@@ -123,7 +171,7 @@
       SET
          nickname = #{nickName}
       WHERE
-         user_number=2
+         user_number=#{user_number}
    </update>
    
    <update id="modifyIntro" parameterType="String">
@@ -132,7 +180,7 @@
       SET
          user_intro = #{userintro}
       WHERE
-         user_number=2
+         user_number=#{user_number}
    </update>
    
    <!--  내 상점관리 클릭 시 나오는 판매상품들 리스트 -->
@@ -166,7 +214,7 @@
     <!-- 구매내역 불러오기 -->
    <select id="getBuying" parameterType="Integer" resultType="com.ezen.ezenmarket.mypage.dto.EndDeal">
       SELECT 
-         u.user_number, u.nickname, p.title AS title, p.price AS price, i.image_url
+         u.user_number, u.nickname, p.title AS title, p.price AS price, i.image_url, e.post_id
       FROM 
          endDeal e
       INNER JOIN 
@@ -182,6 +230,7 @@
       ORDER BY 
          endDeal_id DESC
    </select>
+   
    
    <select id="getBuyingCount" parameterType="Integer" resultType="Integer">
       SELECT 
@@ -200,5 +249,35 @@
       WHERE
          user_number=2
    </select>
+   
+	<!-- 프로필 평균 별점 가져오기 -->
+	<select id="getRatingAvg" parameterType="Integer" resultType="Integer">	  
+	  <choose>	  
+	    <when test="enddeal_id != null and user_number != null and seller_user_number == user_number">  	
+	          SELECT  COALESCE(AVG(rating), 0)
+		      FROM review 
+		      INNER JOIN enddeal USING (enddeal_id) 	  
+		      WHERE 
+	          (enddeal_id, review_id) IN (SELECT enddeal_id, min(review_id) FROM review GROUP BY enddeal_id)        
+	          AND buyer_user_number = #{user_number}         
+	    </when> 
+	    <when test="enddeal_id != null and user_number != null and buyer_user_number == user_number">  
+	    	  SELECT  COALESCE(AVG(rating), 0)
+		      FROM review 
+		      INNER JOIN enddeal USING (enddeal_id) 	  
+		      WHERE 
+	          (enddeal_id, review_id) IN (SELECT enddeal_id, min(review_id) FROM review GROUP BY enddeal_id)        
+	          AND seller_user_number = #{user_number}   
+	    </when> 
+	  </choose>
+	</select>
+
+   
+   
+   
+   
+   
+   
+   
    
 </mapper>

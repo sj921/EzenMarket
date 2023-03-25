@@ -76,20 +76,28 @@
         border-width: 1px 0 0 0;  
         padding: 10px 0 0 5px; 
    }
+   
+   #icon-location {
+	   float: left;  
+	   margin-right: 5px;
+	   color: black;
+   }
+   
    .item_list .item_card .text2 #address {
         font-weight: 400;
         font-size: 15px;
         color: black;   
-        max-width: 120px;
-        overflow: hidden;        
-        text-overflow: ellipsis;     
-        white-space: nowrap;       
-        word-break:break-all;
+        float: left;   
+        max-width: 180px; 
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
    }
    
    #recommend {font-size: 1.5em; margin: 10% 0 -3% 20%;}
    #icon-recommend {font-size:1em; color:#FFCC33;}
-   #icon-location {color: black;}
+   
    
    .page {width: 100%;   position:relative; margin-top: 60px; margin-bottom: 243px;}
    .paging {position: absolute; left: 47.5%;}

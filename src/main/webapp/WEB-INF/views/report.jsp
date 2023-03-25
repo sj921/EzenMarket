@@ -25,9 +25,10 @@
    }
    
    * {
-     font-family: 'SUIT-Regular';
+     font-family: 'SUIT-Regular' !important; 
      
    }
+   a { text-decoration: none !important; }
 .title{
    font-weight: bold;
 }
@@ -96,12 +97,24 @@
    transform: translate(-50%, -50%);
    transition: all 0.5s;
 }
-#show {
+/*#show {
    position: absolute;
    border: 0;
    background-color: white;   
    margin: -290px -740px 0 0;
+   z-index: 100;
+}*/
+#show {
+   position: absolute;
+   border: 0;
+   background-color: white;   
+   margin: -290px -700px 0 0;
 }
+#show:hover {
+  color:red;  
+
+}
+
 #when_other {
    width: 350px;
    height: 100px;
@@ -132,31 +145,32 @@
 
 
 
+
    <div class="background">
       <div class="window">
          <div class="popup">
             <h3 class="title" >신고 사유를 선택해 주세요.</h3>
             <hr>
             <form method="get" action="./report" id="myForm">
-               <input id="cause" type="radio" name="cause" value="안전결제 거부" checked/> 안전결제 거부<br> 
-               <input id="cause" type="radio" name="cause" value="주류, 담배" /> 주류, 담배<br> 
-               <input id="cause" type="radio" name="cause" value="전문의약품" /> 전문의약품, 의료기기<br> 
-               <input id="cause" type="radio" name="cause" value="개인정보 거래" /> 개인정보 거래(신분증,대포폰 등)<br> 
-               <input id="cause" type="radio" name="cause" value="음란물/성인용품" /> 음란물/성인용품(중고속옷 포함)<br> 
-               <input id="cause" type="radio" name="cause" value="위조상품" /> 위조상품<br> 
-               <input id="cause" type="radio" name="cause" value="총포 도검류" /> 총포 도검류<br>
-               <input id="cause" type="radio" name="cause" value="화장품 견본품" /> 화장품 견본품<br>
+               <input id="report_content" type="radio" name="report_content" value="안전결제 거부" checked/> 안전결제 거부<br> 
+               <input id="report_content" type="radio" name="report_content" value="주류, 담배" /> 주류, 담배<br> 
+               <input id="report_content" type="radio" name="report_content" value="전문의약품" /> 전문의약품, 의료기기<br> 
+               <input id="report_content" type="radio" name="report_content" value="개인정보 거래" /> 개인정보 거래(신분증,대포폰 등)<br> 
+               <input id="report_content" type="radio" name="report_content" value="음란물/성인용품" /> 음란물/성인용품(중고속옷 포함)<br> 
+               <input id="report_content" type="radio" name="report_content" value="위조상품" /> 위조상품<br> 
+               <input id="report_content" type="radio" name="report_content" value="총포 도검류" /> 총포 도검류<br>
+               <input id="report_content" type="radio" name="report_content" value="화장품 견본품" /> 화장품 견본품<br>
                <div>
-                  <input id="cause-etc" type="radio" name="cause" value="기타" /> 기타<br>
+                  <input id="cause-etc" type="radio" name="report_content" value="기타" /> 기타<br>
                   <textarea id="when_other" name="etc" style="display: none;"></textarea>
                </div>
                
-
-               <!-- 주소에 있는 post_id(상품번호)를 숨겨서 가져오기 위해  -->
-               <input name="post_id" value="${post.post_id}" type="hidden" /> <br>
+               	<!-- 주소에 있는 post_id(상품번호)를 숨겨서 가져오기 위해 -->
+			    <input name="report_detail" value="${post.post_id}" type="hidden" /> <br> 	               
+			    <!-- 세션에서 로그인 정보(유저넘버) 가져오기 위해  -->
+			    <input name="user_number" value="${post.user_number}" type="hidden" />      
+			    <input id="report_type" name="report_type"  value="1"  type="hidden"/>	
                
-               <!-- 세션에서 로그인 정보(유저넘버) 가져오기 위해 -->
-               <input name="user_number" value="${sessionScope.user_number}" type="hidden" /> 
                
                <div class="reportBtns">
                <button type="button" id=reportbtn data-toggle="modal" data-target="#exampleModal" >신고하기</button>
@@ -190,25 +204,28 @@
   </div>
 </div>
 
-   
-   <script>
+
+ <script type="text/javascript">
   const causeEtc = document.getElementById("cause-etc");
   const whenOther = document.getElementById("when_other");
  
      causeEtc.addEventListener("click", () => {
        whenOther.style.display = "block";
+       console.log("버튼1을 누르셨습니다.");
   });
      
-  document.querySelectorAll('input[name="cause"]').forEach((input) => {
+  document.querySelectorAll('input[name="report_content"]').forEach((input) => {
      if(input != causeEtc){
         input.addEventListener("click", () => {
            whenOther.style.display = "none";
         });
      }   
   });
-  
 </script>
+
 
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
+   
+
 </html>

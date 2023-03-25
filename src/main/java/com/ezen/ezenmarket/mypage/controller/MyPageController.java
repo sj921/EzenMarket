@@ -1,5 +1,8 @@
 package com.ezen.ezenmarket.mypage.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.ezenmarket.mypage.dto.Review;
 import com.ezen.ezenmarket.mypage.service.MyPageServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -39,7 +43,9 @@ public class MyPageController {
 	}
 	
 	@GetMapping(value="/buy_list")
-	public String buyList() {
+	public String buyList (HttpServletRequest req) {
+		
+		service.getBuyList(req);
 		
 		return "mypage/buy_list";
 	}

@@ -17,6 +17,14 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
     <meta name="generator" content="Hugo 0.88.1">
     <title>로그인 페이지</title>
+    <style>      
+	   @font-face {
+	     font-family: 'Tenada' ;
+	     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+	     font-weight: normal;
+	     font-style: normal;
+	   }
+    </style>
     <!-- 폰트어썸 -->
    <script src="https://kit.fontawesome.com/c737e525de.js" crossorigin="anonymous"></script>
     
@@ -45,8 +53,8 @@
         <div class="container text-center">
             <div class="row">       
               <div class="col-lg-4 col-md-6"></div>         
-              <div class="col-lg-4 col-md-6">
-                <a class="logo" href="<%=request.getContextPath() %>">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>               
+              <div id="logo-setting" class="col-lg-4 col-md-6">
+                <a class="logo" href="<%=request.getContextPath() %>" style="text-decoration: none; color:black; font-family: 'Tenada' ;">Ezen<i class="fa-brands fa-monero logoIcon"></i>arket</a>               
                <!--  <h3 class="h3 mb-3 fw-normal">회원 로그인</h3> -->
                 
             <form action="<%=request.getContextPath() %>/signin" method="POST">

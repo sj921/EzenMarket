@@ -1,6 +1,7 @@
 package com.ezen.ezenmarket.mypage.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ezen.ezenmarket.mypage.dto.EndDeal;
 import com.ezen.ezenmarket.mypage.dto.Post;
@@ -14,6 +15,7 @@ public interface MyPageXmlMapper {
    public List<Post> getZzim(Integer user_num);
    
    public List<Review> getReviewList(Integer user_number);
+
    
    public void updatePost(Integer post_Id);
    
@@ -46,5 +48,13 @@ public interface MyPageXmlMapper {
    public Integer zzimCountPerPost(Integer post_id);
    
    public Integer countEndDeal(Integer post_id);
+   
+   public Integer getRatingAvg (Integer user_number);
+
+
+
+
+   
+   
    
 }

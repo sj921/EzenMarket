@@ -1,0 +1,56 @@
+@charset "UTF-8";  
+
+@font-face {
+	font-family: 'Tenada' ;
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+a:link {
+	text-decoration: none;
+}
+a {
+	color: black;
+}
+.logo {
+	font-family: 'Tenada' ;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+    color: black; 
+    position: relative; 
+    top: 20px;
+ }
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.b-example-vr {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 100vh;
+}
+.bi {
+	vertical-align: -.125em;
+	fill: white;
+}
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+#sign_up_box {
+	margin-left: 430px;
+}

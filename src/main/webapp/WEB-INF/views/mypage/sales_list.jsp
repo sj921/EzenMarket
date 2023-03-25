@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>	
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +13,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
     <style>
-      .intro {
-      	  width: 260px;
-          height: 70px;
-          box-sizing: border-box;
-          border: solid 2px #1E90FF;
-          border-radius: 5px;
-          font-size: 16px;
-          resize: both;
-      }
-      
-      .container{
-        margin-top: 50px;
-      }
-      #page {
-        border: solid 1px #d7d7d7;
-        border-radius: 0.2rem;
-        color: #7d7d7d;
-        text-decoration: none;
-        text-transform: uppercase;
-        display: inline-block;
-        text-align: center;
-        padding: 0.5rem 0.9rem;
-      }
     </style>
 </head>
 <body>
   <jsp:include page="../include/header.jsp"/> 
+  
   <!--본문(해당회원 마이페이지)-->
   <hr>
+   
   <div class="container"> <!--container start-->
     <div class="row"> <!--row start-->
 
@@ -58,26 +37,47 @@
             <div id="nick">${profile.nickname }</div>
             <input id="modifyNick" type="text" style="display: none;">
           </div>
+ 		
+          <div  style="margin-bottom: 2em;">        
 
-          <div>
-            <span></span>
             <span></span>
           </div>
-
+ 		  
+ 		  
           <div class="product">
             <span id="left">판매상품</span>
             <span id="right">${profile.postCount }</span>
           </div>
           <div class="review">
-            <span id="left2">거래후기</span>
-            <span id="right2"> ${profile.reviewCount }</span>
+            <span id="left2">거래후기</span>             		
+           		<c:choose>
+           			<c:when test="${profile.ratingAvg > 4.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★★</span>
+           			</c:when>     
+           			<c:when test="${profile.ratingAvg > 3.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★☆</span>
+           			</c:when>  
+           			<c:when test="${profile.ratingAvg > 2.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★☆☆</span>
+           			</c:when>   
+           			<c:when test="${profile.ratingAvg > 1.0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★☆☆☆</span>
+           			</c:when> 
+           			<c:when test="${profile.ratingAvg > 0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★☆☆☆☆</span>
+           			</c:when>   
+           			<c:when test="${profile.ratingAvg == 0}">
+           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">☆☆☆☆☆</span>
+           			</c:when>   		
+           		</c:choose>     		
+           		<span id="right2">${profile.ratingAvg }</span>
           </div>
           
           <div id="intro" class="intro" style="margin-left: 10px; border: 0px;">${profile.user_intro }</div>
           <textarea id="modifyIntro"class="intro" style="display: none;"></textarea>
 
           <c:choose>
-            <c:when test="${verified eq 'yes' }">
+            <c:when test="${verified eq 'yes'}">
                 <button id="modify-btn" onclick="modifyProfile()" type="button" class="btn btn-outline-secondary" style="width: 95%; height: 40px; margin-right: 10px;">
                   <i class="fa-solid fa-user-plus"></i> 프로필수정
                 </button>
@@ -85,8 +85,11 @@
                   <i class="fa-solid fa-basket-shopping"></i> 내상품관리
                 </button>
             </c:when>
+            <c:otherwise>
+            	
+            </c:otherwise>
           </c:choose>
-          
+          		     
           <button id="modify-done-btn" onclick="modifyProfileDone()" style="display: none;">완료</button>
         </div>
       </div> <!--profile-section end-->
@@ -102,7 +105,7 @@
                 <ul>
                   <li id="tab1" class="btnCon">
                     <input type="radio" checked name="tabmenu" id="tabmenu1">
-                    <label for="tabmenu1">상품</label>
+                    <label for="tabmenu1">판매상품</label>
                     <div class="tabCon" >
                     <div class="container">
 						
@@ -137,15 +140,24 @@
 		                           </a> 
 		                        </div>
 		                     </c:forEach>
+                              <div class="page">
+                                <nav aria-label="Page navigation example" id="page2">
+                                    <ul class="pagination">
+                                       <c:forEach begin="${pagination_start}" end="${pagination_end}" var="i" >
+                                          <li class="page-item"><a class="page-link" href="./sales_list?user_number=${user_number }&page=${i }">${i }</a></li>
+                                       </c:forEach>   
+                                    </ul>
+                                 </nav>
+                              </div>D
 		                  </c:when>
 		                  <c:otherwise>
 		                     <span>판매중인 상품이 없습니다</span>
 		                  </c:otherwise>                                    
                           </c:choose>
                       </div>
-					  <c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+					 <!--<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
                         <a id="page" href="./sales_list?user_number=${user_number }&page=${i }">${i }</a>
-                      </c:forEach>
+                      </c:forEach>  --> 
                     </div>               
                     </div>                      
                   </li>
@@ -175,7 +187,12 @@
       </div> <!--tab end-->
     </div> <!--container end-->
   </div> <!--row end-->
+
+
+
   <jsp:include page="../include/footer.jsp"/>
+
+  
   <script>
     const imgContainer = document.getElementById('imgContainer');
     const modifyimgContainer = document.getElementById('modifyimgContainer');
@@ -294,9 +311,12 @@
     
  
   </script>
-  
+
+
+
   <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/mypage/fileupload.js" charset="utf-8"></script>
   <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 </html>
