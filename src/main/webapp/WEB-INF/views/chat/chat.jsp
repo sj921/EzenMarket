@@ -15,7 +15,7 @@
     	
         *{
             box-sizing: border-box;
-            font-family: 'SUIT-Regular'!important;
+            font-family: 'SUIT-Regular';
         }
         
         body{
