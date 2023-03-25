@@ -1,7 +1,8 @@
 package com.ezen.ezenmarket.mypage.mapper;
 
 import java.util.List;
-import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.ezen.ezenmarket.mypage.dto.EndDeal;
 import com.ezen.ezenmarket.mypage.dto.Post;
@@ -15,7 +16,6 @@ public interface MyPageXmlMapper {
    public List<Post> getZzim(Integer user_num);
    
    public List<Review> getReviewList(Integer user_number);
-
    
    public void updatePost(Integer post_Id);
    
@@ -31,11 +31,11 @@ public interface MyPageXmlMapper {
    
    public Integer nickCheck(String nickName);
    
-   public void modifyNick(String nickName);
+   public void modifyNick(@Param("nickName")String nickName, @Param("user_number")Integer user_number);
    
-   public void modifyIntro(String userintro);
+   public void modifyIntro(@Param("userintro")String userintro, @Param("user_number")Integer user_number);
    
-   public void modifyImg(String img);
+   public void modifyImg(@Param("img")String img, @Param("user_number")Integer user_number);
    
    public Integer getZzimCount (Integer user_number);   
 
@@ -49,12 +49,8 @@ public interface MyPageXmlMapper {
    
    public Integer countEndDeal(Integer post_id);
    
-   public Integer getRatingAvg (Integer user_number);
-
-
-
-
+   public List<Integer> getEndDealList(@Param("user_number")Integer user_number);
    
+   public Review getOpponentReview(@Param("enddeal_id")Integer enddeal_id, @Param("user_number")Integer user_number);
    
-   
-}
+}                                

@@ -1,8 +1,5 @@
 package com.ezen.ezenmarket.mypage.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ezen.ezenmarket.mypage.dto.Review;
 import com.ezen.ezenmarket.mypage.service.MyPageServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -43,7 +39,7 @@ public class MyPageController {
 	}
 	
 	@GetMapping(value="/buy_list")
-	public String buyList (HttpServletRequest req) {
+	public String buyList(HttpServletRequest req) {
 		
 		service.getBuyList(req);
 		
@@ -77,19 +73,20 @@ public class MyPageController {
 	public String idCheck(@RequestParam("nickname") String nickname,
 						  @RequestParam("userintro") String userintro,
 						  @RequestParam("nickChange") String nickChange,
-							@RequestPart(value="img", required=false) MultipartFile file) {
+							@RequestPart(value="img", required=false) MultipartFile file,
+							@RequestParam("user_number") Integer user_number) {
 		
 		int check = service.nickCheck(nickname);
 		
 		if (check == 0 && nickChange.equals("yes")) {
-			service.modifyNick(nickname);
+			service.modifyNick(nickname, user_number);
 		} else if (check == 1 && nickChange.equals("no")) {
-			service.modifyNick(nickname);
+			service.modifyNick(nickname, user_number);
 		}
-		service.modifyIntro(userintro);
+		service.modifyIntro(userintro, user_number);
 		if (file != null) {
 			// 디비에 해쉬로변환한 이름을 넣고 서버에 사진을 넣는 작업
-			service.modifyImg(file);
+			service.modifyImg(file, user_number);
 		}
 		String nickCheck = Integer.toString(check);
 		

@@ -22,16 +22,14 @@ public interface MyPageService {
    
    public int nickCheck(String nickName);
    
-   public void modifyNick(String nickName);
+   public void modifyNick(String nickName, Integer user_number);
    
-   public void modifyIntro(String userintro);
+   public void modifyIntro(String userintro, Integer user_number);
    
-   public void modifyImg(MultipartFile file);
+   public void modifyImg(MultipartFile file, Integer user_number);
    
    public void getmanagement(HttpServletRequest req);
    
    public String getBuyList(HttpServletRequest req);
 
-
-   
 }

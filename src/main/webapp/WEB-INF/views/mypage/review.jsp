@@ -28,7 +28,7 @@
          <div id="profile-section" class="col-2">
             <!--profile-section start-->
             <div class="profile-img" id="imgContainer">
-               <img id="img" class="profile-img-img" src="http://localhost:8888/ezenmarket/tmpFiles/${profile.user_image }" alt="프로필이미지" />
+               <img id="img" class="profile-img-img" src="${profile.user_image }" alt="프로필이미지" />
             </div>
             <div class="profile-img" id="modifyimgContainer" onclick="fileUploadAction();" style="display: none;">
                <img id="modifyImg" class="profile-img-img" src="https://pbs.twimg.com/profile_images/1536535827257630720/VUZLhP8M_400x400.jpg" alt="">
@@ -49,27 +49,27 @@
                </div>
                <div class="review">
                   <span id="left2">거래후기</span> 
-                   		<c:choose>
-		           			<c:when test="${profile.ratingAvg > 4.0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★★</span>
-		           			</c:when>     
-		           			<c:when test="${profile.ratingAvg > 3.0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★☆</span>
-		           			</c:when>  
-		           			<c:when test="${profile.ratingAvg > 2.0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★☆☆</span>
-		           			</c:when>   
-		           			<c:when test="${profile.ratingAvg > 1.0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★☆☆☆</span>
-		           			</c:when> 
-		           			<c:when test="${profile.ratingAvg > 0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★☆☆☆☆</span>
-		           			</c:when>   
-		           			<c:when test="${profile.ratingAvg == 0}">
-		           				<span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">☆☆☆☆☆</span>
-		           			</c:when>   		
-		           		</c:choose>     		
-		           		<span id="right2">${profile.ratingAvg }</span>                
+                         <c:choose>
+                          <c:when test="${profile.ratingAvg > 4.0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★★</span>
+                          </c:when>     
+                          <c:when test="${profile.ratingAvg > 3.0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★★☆</span>
+                          </c:when>  
+                          <c:when test="${profile.ratingAvg > 2.0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★★☆☆</span>
+                          </c:when>   
+                          <c:when test="${profile.ratingAvg > 1.0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★★☆☆☆</span>
+                          </c:when> 
+                          <c:when test="${profile.ratingAvg > 0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">★☆☆☆☆</span>
+                          </c:when>   
+                          <c:when test="${profile.ratingAvg == 0}">
+                             <span class="star" style="color:#FFC31E; font-size: 20px; padding-left:15px;">☆☆☆☆☆</span>
+                          </c:when>         
+                       </c:choose>           
+                       <span id="right2">${profile.reviewCount }</span>                 
                </div>
 
                <div id="intro" class="intro" style="margin-left: 10px; border: 0px;">${profile.user_intro }</div>
@@ -124,7 +124,7 @@
                                              <c:when test="${profile.reviewCount > 0}">
                                                 <c:forEach items="${review }" var="review"> 
                                      
-                                                	<div class="review-div">                                       
+                                                   <div class="review-div">                                       
                                                       <div class="member-image">
                                                          <div class="member-image-box">
                                                             <img src="${review.user_image }">      
@@ -134,32 +134,32 @@
                                                          </a>
                                                       </div>
                                                       <div class="member-box">                                                          
-										                  <c:choose>
-											           			<c:when test="${review.rating > 4.0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★★★</span>
-											           			</c:when>     
-											           			<c:when test="${review.rating > 3.0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★★☆</span>
-											           			</c:when>  
-											           			<c:when test="${review.rating > 2.0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★☆☆</span>
-											           			</c:when>   
-											           			<c:when test="${review.rating > 1.0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★☆☆☆</span>
-											           			</c:when> 
-											           			<c:when test="${review.rating > 0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★☆☆☆☆</span>
-											           			</c:when>   
-											           			<c:when test="${review.rating == 0}">
-											           				<span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">☆☆☆☆☆</span>
-											           			</c:when>   		
-										           		 </c:choose> 
+                                                <c:choose>
+                                                     <c:when test="${review.rating > 4.0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★★★</span>
+                                                     </c:when>     
+                                                     <c:when test="${review.rating > 3.0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★★☆</span>
+                                                     </c:when>  
+                                                     <c:when test="${review.rating > 2.0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★★☆☆</span>
+                                                     </c:when>   
+                                                     <c:when test="${review.rating > 1.0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★★☆☆☆</span>
+                                                     </c:when> 
+                                                     <c:when test="${review.rating > 0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">★☆☆☆☆</span>
+                                                     </c:when>   
+                                                     <c:when test="${review.rating == 0}">
+                                                        <span class="star" style="color:#FFC31E; font-size: 25px; display:block; margin-bottom: 10px;">☆☆☆☆☆</span>
+                                                     </c:when>         
+                                                </c:choose> 
                                                          <%-- <a href="../product?id=${}"> --%> 
                                                                            <!--구매한 상품 이름-->
                                                          <a href="../product?id=${review.post_id }">
                                                             <div class="item-review-title">${review.title }<i class="fa-solid fa-chevron-right" style="padding-left: 6px; font-size: 13px;"></i></div>
                                                          </a>  
-														 
+                                           
                                                          <div></div>
                                                          
                                                          <!-- <span class="description" width="0"> 
@@ -171,7 +171,7 @@
                                                          </span> -->
                                                       </div>
                                                    </div> 
-                                                	
+                                                   
                                                 </c:forEach> 
                                              </c:when>
                                              <c:otherwise>
@@ -257,6 +257,7 @@
           formData.append('nickname', nickname);
           formData.append('userintro', userintro);
           formData.append('nickChange', 'yes');
+          formData.append('user_number',${sessionScope.user_number});
             $.ajax({
                 url:'./modifynick', //Controller에서 요청 받을 주소
                 type:'post', //POST 방식으로 전달
@@ -298,6 +299,8 @@
           formData.append('nickname', nickname);
           formData.append('userintro', userintro);
           formData.append('nickChange', 'no');
+          formData.append('user_number',${sessionScope.user_number});
+          
           $.ajax({
                 url:'./modifynick', //Controller에서 요청 받을 주소
                 type:'post', //POST 방식으로 전달
