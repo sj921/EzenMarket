@@ -17,7 +17,7 @@
             </a>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="mainpage">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>메인 페이지</span></a>
@@ -47,7 +47,7 @@
                     <span>신고 관리</span></a>
             </li>
             
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="postlist">
                     <i class="fas fa-fw fa-table"></i>
                     <span>게시물 관리</span></a>
@@ -237,57 +237,113 @@
                         </div>
                     </div>
 
-                    <!-- Content Row -->
+                     <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
+                    <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">주간 사이트 접속자 수</h6>
-                                   
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                                 </div>
-                                <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <h4 class="small font-weight-bold">Server Migration <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Sales Tracking <span
+                                            class="float-right">40%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Customer Database <span
+                                            class="float-right">60%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Payout Details <span
+                                            class="float-right">80%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Account Setup <span
+                                            class="float-right">Complete!</span></h4>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    
+               
 
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">카테고리별 게시물(상위 3개)</h6>
-                                   
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> 남성의류
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> 여성의류
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> 신발 
-                                        </span>
-                                    </div>
-                                </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">게시글 목록</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>게시물 번호</th>
+                                            <th>유저 번호</th>
+                                            <th>거래 지역</th>
+                                            <th>제목</th>
+                                            <th>카테고리</th>
+                                            <th>생성날짜</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${postlist}" var="post"> 
+                                        <tr>
+                                            <td>${post.post_id }</td>
+                                            <td>${post.user_number }</td>
+                                            <td>${post.post_address }</td>
+                                            <td>${post.title }</td>
+                                            <td>${post.category_id}</td>
+                                            <td>${post.created }</td>                       
+                                            <td>
+                                            <a href="../post?id=${post.post_id }" class="view" title="View"
+												data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+												<a id="postDelete_${post.post_id}" href="postlist/deletePost?post_id=${post.post_id }"
+															class="delete" title="삭제" data-toggle="tooltip"> 
+															<i class="material-icons">&#xE5C9;</i>
+														</a>
+												<c:forEach items="${endDeal}" var="endDeal">
+													<c:if test="${endDeal.post_id == post.post_id }">
+														<script>
+													        document.getElementById("postDelete_${post.post_id}").style.display = "none";
+													    </script>
+													</c:if>
+
+												</c:forEach>
+											</td>
+                                        </tr>
+                                        </c:forEach>
+                                        
+                                      
+                                       
+
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+
+                </div>
+                
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
 
                 </div>
                 <!-- /.container-fluid -->

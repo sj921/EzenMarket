@@ -152,28 +152,96 @@
 
                 <!-- Begin Page Content -->
                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">현재 배너 이미지</h1>       
+                        <h1 class="h3 mb-0 text-gray-800">1번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner.jpg" alt="사진">
+               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner1.jpg" alt="배너1">
                </div>
                
-               <div><img class="img-fluid mb-4" id="myImage" src="${imageSrc}" alt=""></div>
+               <div><img class="img-fluid mb-4" id="myImage1" src="${imageSrc1}" alt=""></div>
 
-		<form class="mb-4" action="upload_ok" method="post"
+		<form class="mb-4" action="upload_banner1" method="post"
 			enctype="multipart/form-data">
 
 			<label class="btn btn-primary btn-file mb-4"> 이미지 찾기 
 				<input type="file" name="file" style="display: none;"
-					onchange="displayImage(event)">
+					onchange="displayImage1(event)">
 			</label> 
-				<img class="img-fluid mb-4" id="myImage" src="" alt=""> 
+				<img class="img-fluid mb-4" id="myImage1" src="" alt=""> 
 			<label class="btn btn-primary btn-file mb-4"> 변경
 				<input type="submit" style="display: none;">
 			</label>
 		</form>
-	
+		<hr>
+		
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">2번배너 현재 이미지</h1>       
+               </div>
+               <div>
+               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner2.jpg" alt="배너2">
+               </div>
+               
+               <div><img class="img-fluid mb-4" id="myImage2" src="${imageSrc2}" alt=""></div>
 
+		<form class="mb-4" action="upload_banner2" method="post"
+			enctype="multipart/form-data">
+
+			<label class="btn btn-primary btn-file mb-4"> 이미지 찾기 
+				<input type="file" name="file" style="display: none;"
+					onchange="displayImage2(event)">
+			</label> 
+				<img class="img-fluid mb-4" id="myImage2" src="" alt=""> 
+			<label class="btn btn-primary btn-file mb-4"> 변경
+				<input type="submit" style="display: none;">
+			</label>
+		</form>
+		<hr>
+		
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">3번배너 현재 이미지</h1>       
+               </div>
+               <div>
+               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner3.jpg" alt="배너3">
+               </div>
+               
+               <div><img class="img-fluid mb-4" id="myImage3" src="${imageSrc3}" alt=""></div>
+
+		<form class="mb-4" action="upload_banner3" method="post"
+			enctype="multipart/form-data">
+
+			<label class="btn btn-primary btn-file mb-4"> 이미지 찾기 
+				<input type="file" name="file" style="display: none;"
+					onchange="displayImage3(event)">
+			</label> 
+				<img class="img-fluid mb-4" id="myImage3" src="" alt=""> 
+			<label class="btn btn-primary btn-file mb-4"> 변경
+				<input type="submit" style="display: none;">
+			</label>
+		</form>
+		<hr>
+		
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">4번배너 현재 이미지</h1>       
+               </div>
+               <div>
+               	<img class="img-fluid mb-4" src="C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles\\banner4.jpg" alt="배너4">
+               </div>
+               
+               <div><img class="img-fluid mb-4" id="myImage4" src="${imageSrc4}" alt=""></div>
+
+		<form class="mb-4" action="upload_banner4" method="post"
+			enctype="multipart/form-data">
+
+			<label class="btn btn-primary btn-file mb-4"> 이미지 찾기 
+				<input type="file" name="file" style="display: none;"
+					onchange="displayImage4(event)">
+			</label> 
+				<img class="img-fluid mb-4" id="myImage4" src="" alt=""> 
+			<label class="btn btn-primary btn-file mb-4"> 변경
+				<input type="submit" style="display: none;">
+			</label>
+		</form>
+		<hr>
 
 		<!-- End of Main Content -->
 

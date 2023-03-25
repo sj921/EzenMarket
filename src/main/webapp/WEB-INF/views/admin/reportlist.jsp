@@ -49,6 +49,12 @@
                     <span>신고 관리</span></a>
             </li>
             
+            <li class="nav-item">
+                <a class="nav-link" href="postlist">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>게시물 관리</span></a>
+            </li>
+            
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Update;
 
 import com.ezen.ezenmarket.admin.dto.ReportDTO;
 import com.ezen.ezenmarket.admin.dto.UserListDTO;
+import com.ezen.ezenmarket.admin.dto.endDealDTO;
+import com.ezen.ezenmarket.admin.dto.postDTO;
 
 public interface AdminMapper{
 
@@ -20,9 +22,9 @@ public interface AdminMapper{
 	@Update("UPDATE userlist SET banned=0 WHERE user_number=#{user_number}")
 	Integer unbanUser(UserListDTO userlist);
 	
-	
 	@Select("SELECT * FROM report ORDER BY report_id DESC")
 	List<ReportDTO> getReport();
+	
 	@Update("UPDATE report SET report_status=1 WHERE report_id"
 			+ "=#{report_id}")
 	Integer updateReport(ReportDTO report);
@@ -36,6 +38,10 @@ public interface AdminMapper{
 	@Select("SELECT COUNT(*) FROM report WHERE report_status = '0'")
 	Integer selectUnresolved(Integer report_id);
 	
-
+	@Select("SELECT * FROM post ORDER BY post_id DESC")
+	List<postDTO> getPost();
+	
+	@Select("SELECT * FROM enddeal ORDER BY post_id DESC")
+	List<endDealDTO> getEndDeal();
 	
 }

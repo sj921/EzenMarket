@@ -54,6 +54,7 @@
 
     <!-- Page level custom scripts -->
     <script src="${pageContext.request.contextPath}/resources/js/demo/datatables-demo.js"></script>
+    
 	
 	 <!-- Page level plugins -->
     <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script> 
@@ -277,10 +278,22 @@ var myLineChart = new Chart(ctx, {
             })
             .catch(error => console.log(error));
     }
-    function displayImage(event) {
-    	  var image = document.getElementById('myImage');
+    function displayImage1(event) {
+    	  var image = document.getElementById('myImage1');
     	  image.src = URL.createObjectURL(event.target.files[0]);
     	}
+    function displayImage2(event) {
+  	  var image = document.getElementById('myImage2');
+  	  image.src = URL.createObjectURL(event.target.files[0]);
+  	}
+    function displayImage3(event) {
+  	  var image = document.getElementById('myImage3');
+  	  image.src = URL.createObjectURL(event.target.files[0]);
+  	}
+    function displayImage4(event) {
+  	  var image = document.getElementById('myImage4');
+  	  image.src = URL.createObjectURL(event.target.files[0]);
+  	}
 </script>
 
 

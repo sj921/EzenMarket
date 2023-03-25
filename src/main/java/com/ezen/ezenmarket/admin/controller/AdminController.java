@@ -47,6 +47,15 @@ public class AdminController {
 		
 		return "admin/userlist";
 	}
+	@GetMapping(value={"/postlist"})
+	public String postlist(Model model) {
+		model.addAttribute("postlist", adminMapper.getPost());
+		model.addAttribute("endDeal", adminMapper.getEndDeal());
+		
+		return "admin/postlist";
+	}
+	
+	
 	@GetMapping(value={"/userlist/ban"})
 	public String banUser(UserListDTO userlist) {
 		adminMapper.banUser(userlist);
@@ -72,6 +81,13 @@ public class AdminController {
 	public String deletePost(Integer post_id) {
 		adminMapper.deletePost(post_id);
 		return "redirect:/admin/reportlist";
+	
+	}
+	
+	@GetMapping("/postlist/deletePost")
+	public String deletePost2(Integer post_id) {
+		adminMapper.deletePost(post_id);
+		return "redirect:/admin/postlist";
 	
 	}
 	
@@ -136,8 +152,8 @@ public class AdminController {
 	@GetMapping("/upload")
 	public void form() {}
 	
-	@PostMapping("/upload_ok")
-	public String upload(@RequestParam("file") MultipartFile file, Model model) {
+	@PostMapping("/upload_banner1")
+	public String uploadBanner1(@RequestParam("file") MultipartFile file, Model model) {
 		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
@@ -150,7 +166,7 @@ public class AdminController {
 		String fileName = uniqueName + fileExtension;
 		System.out.println(fileName);
 		
-		File saveFile = new File(uploadFolder+"\\banner.jpg");
+		File saveFile = new File(uploadFolder+"\\banner1.jpg");
 		try {
 			file.transferTo(saveFile);
 		} catch (IllegalStateException e) {
@@ -161,7 +177,97 @@ public class AdminController {
 		
 		String filePath = uploadFolder + "\\" + fileName;
 	    model.addAttribute("fileName", filePath);
-	    model.addAttribute("imageSrc", "file:///" + filePath.replace("\\", "/"));
+	    model.addAttribute("imageSrc1", "file:///" + filePath.replace("\\", "/"));
+		
+		return "admin/modifyBannerPage";
+	}
+	
+	@PostMapping("/upload_banner2")
+	public String uploadBanner2(@RequestParam("file") MultipartFile file, Model model) {
+		
+		String fileRealName = file.getOriginalFilename();
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		String fileName = uniqueName + fileExtension;
+		System.out.println(fileName);
+		
+		File saveFile = new File(uploadFolder+"\\banner2.jpg");
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String filePath = uploadFolder + "\\" + fileName;
+	    model.addAttribute("fileName", filePath);
+	    model.addAttribute("imageSrc2", "file:///" + filePath.replace("\\", "/"));
+		
+		return "admin/modifyBannerPage";
+	}
+	
+	@PostMapping("/upload_banner3")
+	public String uploadBanner3(@RequestParam("file") MultipartFile file, Model model) {
+		
+		String fileRealName = file.getOriginalFilename();
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		String fileName = uniqueName + fileExtension;
+		System.out.println(fileName);
+		
+		File saveFile = new File(uploadFolder+"\\banner3.jpg");
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String filePath = uploadFolder + "\\" + fileName;
+	    model.addAttribute("fileName", filePath);
+	    model.addAttribute("imageSrc3", "file:///" + filePath.replace("\\", "/"));
+		
+		return "admin/modifyBannerPage";
+	}
+	
+	@PostMapping("/upload_banner4")
+	public String uploadBanner4(@RequestParam("file") MultipartFile file, Model model) {
+		
+		String fileRealName = file.getOriginalFilename();
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "C:\\Users\\admin\\git\\EzenMarket\\src\\main\\webapp\\uploadedFiles";
+		
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		String fileName = uniqueName + fileExtension;
+		System.out.println(fileName);
+		
+		File saveFile = new File(uploadFolder+"\\banner4.jpg");
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String filePath = uploadFolder + "\\" + fileName;
+	    model.addAttribute("fileName", filePath);
+	    model.addAttribute("imageSrc4", "file:///" + filePath.replace("\\", "/"));
 		
 		return "admin/modifyBannerPage";
 	}
