@@ -59,12 +59,9 @@ public class SignInController {
 	@PostMapping(value="/signup")
 	public String userSingUp(User user) {
 
-//		user.setUser_PW(passwordEncoder.encode(user.getUser_PW()));
-//		System.out.println(passwordEncoder.matches("12341234a", user.getUser_PW()));
+		user.setUser_pw(passwordEncoder.encode(user.getUser_pw()));
 		
-		System.out.println(user.getUser_address());
-		
-//		uxm.userSignUp(user);
+		uxm.userSignUp(user);
 		
 		return "main";
 	}

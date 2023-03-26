@@ -121,20 +121,24 @@
 		                     <c:forEach items="${post }" var="post">
 		                        <div class="col-4">
 		                           <!-- 1 of 3 start -->
-		                           <a class="product" href="../product?id=${post.post_Id }">
+		                           
 		                              <div class="card" style="width: 13em; margin: 0 10px 20px 0;">
+		                              <a class="product" href="../product?id=${post.post_Id }">
 		                                 <img src=${post.image_url } class="card-img-top" alt="..." style="width: 100%; height: 250px;">
+		                                  </a>
 		                                 <div class="card-body">
 		                                    <span class="d-inline-block text-truncate card-text" >${post.title }</span><br>
 		                                    <p><fmt:formatNumber value="${post.price }" pattern="#,###" />원</p>
-		                                    <div class="up-btns">
-		                                       <button class="custom-btn up-btn" onclick="location.href='./product'">수정</button>
+		                                    
+                                  
+                                   			<div class="up-btns">
+		                                       <button class="custom-btn up-btn" onclick="location.href='../modifyProduct?post_Id=${post.post_Id}'">수정</button>
 		                                       <button class="custom-btn up-btn" onclick="location.href='./update?post_Id=${post.post_Id }&user_number=${user_number }'">UP</button>
 		                                       <button class="custom-btn up-btn" onclick="location.href='./delete?post_Id=${post.post_Id }&user_number=${user_number }'">삭제</button>
 		                                    </div>
 		                                 </div>
 		                              </div>
-		                           </a> 
+		                            
 		                        </div>
 		                     </c:forEach>
 		                  </c:when>

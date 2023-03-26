@@ -5,16 +5,17 @@
 <mapper namespace="com.ezen.ezenmarket.user.mapper.UserXmlMapper">
 
   <insert id="userSignUp" parameterType="com.ezen.ezenmarket.user.dto.User">
-    INSERT INTO userlist VALUES (
-    	7,
-    	#{user_Name},
-    	#{user_ID},
-    	#{user_PW},
+    INSERT INTO 
+    	userlist(user_number, user_name, user_id, user_pw, nickname, phonenumber, email, user_address) 
+    VALUES (
+    	user_number_seq.nextval,
+    	#{user_name},
+    	#{user_id},
+    	#{user_pw},
     	#{nickname},
     	#{phoneNumber},
     	#{email},
-    	null,
-    	sysdate
+    	#{user_address}
     )
   </insert>
   

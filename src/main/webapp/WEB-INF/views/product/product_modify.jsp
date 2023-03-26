@@ -235,15 +235,17 @@
        <input type="file" id="input_imgs" name="file" multiple/>
    </div>
 </div>
-
+<c:set var="post_Id" value="${post_Id}" />
+<c:set var="images" value="${images}" />
 <div id="imgs_box">
 <div id="left_block">상품이미지</div>
    <div class="imgs_wrap">
-    <a href="javascript:" onclick="fileUploadAction();">
-    	<img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/>
-    </a>
-    
+    <a href="javascript:" onclick="fileUploadAction();"><img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/></a>
+    <c:forEach items="${images}" var="image" varStatus="status">
+        <a href="javascript:void(0);" onclick="deleteImageAction(${status.index})" id="img_id_${status.index}"><img src=${image} class='selProductFile' title='Click to remove'></a>
+    </c:forEach>
    </div>
+
    <div id="description"><b style="color: gray;">* 상품 이미지는 640x640에 최적화 되어 있습니다.</b><br>
         - 상품 이미지는 PC에서는 1:1, 모바일에서는 1:1.23 비율로 보여집니다.<br>
         - 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다.<br>
@@ -258,7 +260,8 @@
    
    <div class="flex-wrap">
    <div class="title">제목</div>
-     <input type="text" id="product_title" class="textbox short-title" name="title" placeholder="상품 제목을 입력해주세요.">
+     <input type="text" id="product_title" class="textbox short-title" name="title" value="${p.title }" placeholder="상품 제목을 입력해주세요.">
+     
    </div>
     
     <div class="line2"></div>
@@ -267,7 +270,8 @@
        <div class="title">카테고리</div>
            <div class="Category"> 
             <!-- value : category_id-->
-           <select name="category_id"  class="textbox dropbar">
+            <c:set var="category_id" value="${p.category_id }" />
+           <select name="category_id"  class="textbox dropbar" id="category-select">
               <option value="">카테고리를 선택하세요</option>
               <option value="1">남성의류</option>
               <option value="2">여성의류</option>
@@ -291,11 +295,11 @@
      </div>
     
       <div class="line2"></div>
-      
+      <c:set var="post_address" value="${p.post_address }" />
    <div class="flex-wrap">
      <div class="title">거래지역</div>
      <div class="textbox address">
-         <input type="text" id="sample5_address" placeholder="거래지역" name="post_address" readonly>
+         <input type="text" id="sample5_address" placeholder="거래지역" name="post_address" value="${p.post_address }"readonly>
          <input type="button" id="addressBtn" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
          <div id="map" style="width:290px;height:280px;margin-top:10px;display:none"></div>
      </div>
@@ -304,7 +308,7 @@
    <div class="line4"></div>
    
    <div class="flex-wrap">
-     <div class="title">가격 <input type="text" class="textbox short-title price" name="price" placeholder="숫자만 입력해주세요.">원</div>
+     <div class="title">가격 <input type="text" class="textbox short-title price" name="price" value="${p.price }">원</div>
    <!-- <input type="radio"> 배송비 포함 -->
    </div>
    
@@ -312,8 +316,7 @@
       
      <div class="flex-wrap">
         <div class="title">상품설명</div>
-        <textarea class="textbox" cols="60" rows="8" name="post_content" placeholder=
-        "여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)"></textarea>
+        <textarea class="textbox" cols="60" rows="8" name="post_content" >${p.post_content }</textarea>
      </div>
    </div>
    
@@ -323,20 +326,23 @@
    <div class="submit-background">      
          <button type="submit" id="registerBtn">등록하기</button>   
    </div> 
-
-    
 </form>
 
    <!--    <div class="submit-background">                                                      
         <div class="btnContainer"><a href="javascript:" class="my_button" onclick="submitAction();"></a></div>
       </div>  -->
-
-
+      
    <!-- 자바스크립트  -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=e47856cfcf539f7992f903a405faeb07&libraries=services"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
+    const selected_num = <c:out value="${category_id}" />; // 가져온 값
+    const select_element = document.getElementById("category-select");
+    select_element.value = selected_num;
+
+    
+    
     // 지도 API
     
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -344,7 +350,7 @@
                 center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
                 level: 5 // 지도의 확대 레벨
             };
-    
+            
         //지도를 미리 생성
         var map = new daum.maps.Map(mapContainer, mapOption);
         //주소-좌표 변환 객체를 생성
@@ -354,42 +360,62 @@
             position: new daum.maps.LatLng(37.537187, 127.005476),
             map: map
         });
-    
+
+        const address = '<c:out value="${post_address}" />';
+
+        function sample5_execDaumPostcode2() {
+            geocoder.addressSearch(address, function(result, status) {
+                if (status === daum.maps.services.Status.OK) {
+                    console.log(result[0].y, result[0].x); // 좌표 출력
+                    // 지도 중심을 변경한다.
+                    map.setCenter(new daum.maps.LatLng(result[0].y, result[0].x));
+                    // 마커를 결과값으로 받은 위치로 옮긴다.
+                    marker.setPosition(new daum.maps.LatLng(result[0].y, result[0].x));
+                    // 지도를 보여준다.
+                    mapContainer.style.display = "block";
+                    map.relayout();
+                } else {
+                    console.log('검색 실패: ' + status);
+                }
+            });
+            
+        }
+        window.onload = sample5_execDaumPostcode2;
     
         function sample5_execDaumPostcode() {
-           
-            new daum.Postcode({
-                oncomplete: function(data) {
-                    var addr = data.address; // 최종 주소 변수
-                    
-                    // 주소 정보를 해당 필드에 넣는다.
-                    document.getElementById("sample5_address").value = addr;
-                    // 주소로 상세 정보를 검색
-                    geocoder.addressSearch(data.address, function(results, status) {
-                        // 정상적으로 검색이 완료됐으면
-                        if (status === daum.maps.services.Status.OK) {
-    
-                            var result = results[0]; //첫번째 결과의 값을 활용
-    
-                            // 해당 주소에 대한 좌표를 받아서
-                            var coords = new daum.maps.LatLng(result.y, result.x);
-                            // 지도를 보여준다.
-                            mapContainer.style.display = "block";
-                            map.relayout();
-                            // 지도 중심을 변경한다.
-                            map.setCenter(coords);
-                            // 마커를 결과값으로 받은 위치로 옮긴다.
-                            marker.setPosition(coords)
-                        }
-                    });
-                }
-            }).open();
-        }
+        var defaultAddrCoords = new daum.maps.LatLng(35.842203, 127.129515); // 전북 전주시 덕진구 가련산로 6의 좌표값
+        new daum.Postcode({
+            defaultAddress: "전북 전주시 덕진구 가련산로 6",
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+                        
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("sample5_address").value = addr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
         
-     // 이미지 정보들을 담을 배열 
-        var sel_files = [];
+                        var result = results[0]; //첫번째 결과의 값을 활용
+        
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords);
+                    }
+                });
+            }
+        }).open();
+    }
+         // 이미지 정보들을 담을 배열 
+         var sel_files = [];
         var index = 0;
-     
+        
         $(document).ready(function() {
             $("#input_imgs").on("change", handleImgFileSelect);
         }); 
@@ -446,7 +472,8 @@
             $(img_id).remove(); 
         }
 
-        
+       
+        const post_Id = <c:out value="${post_Id}" />
         // 빈칸 있을 때 알림창 나오기
         function validateForm() {
              var product_title = document.forms["myForm"]["title"].value;
@@ -473,11 +500,11 @@
                }else if(content == ""){
                   alert("상품 설명을 채워주세요.");
                    return false;
-               }else if(content.length > 10){
+               }else if(content.length < 10){
                   alert("10자 이상 입력해주세요.");
                   return false;
                }   
-
+               
                 var formData = new FormData();
                 for (var i = 0; i < sel_files.length; i++) {
                    formData.append('file', sel_files[i]);
@@ -487,8 +514,9 @@
                 formData.append('post_address', address);
                 formData.append('price', price);
                 formData.append('post_content', content);
+                formData.append('post_Id', post_Id);
                 $.ajax({
-                        url:'./insert', 
+                        url:'./modify', 
                         type:'post', 
                         processData: false,
                         contentType: false,
@@ -505,7 +533,6 @@
                         }
                     });
                 }   
-               
     </script>
 </body>
 </html>

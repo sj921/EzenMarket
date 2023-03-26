@@ -30,7 +30,7 @@ import lombok.RequiredArgsConstructor;
 @Builder
 public class Post extends PostImage {
 	
-	private Integer post_id;
+	private Integer post_Id;
 	@NonNull
 	private Integer user_number;
 	@NonNull
@@ -64,6 +64,17 @@ public class Post extends PostImage {
 	DecimalFormat dc = new DecimalFormat("###,###,###");
 
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
+	
+	public Post(Integer post_Id, Integer user_number, String post_address, String title, String post_content,
+			Integer category_id, Integer price) {
+		this.post_Id = post_Id;
+		this.user_number = user_number;
+		this.post_address = post_address;
+		this.title = title;
+		this.post_content = post_content;
+		this.category_id = category_id;
+		this.price = price;
+	}
 	
 	public String getCreatedTimeAgo() {		
 		

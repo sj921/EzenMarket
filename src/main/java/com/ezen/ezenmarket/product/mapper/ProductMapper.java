@@ -75,8 +75,10 @@ public interface ProductMapper {
 	/* 전체 상품 개수 */
 	public int countAllProduct();
 	
-	
-	
 	public int getPost_Id();
     
+	public Post getProductInfo(Integer post_Id);
+	
+	public void updateProduct(Post post);
+	
 }

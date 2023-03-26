@@ -207,7 +207,7 @@
            position: relative;
            top: 40px;
            left: 71%;
-           color: white;
+           color: white;   
            background: black;
            font-size: 30px;
            width: 180px;
@@ -221,13 +221,13 @@
     <jsp:include page="../include/header.jsp" />
  
  <!-- 내가 만든 메서드 경로 주소 -> action -->
-<form action="./insert2" method="POST" name="myForm" onsubmit="return validateForm();" enctype="multipart/form-data">
+<form action="./insert" method="POST" name="myForm" onsubmit="return validateForm();">
 
  <div class="container">
    
     <!-- <div class="line"></div> -->
       <div class="Title">기본정보</div>
-       
+   
     <div class="line"></div>
 
 <div>
@@ -239,10 +239,7 @@
 <div id="imgs_box">
 <div id="left_block">상품이미지</div>
    <div class="imgs_wrap">
-    <a href="javascript:" onclick="fileUploadAction();">
-    	<img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/>
-    </a>
-    
+    <a href="javascript:" onclick="fileUploadAction();"><img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/></a>
    </div>
    <div id="description"><b style="color: gray;">* 상품 이미지는 640x640에 최적화 되어 있습니다.</b><br>
         - 상품 이미지는 PC에서는 1:1, 모바일에서는 1:1.23 비율로 보여집니다.<br>
@@ -250,7 +247,7 @@
         - 이미지를 클릭할 경우 원본 이미지를 확인할 수 있습니다.<br>
         - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다.<br>
         - 큰 이미지일 경우 이미지가 깨지는 경우가 발생할 수 있습니다.<br>
-          최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
+            최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
    </div>
 </div>
    
@@ -258,7 +255,7 @@
    
    <div class="flex-wrap">
    <div class="title">제목</div>
-     <input type="text" id="product_title" class="textbox short-title" name="title" placeholder="상품 제목을 입력해주세요.">
+    <input type="text" id="product_title" class="textbox short-title" name="title" placeholder="상품 제목을 입력해주세요.">
    </div>
     
     <div class="line2"></div>
@@ -337,54 +334,8 @@
     <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=e47856cfcf539f7992f903a405faeb07&libraries=services"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
-    // 지도 API
-    
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-                center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-                level: 5 // 지도의 확대 레벨
-            };
-    
-        //지도를 미리 생성
-        var map = new daum.maps.Map(mapContainer, mapOption);
-        //주소-좌표 변환 객체를 생성
-        var geocoder = new daum.maps.services.Geocoder();
-        //마커를 미리 생성
-        var marker = new daum.maps.Marker({
-            position: new daum.maps.LatLng(37.537187, 127.005476),
-            map: map
-        });
     
     
-        function sample5_execDaumPostcode() {
-           
-            new daum.Postcode({
-                oncomplete: function(data) {
-                    var addr = data.address; // 최종 주소 변수
-                    
-                    // 주소 정보를 해당 필드에 넣는다.
-                    document.getElementById("sample5_address").value = addr;
-                    // 주소로 상세 정보를 검색
-                    geocoder.addressSearch(data.address, function(results, status) {
-                        // 정상적으로 검색이 완료됐으면
-                        if (status === daum.maps.services.Status.OK) {
-    
-                            var result = results[0]; //첫번째 결과의 값을 활용
-    
-                            // 해당 주소에 대한 좌표를 받아서
-                            var coords = new daum.maps.LatLng(result.y, result.x);
-                            // 지도를 보여준다.
-                            mapContainer.style.display = "block";
-                            map.relayout();
-                            // 지도 중심을 변경한다.
-                            map.setCenter(coords);
-                            // 마커를 결과값으로 받은 위치로 옮긴다.
-                            marker.setPosition(coords)
-                        }
-                    });
-                }
-            }).open();
-        }
         
      // 이미지 정보들을 담을 배열 
         var sel_files = [];
@@ -393,12 +344,10 @@
         $(document).ready(function() {
             $("#input_imgs").on("change", handleImgFileSelect);
         }); 
-
         function fileUploadAction() {
             console.log("fileUploadAction");
             $("#input_imgs").trigger('click');
         }
-
         function handleImgFileSelect(e) {
             var files = e.target.files;
             var filesArr = Array.prototype.slice.call(files);
@@ -425,86 +374,16 @@
                 }
                 
                 sel_files.push(f);
-
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>" +
-                    "<input type=\"file\" name=\"files\" value="+sel_files[index]+">";
+                    var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
                     $(".imgs_wrap").append(html);
                     index++;
                 }
                 reader.readAsDataURL(f);
+
             });
         }
-        
-        // 이미지 누르면 삭제되는 기능
-        function deleteImageAction(index) {
-            console.log("index : "+index);
-            console.log("sel length : "+sel_files.length);
-            sel_files.splice(index, 1);
-            var img_id = "#img_id_"+index;
-            $(img_id).remove(); 
-        }
-
-        
-        // 빈칸 있을 때 알림창 나오기
-        function validateForm() {
-             var product_title = document.forms["myForm"]["title"].value;
-             var category = document.forms["myForm"]["category_id"].value;     
-             var address = document.forms["myForm"]["post_address"].value;     
-             var price = document.forms["myForm"]["price"].value;     
-             var content = document.forms["myForm"]["post_content"].value;   
-             
-             if (product_title == "") {
-                  alert("상품의 제목을 입력해주세요.");
-                   return false;
-                }else if(category == ""){
-                  alert("카테고리를 선택해주세요.");
-                   return false;
-               }else if(address == ""){
-                  alert("주소를 입력해주세요.");
-                   return false;
-               }else if(price == ""){
-                  alert("가격을 입력해주세요.");
-                   return false;
-               }else if(isNaN(price) && price >= 100000000){
-                  alert("올바른 가격을 입력해주세요.");
-                   return false;
-               }else if(content == ""){
-                  alert("상품 설명을 채워주세요.");
-                   return false;
-               }else if(content.length > 10){
-                  alert("10자 이상 입력해주세요.");
-                  return false;
-               }   
-
-                var formData = new FormData();
-                for (var i = 0; i < sel_files.length; i++) {
-                   formData.append('file', sel_files[i]);
-                }
-                formData.append('title', product_title);
-                formData.append('category_id', category);
-                formData.append('post_address', address);
-                formData.append('price', price);
-                formData.append('post_content', content);
-                $.ajax({
-                        url:'./insert', 
-                        type:'post', 
-                        processData: false,
-                        contentType: false,
-                        data: formData,
-                        success:function(result){ 
-                            if(result == 1){ 
-                            alert('성공');
-                            } else {
-                            alert('오류입니다. 다시 시도해주세요.');
-                            }
-                        },
-                        error:function(){
-                            alert("에러입니다");
-                        }
-                    });
-                }   
                
     </script>
 </body>

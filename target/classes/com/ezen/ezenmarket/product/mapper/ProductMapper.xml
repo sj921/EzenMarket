@@ -168,4 +168,16 @@
    	  Insert into postImage values(post_image_id_seq.nextval, #{post_id}, #{image_url})
    </insert>
    
+   <select id="getProductInfo" parameterType="Integer" resultType="com.ezen.ezenmarket.product.dto.Post">
+   	  SELECT * FROM post WHERE post_Id = #{post_Id}
+   </select>
+   
+   <update id="updateProduct" parameterType="com.ezen.ezenmarket.product.dto.Post">
+    UPDATE 
+    	post
+    SET 
+    	post_address = #{post_address}, title = #{title}, post_content = #{post_content}, category_id = #{category_id}, price = #{price}
+    WHERE 
+    	post_Id = #{post_Id}
+	</update>
 </mapper>

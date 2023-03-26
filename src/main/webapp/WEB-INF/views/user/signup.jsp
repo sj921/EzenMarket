@@ -82,7 +82,7 @@
             
               <div class="col-sm-6">
                 <label for="name" class="form-label">이름 <span class="text-muted"></span></label>
-                <input type="text" name="user_Name" form="user_signup" class="form-control" id="name">
+                <input type="text" name="user_name" form="user_signup" class="form-control" id="name">
               </div>
 
               <div class="6">
@@ -90,7 +90,7 @@
                 <div class="col-sm-8">
                   <div class="row">
                     <div class="col">
-                      <input type="text" name="user_ID" form="user_signup" class="form-control" id="user_ID">
+                      <input type="text" name="user_id" form="user_signup" class="form-control" id="user_ID">
                     </div>
                     <div class="col">
                       <button type="button" class="btn btn-secondary" onclick="testID();">아이디 검사</button>
@@ -101,7 +101,7 @@
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">비밀번호</label>
-                <input type="password" name="user_PW" form="user_signup" class="form-control" id="user_PW" placeholder="" value="" required>
+                <input type="password" name="user_pw" form="user_signup" class="form-control" id="user_PW" placeholder="" value="" required>
                 <div id="checkPW" style="color:red;"></div>
                 <div class="invalid-feedback">
                   Valid last name is required.
@@ -120,7 +120,7 @@
               </div>
 
               <div class="6">
-                <label for="nickName" class="form-label">닉네임<span class="text-muted"></span></label>
+                <label for="nickname" class="form-label">닉네임<span class="text-muted"></span></label>
                 <div class="col-sm-8">
                   <div class="row">
                     <div class="col">
@@ -147,7 +147,7 @@
                 <div class="col-sm-8">
                   <div class="row">
                     <div class="col">
-                      <input type="text" name="address" form="user_signup" class="form-control" id="sample5_address" placeholder="주소">
+                      <input type="text" name="user_address" form="user_signup" class="form-control" id="sample5_address" placeholder="주소">
                       <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
                     </div>
                     <div class="col">
@@ -253,7 +253,6 @@
           data : email,
           async: false,
           success : function(result){
-            alert('전송성공!');
             code.value = result;
             return true;
           },
@@ -354,7 +353,7 @@
       }
         let userPW = document.getElementById('user_PW');
         let checkPW = document.getElementById('checkPW');
-        let checkPw = false;
+        let checkpw = false;
         userPW.onblur = function checkPw(){
           const RegExp = /^[a-zA-Z0-9]{4,12}$/;
           if(!RegExp.test(userPW.value) || userPW.value == ""){
@@ -362,15 +361,17 @@
             return false;
           } else {
             checkPW.innerHTML = '';
-            checkPw = true;
+            checkpw = true;
             return true;
           }
         };
         let check_PW = document.getElementById('check_PW');
         let check_PW2 = document.getElementById('check_PW2');
+        let pw = false;
         check_PW.onblur = function matchPw(){
           if(userPW.value != "" && userPW.value == check_PW.value){
             check_PW2.innerHTML = '비밀번호가 일치합니다.';
+            pw = true;
             return true;
           } else {
             check_PW2.innerHTML = '비밀번호가 일치하지 않습니다.';
@@ -403,6 +404,12 @@
           } else if(checkNumber == false){
             e.preventDefault();
             alert('이메일인증을 해주세요')
+          } else if(pw == false){
+            e.preventDefault();
+            alert('비밀번호 확인을 다시 해주세요')
+          } else if(checkpw == false){
+            e.preventDefault();
+            alert('비밀번호를 다시 입력해주세요')
           }
         });
        
