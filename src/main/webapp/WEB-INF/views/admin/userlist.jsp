@@ -154,16 +154,126 @@
                     </ul>
 
                 </nav>
+                
+                
                 <!-- End of Topbar -->
                 
                 
 
                 <!-- Begin Page Content -->
+                
+                
                 <div class="container-fluid">
+
+				
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">유저 목록</h1>
-               
+                    
+                    
+               		<div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                               대기중인 신고 </div>
+                                                                                
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${reportCount}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-triangle-exclamation fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                               이번달 등록된 게시물</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${postCount}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">일일 사이트 접속자 수
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${todayVisitor}</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 15%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-user-large fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                이번달 사이트 접속자 수</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${thisMonthVisitor }</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-user-group fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">최다 거래지역</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    상위 5개 지역만 표시됩니다.
+                                </div>
+                            </div>
+
+                
+
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">

@@ -1,6 +1,7 @@
 package com.ezen.ezenmarket.admin.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
@@ -44,4 +45,6 @@ public interface AdminMapper{
 	@Select("SELECT * FROM enddeal ORDER BY post_id DESC")
 	List<endDealDTO> getEndDeal();
 	
+	@Select("SELECT * FROM (SELECT user_address, COUNT(*) AS count FROM userlist GROUP BY user_address ORDER BY COUNT(*) DESC)WHERE ROWNUM <= 5")
+	List<Map<String, Object>> getAddress();
 }

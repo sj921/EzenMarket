@@ -2,6 +2,9 @@ package com.ezen.ezenmarket.admin.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,8 +52,34 @@ public class AdminController {
 	public String userlist(Model model) {
 		model.addAttribute("userlist", adminMapper.getUser());
 		
+		
+		List<Map<String, Object>> address = adminMapper.getAddress();
+		
+		List<String> userAddresses = new ArrayList<String>();
+		for (Map<String, Object> map : address) {
+		  String userAddress = (String) map.get("USER_ADDRESS");
+		  String[] addressParts = userAddress.split("-");
+		  String valueAtEnd = addressParts[addressParts.length - 1];
+		  userAddresses.add(valueAtEnd);
+		}
+		
+		List<Integer> countValues = new ArrayList<>();
+		for (Map<String, Object> map : address) {
+		    String countStr = map.get("COUNT").toString();
+		    int countValue = Integer.parseInt(countStr);
+		    countValues.add(countValue);
+		}
+		
+		
+		System.out.println(countValues);
+		System.out.println(userAddresses);
+		
+		model.addAttribute("userAddresses", userAddresses);
+		model.addAttribute("countValues", countValues);
+		
 		return "admin/userlist";
 	}
+	
 	@GetMapping(value={"/postlist"})
 	public String postlist(Model model) {
 		
@@ -139,8 +168,10 @@ public class AdminController {
 		int todayVisitor = adminMainPageService.getTodayVisitor();
 		int thisMonthVisitor = adminMainPageService.getThisMonthVisitor();
 		int[] thisWeekVisitor = adminMainPageService.getWeekdayVisitorCount();
+		
 		model.addAttribute("thisWeekVisitor", thisWeekVisitor);
-
+	
+		model.addAttribute("postCount", postCount);
 		model.addAttribute("reportCount", reportCount);
 		model.addAttribute("categoryFirst", categoryFirst);
 		model.addAttribute("categorySecond", categorySecond);
