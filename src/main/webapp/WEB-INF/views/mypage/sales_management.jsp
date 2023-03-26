@@ -13,6 +13,44 @@
 
 
 <style>
+		    	    
+	 .topMenu ul li { 
+			line-height: 120% !important;
+	 }           
+     .topMenu {
+       position: relative;
+       width: 1900px;
+       top: -1px !important;
+       margin-bottom: 15px;
+       right: 120px;          
+     }  
+     .header-hr {
+     	margin-top: 15px !important;
+     }
+     .menu { 
+        margin-top: -55px !important;
+        
+      }
+     .a-title {
+       text-decoration: none;
+       color: black;
+       display: block;
+       padding-bottom: 15px;
+     }
+    .a-data {
+       margin-left: 30px;
+     }
+    #nav {
+      margin-top: 15px;
+    }     
+     .logo {
+        
+      line-height: 115% !important;
+      padding-right: 50px !important;
+    }
+
+
+
 tr{
  text-align: center;
 }
@@ -57,7 +95,7 @@ th {
   <jsp:include page="../include/header.jsp"/>
   <br><br><br>
 
- <div style="margin-left: 21%; margin-right: 9%;">
+ <div style="margin-left: 12%; margin-right: 9%;">
  
  <div style="font-weight:bold; font-size: 40px; margin-top: 40px;">상점 관리</div>
  <br>

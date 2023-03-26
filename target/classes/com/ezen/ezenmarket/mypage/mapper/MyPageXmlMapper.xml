@@ -207,8 +207,13 @@
    		SELECT enddeal_id FROM enddeal WHERE seller_user_number = #{user_number} or buyer_user_number = #{user_number} ORDER BY post_id DESC
    </select>
    
-   <select id="getOpponentReview" resultType="com.ezen.ezenmarket.mypage.dto.Review">
-   		SELECT * FROM review WHERE enddeal_id = #{enddeal_id} AND NOT user_number = #{user_number}
+   <select id="getOpponentReview" resultType="com.ezen.ezenmarket.mypage.dto.Review">		   		
+		SELECT *
+		FROM review r
+		INNER JOIN userlist u ON r.user_number = u.user_number
+		INNER JOIN enddeal e ON r.enddeal_id = e.enddeal_id
+		INNER JOIN (SELECT * FROM post) p ON e.post_id = p.post_id
+		WHERE e.enddeal_id = #{enddeal_id} AND NOT r.user_number = #{user_number}
    </select>
    
 </mapper>

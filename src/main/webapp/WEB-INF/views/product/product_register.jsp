@@ -6,168 +6,213 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
     <title>이젠마켓 | 상품등록</title>
 <style>
-    .container{
-      
-      position: relative;
-      top: 100px;
-      left: 25%;
-      font-size: 25px;
-      
-   }
-   
-   .Title {
-      margin-top: 30px;
-      font-size: 29px;
-      font-weight: bold;
-   }
-   
-   .line {
-   
-      border: 1px solid #e2e2e2;
-      width: 1060px;
-      margin-top: 50px;
-      
-   }
-   
-   .line2 {
-   
-      border: 1px solid #e2e2e2;
-      width: 1060px;
-      margin-top: 36px;
-      
-   }
-   
-   .line3 {
-   
-        border: 1px solid white;
-      width: 1060px;
-        margin-top: 200px;
-        margin-left: 450px;
-        
-    }
-        
-     .line4 {
-        border: 1px solid #e2e2e2;
-      width: 1060px;
-        margin-top: 300px;
-     }
-   
-   .title {
-      font-size: 24px;   
-      
-   }
-   
-   .flex-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 50px;
-   }
-   
-   .flex-wrap2 {
-      
-      margin-top: 40px;
-   }
-   
-   .textbox {
-      position: relative;
-      left: 200px;
-      
-   }
-   
-   .dropbar {
-      height: 50px;
-   }
-   
-   .address {
-      height: 50px;      
-   }
-   
-   .price {
-      height: 50px;
-      width: 250px;
-   }
-   
-   #addressBtn {
-      margin-left: 10px;
-      color: white;
-      background-color: black;
-      border: 1px solid black;
-      border-radius: 10px;
-      
-   }
-   
-   #product_title {
-      width: 700px;
-      height: 50px;
-   }
-   
-   
-   .short-title {
-      margin-left: 43px;
-   }
-   
-     input[type=file] {
-            display: none;
-        }
-    #imgs_box {
-            position: relative;    
-            width: 1200px;
-            min-height: 460px;
-            padding-bottom: 40px;  
-           
-                                                                                                                                                                                                              
-        }
-        
-        #left_block{
-            float: left;
-            position: absolute;
-            width: 200px;
-            min-height: 460px;
-            height: 100%;
-            border: solid 0px black;
-            padding-top: 30px;
-            font-size: 24px;
-    
-        }
-        .imgs_wrap {
-            float: left;
-            width: 997px;
-            height: 70%;
-            border: 0px solid #A8A8A8;
-              
-            min-height: 210px;
-           
-            padding-top: 40px;
-            padding-bottom: 10px;
-            margin-left: 200px;
-            margin-bottom: 10px;
-            
-            
-            display: flex;
-            flex-wrap: wrap;
-            
-        }
-        .imgs_wrap img {
-            width: 215px;
-            height: 215px;
-            margin-right: 40px;
-            margin-bottom: 15px;
-           
-        }
-        
-        #description{
-            margin-top: 30px;
-            margin-left: 200px;
-            color: gray;
-            width: 800px;
-            padding: 10px;
-            font-size: 14px;
-        }
-        
-    /*     .btnContainer {
+.topMenu ul li {
+	line-height: 120% !important;
+}
+
+.topMenu {
+	top: -5px !important;
+	margin-bottom: 20px !important;
+}
+
+.header-hr {
+	margin-top: 15px !important;
+}
+
+.menu {
+	margin-top: -38px !important;
+}
+
+.a-title {
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding-bottom: 15px;
+}
+
+.a-data {
+	margin-left: 30px;
+}
+
+.container {
+	position: relative;
+	top: 100px;
+	margin-left: 425px;
+	font-size: 25px;
+}
+
+.Title {
+	margin-top: 30px;
+	font-size: 29px;
+	font-weight: bold;
+	text-indent: 25px;
+}
+
+.line {
+	border: 0.2px solid #e2e2e2;
+	width: 1060px;
+	margin-top: 50px;
+	opacity: 0.5;
+}
+
+.line2 {
+	border: 1px solid #e2e2e2;
+	width: 1060px;
+	margin-top: 36px;
+	opacity: 0.5;
+}
+
+.line3 {
+	border: 1px solid white;
+	width: 1060px;
+	margin-top: 200px;
+	margin-left: 450px;
+}
+
+.line4 {
+	border: 1px solid #e2e2e2;
+	width: 1060px;
+	margin-top: 300px;
+	opacity: 0.5;
+}
+
+.title {
+	font-size: 24px;
+	text-indent: 25px;
+	width: 200px;
+	padding-top: 12px;
+}
+
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+
+.flex-wrap2 {
+	margin-top: 40px;
+}
+
+.textbox {
+	width: 400px;
+	position: relative;
+	left: 0;
+	padding: 5px 10px 5px 10px;
+}
+
+.dropbar {
+	height: 50px;
+}
+
+.address {
+	height: 50px;
+}
+
+#sample5_address {
+	width: 400px;
+	height: 45px;
+	top: -10px;
+	margin-left: -10px;
+	padding-left: 10px;
+}
+
+.price {
+	height: 50px;
+	width: 400px;
+	left: -45px;
+}
+
+.won {
+	width: 100px;
+	text-indent: 20px;
+	margin-left: -50px;
+	padding-top: 13px;
+}
+
+.details {
+	width: 800px;
+	padding-top: 12px;
+}
+
+#addressBtn {
+	position: relative;
+	color: white;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 50px;
+	width: 150px;
+	margin-left: 410px;
+	top: -50px;
+}
+
+#product_title {
+	width: 800px;
+	height: 40px;
+	left: -45px;
+}
+
+.short-title {
+	margin-left: 43px;
+}
+
+input[type=file] {
+	display: none;
+}
+
+#imgs_box {
+	position: relative;
+	width: 1200px;
+	min-height: 460px;
+	padding-bottom: 40px;
+}
+
+#left_block {
+	float: left;
+	position: absolute;
+	width: 200px;
+	min-height: 460px;
+	height: 100%;
+	border: solid 0px black;
+	padding-top: 30px;
+	font-size: 24px;
+	text-indent: 25px;
+}
+
+.imgs_wrap {
+	float: left;
+	width: 997px;
+	height: 70%;
+	border: 0px solid #A8A8A8;
+	min-height: 210px;
+	padding-top: 40px;
+	padding-bottom: 10px;
+	margin-left: 200px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.imgs_wrap img {
+	width: 215px;
+	height: 215px;
+	margin-right: 40px;
+	margin-bottom: 15px;
+}
+
+#description {
+	margin-top: 30px;
+	margin-left: 200px;
+	color: gray;
+	width: 800px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+/*     .btnContainer {
            position: relative;
            top: 50px;
            left: 70%;
@@ -177,19 +222,23 @@
            height: 70px;
            
         } */
-        
-        .submit-background {
-           position: sticky; 
-            top: 2px; 
-           bottom: 0;
-           border: 1px solid rgb(234, 234, 234);
-           width: 1902px;
-           height: 150px;
-           background-color: rgb(234, 234, 234);
-           z-index: 1;
-        }
-        
-        /*   .my_button {
+.submit-background {
+	position: sticky;
+	top: 2px;
+	bottom: 0; border : 1px solid rgb( 234, 234, 234);
+	width: 1900px;
+	height: 110px;
+	background-color: whitesmoke;
+	z-index: 1;
+	border: 1px solid rgb(234, 234, 234);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/*   .my_button {
            position: relative;
            top: 5px;
            left: 25px;
@@ -198,27 +247,24 @@
    
         }
          */
-         
-        #add_btn{
-           width: 200px;
-           height: 180px;
-          
-        }
-        
-        #registerBtn {
-           position: relative;
-           top: 40px;
-           left: 71%;
-           color: white;   
-           background: black;
-           font-size: 30px;
-           width: 180px;
-           height: 70px;
-        }
-        
+#add_btn {
+	width: 200px;
+	height: 180px;
+}
+
+#registerBtn {
+	position: relative;
+	top: 30px;
+	left: 67%;
+	color: white;
+	background: #646464;
+	font-size: 27px;
+	width: 180px;
+	height: 55px;
+}
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden">
  
     <jsp:include page="../include/header.jsp" />
  
@@ -241,15 +287,15 @@
 <div id="imgs_box">
 <div id="left_block">상품이미지</div>
    <div class="imgs_wrap">
-    <a href="javascript:" onclick="fileUploadAction();"><img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/></a>
+    <a style="width:255px; height: 239px;" href="javascript:" onclick="fileUploadAction();"><img id="add_btn" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Clipart-Background.png"/></a>
    </div>
-   <div id="description"><b style="color: gray;">* 상품 이미지는 640x640에 최적화 되어 있습니다.</b><br>
+   <div id="description" style="color: #73B2B4;"><b style="color: #73B2B4;">* 상품 이미지는 640x640에 최적화 되어 있습니다.</b><br>
         - 상품 이미지는 PC에서는 1:1, 모바일에서는 1:1.23 비율로 보여집니다.<br>
         - 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다.<br>
         - 이미지를 클릭할 경우 원본 이미지를 확인할 수 있습니다.<br>
         - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다.<br>
         - 큰 이미지일 경우 이미지가 깨지는 경우가 발생할 수 있습니다.<br>
-            최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
+        &nbsp;&nbsp;&nbsp;최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
    </div>
 </div>
    
@@ -296,14 +342,14 @@
      <div class="textbox address">
          <input type="text" id="sample5_address" placeholder="거래지역" name="post_address" readonly>
          <input type="button" id="addressBtn" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-         <div id="map" style="width:290px;height:280px;margin-top:10px;display:none"></div>
+         <div id="map" style="width:290px;height:280px;margin-top:-40px;display:none"></div>
      </div>
    </div>   
          
    <div class="line4"></div>
    
    <div class="flex-wrap">
-     <div class="title">가격 <input type="text" class="textbox short-title price" name="price" placeholder="숫자만 입력해주세요.">원</div>
+     <div class="title">가격</div><input type="text" class="textbox short-title price" name="price" placeholder="숫자만 입력해주세요."><div class="won">원</div>
    <!-- <input type="radio"> 배송비 포함 -->
    </div>
    
@@ -311,8 +357,8 @@
       
      <div class="flex-wrap">
         <div class="title">상품설명</div>
-        <textarea class="textbox" cols="60" rows="8" name="post_content" placeholder=
-        "여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)"></textarea>
+        <textarea class="textbox details" cols="300" rows="10" name="post_content" placeholder=
+        "여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 &#10;구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)"></textarea>
      </div>
    </div>
    

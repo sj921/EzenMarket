@@ -32,7 +32,7 @@
       #recomend {        
         margin-top: 70px;
         font-size: 30px;
-        margin: 5% 0 2% 15%;
+        margin: 5% 0 2% 150px;
         /* margin-bottom: 40px; */
       
       }
@@ -40,8 +40,8 @@
       .item_list {
         border: 1px solid rgb(255, 255, 255);
         width: 90%;
-        margin-left: 15%;
-        margin-right: 15%;
+        margin-left: 150px;
+        margin-right: 150px;
         display: flex;
         flex-wrap: wrap;
         margin-top: 60px; margin-bottom: 243px;
@@ -166,10 +166,10 @@
                 
             <div class="swiper mySwiper swiper1">
               <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="http://jogunshop.img18.kr/web/upload/main/main_visua_thanksgivin_standard_Wrinkle_free_shirt.jpg" width="1905px" height="600px" alt="사진"></div>
-                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" width="1905px" height="600px" alt="사진"></div>
-                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951852995_w2058.jpg" width="1905px" height="600px" alt="사진"></div>
-                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" width="1905px" height="600px" alt="사진"></div>
+                <div class="swiper-slide"><img src="http://jogunshop.img18.kr/web/upload/main/main_visua_thanksgivin_standard_Wrinkle_free_shirt.jpg" width="1900px" height="600px" alt="사진"></div>
+                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" width="1900px" height="600px" alt="사진"></div>
+                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951852995_w2058.jpg" width="1900px" height="600px" alt="사진"></div>
+                <div class="swiper-slide"><img src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" width="1900px" height="600px" alt="사진"></div>
              
               </div>
                <div class="swiper-button-next"></div> 
@@ -263,7 +263,34 @@
               },
             });
             
+            var webSocket = new WebSocket("ws://<%=request.getLocalAddr()%>:8888/ezenmarket/echo/" + ${sessionScope.user_number});
             
+            webSocket.onopen = function(message) {
+                  
+                  
+                  console.log('오픈');
+                  console.log('오픈');
+                  console.log('오픈');
+                  console.log('오픈');
+            };
+                
+            webSocket.onmessage = function(message) {
+               const info = JSON.parse(message.data);
+                  
+                if(info.type == 'message'){
+                  alert('메세지 알림이 왔습니다!')
+                }   
+            };
+                
+             webSocket.onerror = function(message) {
+                    
+                  console.log("error...\n");
+             };       
+                
+            webSocket.onclose = function(message) {
+                   
+                  console.log("Server Disconnect...\n");
+            };
             
             
            </script>

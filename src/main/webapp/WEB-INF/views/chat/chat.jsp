@@ -12,6 +12,10 @@
     <script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> <!-- 부트스트랩-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>  
+    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
+	<% %>
 	
     <style>
     	
@@ -40,6 +44,9 @@
             overflow-y:scroll;
             background-color: white;
         }
+        
+        
+        
 
         .first_box{
             border: solid 0px black;
@@ -81,11 +88,11 @@
         }
 
         .chatroom_list .box .nickname{
-            position: absolute;
-           
+            position: absolute;           
             left: 130px;
             top: 25px;
             font-weight:bold;
+            font-size:18px;
         }
         
         
@@ -121,11 +128,11 @@
         .chatroom_list .box .chat_box .last_chat{
             max-width: 310px;
             max-height: 20px;
-
             overflow: hidden;  		
             text-overflow: ellipsis;  	
             white-space: nowrap; 		
             word-break:break-all;
+            font-size:18px;
         }
 
 
@@ -134,7 +141,7 @@
             position:absolute; 
             right: 19px; 
             bottom: 23px;
-            font-size: 14px;
+            font-size: 17px;
         }
         
 
@@ -186,6 +193,8 @@
             overflow-y:scroll;
             height: 735px;
         }
+        
+        
         .chat_wrap .item{
             margin-top:25px;
         }
@@ -205,6 +214,7 @@
             border-top:0px solid transparent; 
             border-bottom:8px solid transparent;
             border-right:8px solid #fff;
+            
         }
         .chat_wrap .item .box .msg{
             background:#fff; 
@@ -213,6 +223,7 @@
             text-align:left; 
             word-break: break-word;
             font-size: 20px;
+            
         }
         
         .chat_wrap .item .box .msg img{
@@ -249,6 +260,7 @@
         }
         .chat_wrap .item.mymsg .box .msg{
             background-color: rgb(184, 210, 227);
+            
         }
         
         .chat_wrap .item.mymsg .box .unread{
@@ -377,7 +389,7 @@
             white-space: nowrap; 		
             word-break:break-all;
 
-            font-size: 15px;
+            font-size: 18px;
         }
 
         .info .price{
@@ -432,6 +444,74 @@
         .topMenu{
         	margin-top:30px;
         }
+        
+          .notice {
+            width: 460px;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 40px;
+            
+        }
+        .notice p {
+            line-height: 30%;
+            color: darkgray;
+            
+        }
+        #warning {
+            font-size: 30px;
+            line-height: 10%;
+            color: darkgray;
+            margin-bottom: 5px;
+        }
+        .content {
+            color: darkgray;
+            font-size: 14px;
+        }
+        .content2 {
+            color: black;
+            font-size: 14px;
+        }
+        #wink {
+            color:deepskyblue;
+            font-size:16;
+        }
+        
+        .chat_wrap .item .box .msg.transparency{
+        	background-color: rgb(225, 145, 136);
+        }
+        
+        .chat_wrap .item.yourmsg .box.transparency::before{
+        	border-left: solid 8px rgb(225, 145, 136);
+        	border-right: solid 8px rgb(225, 145, 136);
+        }
+        
+       .chat_wrap .item.mymsg .box.transparency::before{
+       		border-left: solid 8px rgb(225, 145, 136);
+        	border-right: solid 8px rgb(225, 145, 136);
+       }
+       
+       .chat_wrap .item.mymsg .box.transparency .unread{
+            right:auto; 
+            left:-72px;
+            bottom: 42px;
+            
+        }
+       .chat_wrap .item.mymsg .box.transparency .time{
+            right:auto; 
+            left:-72px;
+            bottom: 27px;
+            
+        }
+        
+        .chat_wrap .item.yourmsg .box.transparency .time{
+        	bottom: 25px;
+        	left: 175px;
+        }
+        
+        a { text-decoration: none !important; }
         
        
     </style>
@@ -530,12 +610,14 @@
         </div>
         <div class="inner">
          
-        <div class="scam-alert">상품 구매시 주의하세요!<br>
-        불확실한 판매자(본인 미인증, 해외IP, 사기의심, 전화번호)의 물건은 구매하지 말아주세요<br>
-        판매자와의 연락은 메신저보다는 전화, 메일 등을 이용하시고 개인정보 유출에 주의하세요<br>
-        계좌이체 시 선입금을 유도할 경우 안전한 거래인지 다시 한 번 확인해주세요.
-        
+        <div class="notice">
+            <ion-icon id="warning" name="warning-outline"></ion-icon>
+            <p class="content">거래는 판매자와 충분히 상의한 후 진행해주세요.</p> 
+            <p class="content">카카오톡 등 외부 채널로 대화나 계좌입금을 유도하는 경우</p>
+            <p class="content">사기 피해의 위험이 있으니 주의하세요!</p>
+            <span class="content2">이젠마켓 채팅, 결제가 가장 편하고 안전해요 </span><i id="wink" class="fa-regular fa-face-smile-wink"></i>
         </div>
+
                 
         <c:forEach items="${chattingContents }" var="chattingContent">    
           <div class="item 
@@ -547,9 +629,9 @@
           		yourmsg
           </c:otherwise>
           </c:choose> 
-          on">
-                <div class="box">
-                    <p class="msg">
+          on">							
+                <div class="box <c:if test="${chattingContent.contentType eq 'image' }">transparency</c:if>">
+                    <p class="msg <c:if test="${chattingContent.contentType eq 'image' }">transparency</c:if>">
                     <c:choose>
                     <c:when test="${chattingContent.contentType eq 'message' }">
                     ${chattingContent.chatMessage }
@@ -581,6 +663,7 @@
     </div>
 </div>
     <jsp:include page="../include/footer.jsp"/>
+    
 
 
 <script>
@@ -761,7 +844,7 @@
 	      
 	      if(info.chattingRoom_id == chattingRoom_id && chattingRoom_id != 0){
 	    	  
-	      var _tar = $(".chat_wrap .inner").append('<div class="item yourmsg"><div class="box"><p class="msg"><img src="' + info.image_url + '" onclick="openImage(this.src)" class="selProductFile" title="Click to enlarge"></p><div class="chat_profile_img"></div><div class="unread">1</div><span class="time">'+currentTime()+'</span></div></div>');
+	      var _tar = $(".chat_wrap .inner").append('<div class="item yourmsg"><div class="box transparency"><p class="msg transparency"><img src="' + info.image_url + '" onclick="openImage(this.src)" class="selProductFile" title="Click to enlarge"></p><div class="chat_profile_img"></div><div class="unread">1</div><span class="time">'+currentTime()+'</span></div></div>');
 	      
 	      var lastItem = $(".chat_wrap .inner").find(".item:last");
 	      setTimeout(function(){
@@ -966,7 +1049,7 @@
 	            // </div>
 
 
-	            var _tar = $(".chat_wrap .inner").append('<div class="item mymsg"><div class="box"><p class="msg"><img src="' + e.target.result + '"data-file="' + f.name + '" onclick="openImage(this.src)" class="selProductFile" title="Click to enlarge"></p><div class="unread">1</div><span class="time">'+currentTime()+'</span></div></div>');
+	            var _tar = $(".chat_wrap .inner").append('<div class="item mymsg"><div class="box transparency"><p class="msg transparency"><img src="' + e.target.result + '"data-file="' + f.name + '" onclick="openImage(this.src)" class="selProductFile" title="Click to enlarge"></p><div class="unread">1</div><span class="time">'+currentTime()+'</span></div></div>');
 	            
 	            var lastItem = $(".chat_wrap .inner").find(".item:last");
 	            setTimeout(function(){
