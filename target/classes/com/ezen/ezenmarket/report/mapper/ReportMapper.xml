@@ -8,8 +8,7 @@
 		INSERT INTO REPORT
 			(REPORT_ID, REPORT_TYPE, REPORT_DETAIL, USER_NUMBER, REPORT_CONTENT, REPORT_STATUS)
 		VALUES
-			(report_id_seq.nextval, #{report_type}, #{report_detail}, #{user_number}, #{report_content},  default)	
+			(report_id_seq.nextval, #{currentPage}, #{post_id}, #{user_number}, #{cause},  default)	
 	</insert>
 
 </mapper>
-

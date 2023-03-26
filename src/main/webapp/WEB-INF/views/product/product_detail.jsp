@@ -15,17 +15,69 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<%=request.getContextPath()%>/resources/css/product/product_detail.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+    	header {
+        box-sizing: border-box;
+    	
+    	}
+        
+        header {
+    display: block;
+}
+
+     .topMenu ul li {
+		line-height: 100% !important;
+		z-index:3;		
+		padding-bottom: 5px;
+		
+	 }
+	 #header-hr {
+	 	border:0;	 	
+		margin-top: 35px;
+		z-index:2;
+	 }     
+     .menu { 
+        margin-top: -55px !important;
+        
+      }
+	.a-title {
+	    text-decoration: none;
+	    color: black;
+	    display: block;
+	    padding-bottom: 15px;
+    }
+	.a-data {
+	    margin-left: 30px;
+    }
+	#nav {
+		margin-top: 15px;
+	}     
+     .logo {     	
+		line-height: 115% !important;
+		padding-right: 50px !important;
+	}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
        a {
-        text-decoration: none;
+        text-decoration: none !important;
       }
     
         .box {
@@ -44,7 +96,7 @@
           height:500px;
           border:1px solid silver;
           border-radius:7px;
-          margin-left: -150px;
+          margin-left: -200px;
       }      
       .swiper-slide {        
           display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
@@ -57,13 +109,15 @@
          box-shadow:0 0 5px #555;
       }      
       .py-5 {
-         margin: 15% 0 0 0;
+           margin-top: 200px;
+           margin-left: -100px;
            border-color: #00000025;  
            border-style: solid;  
            border-width: 1px 0 1px 0;  
       }      
       .py-3 {
-         margin: 50px 0 0 0;
+           margin-top: 50px;
+           margin-left: -130px;
            border-color: #00000025;  
            border-style: solid;  
            border-width: 1px 0 0 0;  
@@ -83,16 +137,16 @@
       #cntWishlist {
          color : black;      
       }
-      #icon-wish {
+      .icons > i:first-child {
          color: #FF8E99; 
          margin: 10px 0 10px 10px;         
       }      
-      #icon-eye {
+      .icons > i:nth-child(2) {
          color: #50C785; 
          border-left: 1px solid rgb(209, 209, 209); 
          padding-left: 10px;
       }      
-      #icon-time {
+      .icons > i:nth-child(3) {
          color: #dda0dd;
          border-left: 1px solid rgb(209, 209, 209);  
          padding-left: 10px;
@@ -102,6 +156,7 @@
          color: rgb(147, 147, 147);     
          font-size: 15px;
          margin-top: 30px;
+         text-indent: 10px;
       }      
       .explain span {
          color: black;
@@ -112,7 +167,7 @@
          height: 50px; 
          background:black; 
          color:white;
-         margin: 10px 0 0 250px;
+         margin: 10px 0 0 190px;
       }      
       #zzimBtn {
          position: relative;
@@ -120,7 +175,7 @@
          color: black;
          width: 280px; 
          height: 50px;
-         margin: 20px 0 0 150px;         
+         margin: 20px 20px 0 150px;         
          border: solid black 0px;
          border-radius: 5px;
       }      
@@ -145,15 +200,16 @@
       #prodInfo {
          float: left;
          border-color: #00000025;  
-           border-style: solid;  
-           border-width: 0 1px 0 0; 
-           margin: -30px 0 -78px 0;
+         border-style: solid;  
+         border-width: 0 1px 0 0; 
+         margin: -30px 0 -82px 0;
       }      
       #prodInfo2 {
-         margin: 50px 30px 50px 0;      
+         margin: 50px 30px 50px -130px;   
+         font-size: 25px;   
       }      
       #prodInfo3 {
-         margin: 20px 30px 50px 0;      
+         margin: 20px 30px 50px -130px;      
       }      
       #sellerInfo {
          float: right;
@@ -167,7 +223,15 @@
         color: rgb(147, 147, 147); 
         font-size: 1em;
         margin: -15px 0 0 20px;
-      }         
+      }   
+      #related {
+      	margin-left: -70px;   
+      	font-size: 25px;   
+      }      
+      #related2 {
+	      margin-left: -90px;   
+	      width: 1300px;
+      }
       #relatedProd {
         width: 242px;            
       }      
@@ -277,14 +341,15 @@
          border: 0;
          background-color: white;   
          float: right;
-         margin: 10px 10px 0 0;
+         top: 420px !important;
+         right: 600px !important;
 
       }
 
 
       
     </style>
-   
+    <script src="https://kit.fontawesome.com/d04567b543.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 
@@ -324,10 +389,10 @@
                         <div id="prodPrice" class="display-6 fw-bolder"><fmt:formatNumber value="${post.price}" pattern="#,###" />원</div>               
                         <hr style="width: 650px; color: rgb(209, 209, 209); margin">
        
-                        <div class="fs-5 mb-4">
-                            <i id="icon-wish" class="fa-solid fa-heart" style="font-style: normal">&nbsp;<span id="cntWishlist" >${cntWishlist}</span>&nbsp;</i>    
-                            <i id="icon-eye" class="fa-solid fa-eye">&nbsp;<span id="icon-text">${post.post_view}</span>&nbsp;</i>
-                            <i id="icon-time" class="fa-solid fa-clock">&nbsp;<span id="icon-text">${post.createdTimeAgo }</span></i>
+                        <div class="fs-5 mb-4 icons">
+                            <i class="fa-solid fa-heart" style="font-style: normal">&nbsp;<span id="cntWishlist" >${cntWishlist}</span>&nbsp;</i>    
+                            <i class="fa-solid fa-eye">&nbsp;<span id="icon-text">${post.post_view}</span>&nbsp;</i>
+                            <i class="fa-solid fa-clock">&nbsp;<span id="icon-text">${post.createdTimeAgo }</span></i>
                                   
                         </div>
                         <ul class="explain">
@@ -357,7 +422,7 @@
                         <div class="btns2">                                                                              
                                   <button id="chatBtn" type="button"><i class="bi bi-messenger"></i> 채팅</button>  
                                </div>                                           
-                        		<jsp:include page="../report.jsp"/>
+                        <jsp:include page="../report.jsp"/>
                                </c:otherwise>
                             </c:choose>                                
                         </div>
@@ -373,7 +438,7 @@
 
         <section class="py-1 ">
             <div class="container px-4 px-lg-5 mt-5 d-flex">
-                <div id="prodInfo" style="width: 72%;">
+                <div id="prodInfo" style="width: 77.5%;">
                     <h4 id="prodInfo2" class="fw-bolder mb-4">상품정보</h4>
                    <!-- <hr style="opacity: 25%;"> --> 
                     <p id="prodInfo3">${post.post_content}</p>
@@ -383,7 +448,7 @@
                     <hr style="width: 1px; height: 80%;"> 
                 </div>-->
                 &emsp;
-                <div id="sellerInfo" style="width: 28%;">
+                <div id="sellerInfo" style="width: 22.5%;">
                     <h4 class="fw-bolder mb-4">판매자정보</h4>
                    <!-- <hr style="opacity: 25%;"> --> 
                     <div class="d-flex">
@@ -407,9 +472,8 @@
 
       <section class="py-3 ">
          <div class="container px-3 px-lg-5 mt-5">
-            <h4 class="fw-bolder mb-4">${post.nickname }님의 판매상품</h4>
-            <div
-               class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"">
+            <h4 id="related" class="fw-bolder mb-4">${post.nickname }님의 판매상품</h4>
+            <div id="related2" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"">
                <c:forEach items="${lists}" var="list">
                   <div class="col mb-5" onclick="location.href='product?id=${list.post_id }'" style="cursor:pointer;">
                      <div id="relatedProd" class="card h-80">
@@ -439,8 +503,10 @@
                  
      </div>
 
-
-    </form> 
+   
+      
+    <input name="currentPage"  value="0"  type="hidden"/>
+   </form> 
    
     
 
@@ -581,7 +647,6 @@
       
    
    </script>
-
 
    
 </body>

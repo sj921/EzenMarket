@@ -12,6 +12,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">    
     <style>
     
+     	
+	 .topMenu ul li { 
+		list-style: none;
+		color: hsl(0, 1%, 27%);
+		float: right;
+		margin-right: 25px;
+		margin-top: 10px !important;
+     }    
+     .menu { 
+        margin-top: -60px !important;
+        
+      }
+	.a-title {
+	    text-decoration: none;
+	    color: black;
+	    display: block;
+	    padding-bottom: 15px;
+    }
+	.a-data {
+	    margin-left: 30px;
+    }
+	#nav {
+		margin-top: 15px;
+	}     
+     .logo {
+     	
+		line-height: 115% !important;
+		padding-right: 50px !important;
+	}
+	.search {
+	    margin-top: 20px;
+
+	}
+	#searchBtn {
+		margin-top: 17px !important;
+    }
+	
+    
+    
+    
     html,body {
       margin: 0;   
       padding: 0;   
@@ -216,9 +256,9 @@
                <button id="lowest" onclick="location.href='searchPagenation?title=${keyword }&type=low'">저가순</button>
             </nav>                           
                   
-          <div id="countProducts">총 <span style="font-size: 16px; color:black; font-weight: bold;">${searchCnt}</span>개의 상품이 검색 되었습니다</div>     
+          <div id="countProducts">총 <span style="font-size: 20px; color:black; font-weight: bold;">${searchCnt}</span>개의 상품이 검색 되었습니다</div>     
                    
-         <div style="border: 1px solid white;width: 86%;margin-left: 12.2%;">
+         <div style="border: 1px solid white;width: 75.5%;margin-left: 12.2%;">
             <hr>         
          </div>
                       

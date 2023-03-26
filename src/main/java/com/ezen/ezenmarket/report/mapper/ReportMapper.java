@@ -13,14 +13,11 @@ public interface ReportMapper {
 	// insertReport 메서드를 실행하기 위한 매개변수 
 	//	즉, insertReport를 실행하려면 String cause를 넣어야 한다
 	
-	public Integer insertReport(@Param("report_type") Integer report_type, 
-								@Param("report_detail") Integer report_detail, 
-								@Param("user_number") Integer user_number,
-								@Param("report_content") String reportContent); 
+	public Integer insertReport(@Param("currentPage") String currentPage, 
+													@Param("cause") String cause, 
+													@Param("post_id") Integer post_id,
+													@Param("user_number") Integer user_number); 
 	
-	public String insertEtc(Integer etc);
+	public Integer insertEtc(String etc);
 	
 }
-
-
-
