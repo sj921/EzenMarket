@@ -180,12 +180,12 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                               대기중인 신고 </div>
+                                               최다 거래지역 </div>
                                                                                 
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${reportCount}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${userAddresses[0]}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-triangle-exclamation fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-earth-asia fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -199,11 +199,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               이번달 등록된 게시물</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${postCount}</div>
+                                               총 회원 수 </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${getUserCount}명</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-users fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -216,23 +216,19 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">일일 사이트 접속자 수
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">벤 당한 유저 수
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${todayVisitor}</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${getBannedUserCount}</div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 15%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-user-large fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-user-minus fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -246,8 +242,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                이번달 사이트 접속자 수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${thisMonthVisitor }</div>
+                                                일일 사이트 접속자 수</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${todayVisitor }</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-solid fa-user-group fa-2x text-gray-300"></i>
@@ -261,7 +257,7 @@
                     <!-- Bar Chart -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">최다 거래지역</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">최대 거주지역</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">

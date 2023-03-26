@@ -51,7 +51,9 @@ public class AdminController {
 	@GetMapping(value={"/userlist"})
 	public String userlist(Model model) {
 		model.addAttribute("userlist", adminMapper.getUser());
-		
+		model.addAttribute("getUserCount", adminMapper.getUserCount());
+		model.addAttribute("getBannedUserCount", adminMapper.getBannedUserCount());
+		model.addAttribute("todayVisitor", adminMainPageService.getTodayVisitor());
 		
 		List<Map<String, Object>> address = adminMapper.getAddress();
 		

@@ -164,7 +164,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${todayPostCount}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-triangle-exclamation fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-file-circle-plus fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -202,16 +202,12 @@
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${lastMonthPostCount}</div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 15%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
+                                                  
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-user-large fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-book-open fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +225,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${thisMotnthEndDealCount }</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-solid fa-user-group fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-coins fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

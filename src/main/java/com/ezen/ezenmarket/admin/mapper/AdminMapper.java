@@ -47,4 +47,10 @@ public interface AdminMapper{
 	
 	@Select("SELECT * FROM (SELECT user_address, COUNT(*) AS count FROM userlist GROUP BY user_address ORDER BY COUNT(*) DESC)WHERE ROWNUM <= 5")
 	List<Map<String, Object>> getAddress();
+	
+	@Select("SELECT COUNT(*) FROM userlist")
+	Integer getUserCount();
+	
+	@Select("SELECT COUNT(*) FROM userlist where banned=1")
+	Integer getBannedUserCount();
 }
