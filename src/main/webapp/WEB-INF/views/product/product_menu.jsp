@@ -159,8 +159,9 @@
         float: left; 
         margin: 5px 5px 5px 0;
    	   }
+   	   
 
-   
+	   
    .paging {
 	   	width: 100%;
 	   	justify-content: center;
@@ -170,8 +171,7 @@
    
 	.paging > ul {    
 		text-align: center;
-	    display: inline-block;
-	    border: 1px solid #ccc;
+	    display: inline-block;	    
 	    
 	} 
 	.paging > ul > li{
@@ -180,16 +180,20 @@
 		list-style:none;
 		
 	}
-	.paging > ul > li > a {
-	    display: block;
-	    font-size: 14px;
-		color: black;
-	    padding: 9px 12px;
-	    border-right: solid 1px #ccc;
-	    box-sizing: border-box;
-		text-decoration-line:none;
-		
-	} 
+	.paging > ul > li > a {	  
+      text-decoration: none;
+      border: 1px solid lightgray;
+      padding: 4px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-right: 5px;
+      border-radius: 10px;
+      color: black;
+   }
+   
+   .paging > ul > li > a:hover {
+      color: lightgray;
+   }
 
 </style>
 

@@ -163,11 +163,12 @@
    
       }      
       #settingBtn {
-         width: 500px; 
+         width: 750px; 
          height: 50px; 
+         border-radius: 5px;
          background:black; 
          color:white;
-         margin: 10px 0 0 190px;
+         margin-left: 10px;
       }      
       #zzimBtn {
          position: relative;
@@ -407,8 +408,7 @@
                         <div class="d-flex justify-content-around" style="margin-right: 50px; margin-top: 50px;">
                            <c:choose>
                               <c:when test="${sessionScope.user_number eq post.user_number }">
-                                  <button id="settingBtn" class="btn flex-shrink-0 opacity-75" type="button" 
-                              onclick="location.href='<%=request.getContextPath()%>/mypage/management?user_number=${sessionScope.user_number}'"">
+                                  <button id="settingBtn" type="button" onclick="location.href='<%=request.getContextPath()%>/mypage/management?user_number=${sessionScope.user_number}'"">
                                       내 상점 관리
                                   </button>
                                </c:when>
