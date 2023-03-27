@@ -163,7 +163,7 @@
                         <h1 class="h3 mb-0 text-gray-800">1번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner1.jpg" alt="배너1">
+               	<img class="img-fluid mb-4" src="http://jogunshop.img18.kr/web/upload/main/main_visua_thanksgivin_standard_Wrinkle_free_shirt.jpg" alt="배너1">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage1" src="${imageSrc1}" alt=""></div>
@@ -186,7 +186,7 @@
                         <h1 class="h3 mb-0 text-gray-800">2번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner2.jpg" alt="배너2">
+               	<img class="img-fluid mb-4" src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" alt="배너2">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage2" src="${imageSrc2}" alt=""></div>
@@ -209,7 +209,7 @@
                         <h1 class="h3 mb-0 text-gray-800">3번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner3.jpg" alt="배너3">
+               	<img class="img-fluid mb-4" src="https://media.bunjang.co.kr/images/nocrop/951852995_w2058.jpg" alt="배너3">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage3" src="${imageSrc3}" alt=""></div>
@@ -232,7 +232,7 @@
                         <h1 class="h3 mb-0 text-gray-800">4번배너 현재 이미지</h1>       
                </div>
                <div>
-               	<img class="img-fluid mb-4" src="${pageContext.request.contextPath}/resources/img/banner4.jpg" alt="배너4">
+               	<img class="img-fluid mb-4" src="https://media.bunjang.co.kr/images/nocrop/951918878_w2058.jpg" alt="배너4">
                </div>
                
                <div><img class="img-fluid mb-4" id="myImage4" src="${imageSrc4}" alt=""></div>

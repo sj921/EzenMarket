@@ -157,7 +157,7 @@ public class AdminController {
 	public String mainpage(Model model, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
-
+		session.setMaxInactiveInterval(60*60);
 		if (session.isNew()) {
 			visitService.increaseVisitCount();
 		}
@@ -204,9 +204,11 @@ public class AdminController {
 	@PostMapping("/upload_banner1")
 	public String uploadBanner1(@RequestParam("file") MultipartFile file, Model model) {
 		
+		
+		
 		String fileRealName = file.getOriginalFilename();
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:/Users/admin/git/EzenMarket/src/main/webapp/resources/img";
+		String uploadFolder = "C:\\Users\\Gi7C-09\\git\\EzenMarket\\src\\main\\webapp\\resources\\img";
 		
 		UUID uuid = UUID.randomUUID();
 		String[] uuids = uuid.toString().split("-");
