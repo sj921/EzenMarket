@@ -42,53 +42,84 @@
 ## 🛒 주요 기능
 
 > 메인
- 
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A9%94%EC%9D%B8.png?raw=true" width="900">
+
+
 ---
 
 > 회원가입
+<img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.png?raw=true" width="900">
 
 ---
 
 > 로그인
  - 일반 로그인
- - 카카오 로그인
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A1%9C%EA%B7%B8%EC%9D%B8.png?raw=true" width="900">
+
+ 
+ - 카카오 로그인 
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%B9%B4%EC%B9%B4%EC%98%A4%EB%A1%9C%EA%B7%B8%EC%9D%B8.png?raw=true" width="900">
+
 
 ---
 
 > 마이페이지
- - 프로필
- - 판매상품
+ - 프로필 + 판매상품
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_1.png?raw=true" width="900">
+
  - 구매내역
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_2.png?raw=true" width="900">
+ 
  - 후기
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_3.png?raw=true" width="900">
+ 
  - 찜하기
- - 내상점관리
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_4.png?raw=true" width="900">
+ 
+ - 다른 이용자의 상점 접속 시
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80_5.png?raw=true" width="900">
+
 
 ---
 
 > 판매하기
+<img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%ED%92%88%EB%93%B1%EB%A1%9D(1).png?raw=true" width="900">
+<img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%ED%92%88%EB%93%B1%EB%A1%9D(2).png?raw=true" width="900">
 
 ---
 
 > 카테고리별 조회
+<img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%ED%92%88%EC%A1%B0%ED%9A%8C.png?raw=true" width="900">
+
 
 ---
 
 > 상세페이지
- - 신고하기
+ - 판매자가 본인이 올린 상품을 조회 시
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80(%EB%B3%B8%EC%9D%B8).png?raw=true" width="900">
 
+ - 판매자 외 다른 이용자가 상품을 조회 시
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?raw=true" width="900">
 ---
 
 > 검색
+<img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EA%B2%80%EC%83%89.png?raw=true" width="900">
+
 
 ---
 
 > 채팅
+ - 메뉴
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%B1%84%ED%8C%85.png?raw=true" width="900">
+
  - 후기 작성
- - 신고하기
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%B1%84%ED%8C%85_%ED%9B%84%EA%B8%B0.png?raw=true" width="900">
+
 
 ---
 
 > 알림
+ <img src="" width="900">
 
 
 
