@@ -97,6 +97,7 @@
 > 상세페이지
  - 판매자가 본인이 올린 상품을 조회 시
  <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80(%EB%B3%B8%EC%9D%B8_%EC%88%98%EC%A0%95).png?raw=true" width="900">
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EB%82%B4%EC%83%81%EC%A0%90%EA%B4%80%EB%A6%AC.png?raw=true" width="900">
 
  - 판매자 외 다른 이용자가 상품을 조회 시
  <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?raw=true" width="900">
