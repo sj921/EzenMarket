@@ -120,7 +120,7 @@
 ---
 
 > 알림
- <img src="" width="900">
+ <img src="https://github.com/sj921/readme_images/blob/main/ezenmarket_images/%EC%95%8C%EB%A6%BC.png?raw=true" width="900">
 
 
 
