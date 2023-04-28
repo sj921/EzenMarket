@@ -31,6 +31,7 @@
  * **Server** : Apache Tomcat 9.0
  * **Deployment** : AmazonAWS E2C
  * **Version Control** : GitHub
+ * **UI/UX 기획** :  Kakao Oven
 
 
 ### ✍️: 기술 스택
